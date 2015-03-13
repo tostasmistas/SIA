@@ -77,15 +77,17 @@ Os conversores deste tipo estão entre os mais populares para realizar ADCs devi
 OS ADCs de aproximações sucessivas têm por base o algoritmo de procura conhecido como ``procura binária'', onde os dados podem ser calculados em $N$ passos, para um conjunto de dados organizados de tamanho $2^N$. Assim, o conversor aplica o algoritmo para determinar a palavra digital mais próxima que corresponde ao sinal de entrada. Isto implica que são necessários $N$ ciclos de relógio para completar uma conversão de $N$ \textit{bits}.
 
 O diagrama de blocos de um ADC unipolar de aproximações sucessivas que utiliza também um DAC é apresentado de seguida.
+	
+\pagebreak	
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.30]{./teoricas/SAR_2}
-	\caption{ADC construído com uma arquitectura de aproximações sucessivas.}
+	\caption{Diagrama de blocos de um ADC de aproximações sucessivas.}
 	\vspace{-0.8em}
 \end{figure}
 
-O princípio de funcionamento 
+Existe um circuito \textit{sample-and-hold} que permite adquirir a tensão de entrada. De seguida um comparador analógico de tensão compara a tensão de entrada com a saída do DAC e coloca o resultado da comparação no 
 
 \subsection{SNR}
 \subsection{SINAD e ENOB}

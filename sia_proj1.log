@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.6)  13 MAR 2015 16:55
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.6)  13 MAR 2015 17:25
 entering extended mode
 **sia_proj1.tex
 ("M:\~ downloads ~\git\SIA\sia_proj1.tex"
@@ -565,21 +565,17 @@ File: ./teoricas/SAR_1.png Graphic file (type png)
 <use ./teoricas/SAR_1.png>
 Package pdftex.def Info: ./teoricas/SAR_1.png used on input line 72.
 (pdftex.def)             Requested size: 339.44002pt x 120.9382pt.
+ [1
 
-<./teoricas/SAR_2.png, id=18, 673.76718pt x 213.04594pt>
+ <M:/~ downloads ~/git/SIA/teoricas/SAR_1.png>]
+<./teoricas/SAR_2.png, id=25, 673.76718pt x 213.04594pt>
 File: ./teoricas/SAR_2.png Graphic file (type png)
 
 <use ./teoricas/SAR_2.png>
-Package pdftex.def Info: ./teoricas/SAR_2.png used on input line 83.
+Package pdftex.def Info: ./teoricas/SAR_2.png used on input line 85.
 (pdftex.def)             Requested size: 202.13171pt x 63.91426pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[1
-
- <M:/~ downloads ~/git/SIA/teoricas/SAR_1.png>] [2 <M:/~ downloads ~/git/SIA/te
-oricas/SAR_2.png>] ("M:\~ downloads ~\git\SIA\sia_proj1.aux") ) 
+ [2 <M:/~ downloads ~/git/SIA/teoricas/SAR_2.png>]
+("M:\~ downloads ~\git\SIA\sia_proj1.aux") ) 
 Here is how much of TeX's memory you used:
  4715 strings out of 493921
  66142 string characters out of 3147271
@@ -588,17 +584,17 @@ Here is how much of TeX's memory you used:
  11026 words of font info for 39 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  44i,10n,42p,532b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on sia_proj1.pdf (4 pages, 265879 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on sia_proj1.pdf (4 pages, 267712 bytes).
 PDF statistics:
  61 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

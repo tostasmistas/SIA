@@ -70,29 +70,25 @@ Os conversores deste tipo estão entre os mais populares para realizar ADCs devi
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.45]{./teoricas/SAR_1}
+	\includegraphics[keepaspectratio=true, scale=0.47]{./teoricas/SAR_1}
 	\caption{ADC construído com uma arquitectura de aproximações sucessivas.}
+	\vspace{-0.8em}
+\end{figure}
+
+O diagrama de blocos de um ADC unipolar de aproximações sucessivas que utiliza também um DAC é apresentado de seguida.
+	
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.32]{./teoricas/SAR_2}
+	\caption{Diagrama de blocos de um ADC de aproximações sucessivas.}
 	\vspace{-0.8em}
 \end{figure}
 
 OS ADCs de aproximações sucessivas têm por base o algoritmo de procura conhecido como ``procura binária'', onde os dados podem ser calculados em $N$ passos, para um conjunto de dados organizados de tamanho $2^N$.
 
-Este algoritmo EXPLICAR AQUI
+Existe um circuito \textit{sample-and-hold} que permite adquirir a tensão de entrada. De seguida um comparador analógico de tensão compara a tensão de entrada com a saída do DAC e coloca o resultado da comparação no registo de aproximações sucessivas (SAR). O SAR é inicializado de maneira a que o \textit{bit} mais significativo seja 1. Este código é dado ao DAC, que fornece então ao comparador uma tensão analógica equivalente à do código digital. O circuito comparador é assim capaz de efectuar a comparação entre a tensão de entrada amostrada e a tensão de referência. Se a tensão de referência for superior à tensão de entrada então é feito \textit{reset} ao \textit{bit}, passa a 0, caso contrário permanece a 1. 
 
-Assim, o conversor aplica o algoritmo para determinar a palavra digital mais próxima que corresponde ao sinal de entrada. Isto implica que são necessários $N$ ciclos de relógio para completar uma conversão de $N$ \textit{bits}.
-
-O diagrama de blocos de um ADC unipolar de aproximações sucessivas que utiliza também um DAC é apresentado de seguida.
-	
-\pagebreak	
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[keepaspectratio=true, scale=0.30]{./teoricas/SAR_2}
-	\caption{Diagrama de blocos de um ADC de aproximações sucessivas.}
-	\vspace{-0.8em}
-\end{figure}
-
-Existe um circuito \textit{sample-and-hold} que permite adquirir a tensão de entrada. De seguida um comparador analógico de tensão compara a tensão de entrada com a saída do DAC e coloca o resultado da comparação no registo de aproximações sucessivas (SAR). O SAR fornece ao DAC um código digital da tensão de entrada e então, o DAC, para comparação com a tensão de referência, fornece ao comparador uma tensão analógica igual ao código digital que saiu do SAR. 
+De seguida, o próximo \textit{bit} é colocado a 1 e feito o mesmo teste, continuando esta ``procura binária'' até que todos os \textit{bits} tenham sido testados no SAR. Assim, o conversor aplica o algoritmo para determinar a palavra digital mais próxima que corresponde à tensão de entrada amostrada.
 
 \subsection{SINAD, SNR, SFDR e ENOB}
 
@@ -100,7 +96,7 @@ O \textit{signal-to-noise and distortion} (SINAD) é uma medida da \textit{perfo
 
 \vspace{-3mm}
 \begin{equation}
-\text{SINAD} = 10\times \log_{10} \left(\frac{A^{2}_{bin(f_{in})}}{\sum_{n=2}^{\text{size}/2}\left(A^{2}_{n} - A^{2}_{bin(f_{in})}\right)}\right).
+\text{SINAD} = 10\times \log_{10} \left(\frac{A^{2}_{\text{bin}(f_{in})}}{\sum_{n=2}^{\text{size}/2}\left(A^{2}_{n} - A^{2}_{\text{bin}(f_{in})}\right)}\right).
 \label{eq:SINAD}
 \end{equation}
 
@@ -114,9 +110,15 @@ O \textit{signal-to-noise ratio} (SNR) é calculado a partir dos dados da FFT, t
 \end{equation}
 
 \vspace{1mm}
-SFDR AQUI!
+A \textit{spurious free dynamic range} (SFDR) é o rácio entre a amplitude máxima do sinal a amplitude máxima seguinte, ou seja, é a diferença entre as duas amplitudes máximas. À semelhança da SINAD não inclui a componente DC. O cálculo da SFDR em $dB$ é feito de acordo com a expressão
 
+\vspace{-3mm}
+\begin{equation}
+\text{SFDR} = 10\times \log_{10} \left(\frac{A^{2}_{\text{bin}(f_{in})}}{A^{2}_{\text{bin}_{\text{max}}(\neq f_{in})}}\right).
+\label{eq:SFDR}
+\end{equation}
 
+\vspace{1mm}
 O \textit{effective number of bits} (ENOB) é uma medida da resolução de um ADC. De facto, a resolução de um ADC é dada pelo número de \textit{bits} que são utilizados para representar um valor analógico porém, todos os ADCs reais introduzem ruído e distorção. Assim, o ENOB especifica o número efectivo de \textit{bits} que se tem na realidade, quando se considera a existência de ruído. O cálculo do ENOB é feito de acordo com a expressão
 
 \vspace{-3mm}
@@ -124,6 +126,9 @@ O \textit{effective number of bits} (ENOB) é uma medida da resolução de um AD
 \text{ENOB} = \frac{\text{SINAD}-1,76}{6,02}.
 \label{eq:ENOB}
 \end{equation}
+
+\vspace{1mm}
+No caso do trabalho laboratorial o ENOB é de 4 \textit{bits}.
 
 \subsection{Janela Rectangular, Janela de Hamming e Janela de Blackman-Harris}
 
@@ -165,14 +170,16 @@ O \textit{windowing} é implementado multiplicando o sinal de entrada por uma fu
 
 \begin{figure}[H]
 	\centering
-	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.60]{teoricas/rectangular}}
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.65]{teoricas/rectangular}}
 	\linebreak
-	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.60]{teoricas/hamming}}
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.65]{teoricas/hamming}}
 	\linebreak
-	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.60]{teoricas/blackman}}
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.65]{teoricas/blackman}}
 	\vspace{-0.8em}
 	\caption{Magnitude (azul) e representação gráfica da DFT (laranja) da janela rectangular (a), magnitude (azul) e representação gráfica da DFT (laranja) da janela de Hamming (b) e  magnitude (azul) e representação gráfica da DFT (laranja) da janela de Blackman-Harris (c).}
 	\vspace{-0.8em}
 \end{figure}
+
+\section{Demonstração de Resultados}
 
 \end{document}

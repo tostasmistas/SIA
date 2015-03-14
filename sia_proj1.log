@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.6)  14 MAR 2015 17:07
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.6)  14 MAR 2015 18:06
 entering extended mode
 **sia_proj1.tex
 ("M:\~ downloads ~\git\SIA\sia_proj1.tex"
@@ -564,48 +564,49 @@ File: ./teoricas/SAR_1.png Graphic file (type png)
 
 <use ./teoricas/SAR_1.png>
 Package pdftex.def Info: ./teoricas/SAR_1.png used on input line 73.
-(pdftex.def)             Requested size: 339.44002pt x 120.9382pt.
- [1
+(pdftex.def)             Requested size: 354.52957pt x 126.31442pt.
 
- <M:/~ downloads ~/git/SIA/teoricas/SAR_1.png>]
-<./teoricas/SAR_2.png, id=25, 673.76718pt x 213.04594pt>
+<./teoricas/SAR_2.png, id=18, 673.76718pt x 213.04594pt>
 File: ./teoricas/SAR_2.png Graphic file (type png)
 
 <use ./teoricas/SAR_2.png>
-Package pdftex.def Info: ./teoricas/SAR_2.png used on input line 90.
-(pdftex.def)             Requested size: 202.13171pt x 63.91426pt.
- [2 <M:/~ downloads ~/git/SIA/teoricas/SAR_2.png>]
-<teoricas/rectangular.png, id=33, 359.84438pt x 173.89969pt>
+Package pdftex.def Info: ./teoricas/SAR_2.png used on input line 82.
+(pdftex.def)             Requested size: 215.6099pt x 68.17609pt.
+ [1
+
+ <M:/~ downloads ~/git/SIA/teoricas/SAR_1.png> <M:/~ downloads ~/git/SIA/teoric
+as/SAR_2.png>] [2]
+<teoricas/rectangular.png, id=35, 359.84438pt x 173.89969pt>
 File: teoricas/rectangular.png Graphic file (type png)
 
 <use teoricas/rectangular.png>
-Package pdftex.def Info: teoricas/rectangular.png used on input line 168.
-(pdftex.def)             Requested size: 215.90828pt x 104.3406pt.
+Package pdftex.def Info: teoricas/rectangular.png used on input line 173.
+(pdftex.def)             Requested size: 233.89607pt x 113.03345pt.
 
-<teoricas/hamming.png, id=34, 359.09157pt x 173.14688pt>
+<teoricas/hamming.png, id=36, 359.09157pt x 173.14688pt>
 File: teoricas/hamming.png Graphic file (type png)
 
 <use teoricas/hamming.png>
-Package pdftex.def Info: teoricas/hamming.png used on input line 170.
-(pdftex.def)             Requested size: 215.45659pt x 103.88892pt.
+Package pdftex.def Info: teoricas/hamming.png used on input line 175.
+(pdftex.def)             Requested size: 233.40674pt x 112.54413pt.
 
-<teoricas/blackman.png, id=35, 359.84438pt x 173.89969pt>
+<teoricas/blackman.png, id=37, 359.84438pt x 173.89969pt>
 File: teoricas/blackman.png Graphic file (type png)
 
 <use teoricas/blackman.png>
-Package pdftex.def Info: teoricas/blackman.png used on input line 172.
-(pdftex.def)             Requested size: 215.90828pt x 104.3406pt.
+Package pdftex.def Info: teoricas/blackman.png used on input line 177.
+(pdftex.def)             Requested size: 233.89607pt x 113.03345pt.
  [3] [4 <M:/~ downloads ~/git/SIA/teoricas/rectangular.png> <M:/~ downloads ~/g
 it/SIA/teoricas/hamming.png> <M:/~ downloads ~/git/SIA/teoricas/blackman.png>] 
 ("M:\~ downloads ~\git\SIA\sia_proj1.aux") ) 
 Here is how much of TeX's memory you used:
- 4741 strings out of 493921
- 66639 string characters out of 3147271
- 142722 words of memory out of 3000000
- 7963 multiletter control sequences out of 15000+200000
+ 4743 strings out of 493921
+ 66656 string characters out of 3147271
+ 143722 words of memory out of 3000000
+ 7965 multiletter control sequences out of 15000+200000
  11026 words of font info for 39 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 44i,10n,47p,532b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,10n,47p,784b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
@@ -615,13 +616,14 @@ m/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10
 Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmti10.pfb>
-Output written on sia_proj1.pdf (6 pages, 371176 bytes).
+nts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on sia_proj1.pdf (6 pages, 388829 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

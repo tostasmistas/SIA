@@ -3,4 +3,5 @@
 \contentsline {section}{\numberline {2}Introdu\IeC {\c c}\IeC {\~a}o Te\IeC {\'o}rica}{1}
 \contentsline {subsection}{\numberline {2.1}Conversores A/D e Conversores D/A}{1}
 \contentsline {subsection}{\numberline {2.2}SINAD, SNR, SFDR e ENOB}{2}
-\contentsline {subsection}{\numberline {2.3}Janela Rectangular, Janela de Hamming e Janela de Blackman-Harris}{2}
+\contentsline {subsection}{\numberline {2.3}Janela Rectangular, Janela de Hamming e Janela de Blackman-Harris}{3}
+\contentsline {section}{\numberline {3}Demonstra\IeC {\c c}\IeC {\~a}o de Resultados}{4}

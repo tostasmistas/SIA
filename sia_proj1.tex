@@ -11,6 +11,7 @@
 \usepackage{color}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[font=footnotesize]{caption}
+
 \numberwithin{equation}{section}
 
 \linespread{1.3}
@@ -74,7 +75,11 @@ Os conversores deste tipo estão entre os mais populares para realizar ADCs devi
 	\vspace{-0.8em}
 \end{figure}
 
-OS ADCs de aproximações sucessivas têm por base o algoritmo de procura conhecido como ``procura binária'', onde os dados podem ser calculados em $N$ passos, para um conjunto de dados organizados de tamanho $2^N$. Assim, o conversor aplica o algoritmo para determinar a palavra digital mais próxima que corresponde ao sinal de entrada. Isto implica que são necessários $N$ ciclos de relógio para completar uma conversão de $N$ \textit{bits}.
+OS ADCs de aproximações sucessivas têm por base o algoritmo de procura conhecido como ``procura binária'', onde os dados podem ser calculados em $N$ passos, para um conjunto de dados organizados de tamanho $2^N$.
+
+Este algoritmo EXPLICAR AQUI
+
+Assim, o conversor aplica o algoritmo para determinar a palavra digital mais próxima que corresponde ao sinal de entrada. Isto implica que são necessários $N$ ciclos de relógio para completar uma conversão de $N$ \textit{bits}.
 
 O diagrama de blocos de um ADC unipolar de aproximações sucessivas que utiliza também um DAC é apresentado de seguida.
 	
@@ -87,10 +92,38 @@ O diagrama de blocos de um ADC unipolar de aproximações sucessivas que utiliza
 	\vspace{-0.8em}
 \end{figure}
 
-Existe um circuito \textit{sample-and-hold} que permite adquirir a tensão de entrada. De seguida um comparador analógico de tensão compara a tensão de entrada com a saída do DAC e coloca o resultado da comparação no 
+Existe um circuito \textit{sample-and-hold} que permite adquirir a tensão de entrada. De seguida um comparador analógico de tensão compara a tensão de entrada com a saída do DAC e coloca o resultado da comparação no registo de aproximações sucessivas (SAR). O SAR fornece ao DAC um código digital da tensão de entrada e então, o DAC, para comparação com a tensão de referência, fornece ao comparador uma tensão analógica igual ao código digital que saiu do SAR. 
 
-\subsection{SNR}
-\subsection{SINAD e ENOB}
+\subsection{SINAD, SNR e ENOB}
+
+O \textit{signal-to-noise and distortion} (SINAD) é uma medida da \textit{perfomance} dinâmica geral de um ADC. É o rácio entre a amplitude do sinal em \textit{root-mean-square} (valor eficaz) e o valor médio da \textit{root-sum-square} das restantes componentes espectrais, incluindo harmónicas, mas excluindo a componente DC. O cálculo do SINAD em $dB$ é feito de acordo com a equação~\ref{eq:SINAD}.
+
+\vspace{-3mm}
+\begin{equation}
+\text{SINAD} = 10\times \log_{10} \left(\frac{A^{2}_{bin(f_{in})}}{\sum_{n=2}^{\text{size}/2}\left(A^{2}_{n} - A^{2}_{bin(f_{in})}\right)}\right)
+\label{eq:SINAD}
+\end{equation}
+
+\vspace{1mm}
+O \textit{signal-to-noise ratio} (SNR) é calculado a partir dos dados da FFT, tal como a SINAD, mas as harmónicas do sinal são excluídas dos cálculos, deixando apenas os termos de ruído. De uma maneira mais abstracta pode ser descrito como a comparação entre o nível de sinal desejado ao nível de ruído. O cálculo do SNR em $dB$ é feito de acordo com a equação~\ref{eq:SNR}.
+
+\vspace{-3mm}
+\begin{equation}
+\text{SNR} = 6.02N + 1.76
+\label{eq:SNR}
+\end{equation}
+
+\vspace{1mm}
+O \textit{effective number of bits} (ENOB) é uma medida da resolução de um ADC. De facto, a resolução de um ADC é dada pelo número de \textit{bits} que são utilizados para representar um valor analógico porém, todos os ADCs reais introduzem ruído e distorção. Assim, o ENOB especifica o número efectivo de \textit{bits} que se tem na realidade, quando se considera a existência de ruído. O cálculo do ENOB é feito de acordo com a equação~\ref{eq:ENOB}.
+
+\vspace{-3mm}
+\begin{equation}
+\text{ENOB} = \frac{\text{SINAD}-1.76}{6.02}
+\label{eq:ENOB}
+\end{equation}
+
 \subsection{Janela Rectangular, Janela de Hamming e Janela de Blackman-Harris}
+
+Sobre a FFT podem-se aplicar diversas janelas, procurando reduzir assim 
 
 \end{document}

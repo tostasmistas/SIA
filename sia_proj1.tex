@@ -94,36 +94,85 @@ O diagrama de blocos de um ADC unipolar de aproximações sucessivas que utiliza
 
 Existe um circuito \textit{sample-and-hold} que permite adquirir a tensão de entrada. De seguida um comparador analógico de tensão compara a tensão de entrada com a saída do DAC e coloca o resultado da comparação no registo de aproximações sucessivas (SAR). O SAR fornece ao DAC um código digital da tensão de entrada e então, o DAC, para comparação com a tensão de referência, fornece ao comparador uma tensão analógica igual ao código digital que saiu do SAR. 
 
-\subsection{SINAD, SNR e ENOB}
+\subsection{SINAD, SNR, SFDR e ENOB}
 
-O \textit{signal-to-noise and distortion} (SINAD) é uma medida da \textit{perfomance} dinâmica geral de um ADC. É o rácio entre a amplitude do sinal em \textit{root-mean-square} (valor eficaz) e o valor médio da \textit{root-sum-square} das restantes componentes espectrais, incluindo harmónicas, mas excluindo a componente DC. O cálculo do SINAD em $dB$ é feito de acordo com a equação~\ref{eq:SINAD}.
+O \textit{signal-to-noise and distortion} (SINAD) é uma medida da \textit{perfomance} dinâmica geral de um ADC. É o rácio entre a amplitude do sinal em \textit{root-mean-square} (valor eficaz) e o valor médio da \textit{root-sum-square} das restantes componentes espectrais, incluindo harmónicas, mas excluindo a componente DC. O cálculo do SINAD em $dB$ é feito de acordo com a expressão
 
 \vspace{-3mm}
 \begin{equation}
-\text{SINAD} = 10\times \log_{10} \left(\frac{A^{2}_{bin(f_{in})}}{\sum_{n=2}^{\text{size}/2}\left(A^{2}_{n} - A^{2}_{bin(f_{in})}\right)}\right)
+\text{SINAD} = 10\times \log_{10} \left(\frac{A^{2}_{bin(f_{in})}}{\sum_{n=2}^{\text{size}/2}\left(A^{2}_{n} - A^{2}_{bin(f_{in})}\right)}\right).
 \label{eq:SINAD}
 \end{equation}
 
 \vspace{1mm}
-O \textit{signal-to-noise ratio} (SNR) é calculado a partir dos dados da FFT, tal como a SINAD, mas as harmónicas do sinal são excluídas dos cálculos, deixando apenas os termos de ruído. De uma maneira mais abstracta pode ser descrito como a comparação entre o nível de sinal desejado ao nível de ruído. O cálculo do SNR em $dB$ é feito de acordo com a equação~\ref{eq:SNR}.
+O \textit{signal-to-noise ratio} (SNR) é calculado a partir dos dados da FFT, tal como a SINAD, mas as harmónicas do sinal são excluídas dos cálculos, deixando apenas os termos de ruído. De uma maneira mais abstracta pode ser descrito como a comparação entre o nível de sinal desejado ao nível de ruído. O cálculo do SNR, em $dB$, para um número $N$ de amostras  é feito de acordo com a expressão
 
 \vspace{-3mm}
 \begin{equation}
-\text{SNR} = 6.02N + 1.76
+\text{SNR} = 6,02N + 1,76.
 \label{eq:SNR}
 \end{equation}
 
 \vspace{1mm}
-O \textit{effective number of bits} (ENOB) é uma medida da resolução de um ADC. De facto, a resolução de um ADC é dada pelo número de \textit{bits} que são utilizados para representar um valor analógico porém, todos os ADCs reais introduzem ruído e distorção. Assim, o ENOB especifica o número efectivo de \textit{bits} que se tem na realidade, quando se considera a existência de ruído. O cálculo do ENOB é feito de acordo com a equação~\ref{eq:ENOB}.
+SFDR AQUI!
+
+
+O \textit{effective number of bits} (ENOB) é uma medida da resolução de um ADC. De facto, a resolução de um ADC é dada pelo número de \textit{bits} que são utilizados para representar um valor analógico porém, todos os ADCs reais introduzem ruído e distorção. Assim, o ENOB especifica o número efectivo de \textit{bits} que se tem na realidade, quando se considera a existência de ruído. O cálculo do ENOB é feito de acordo com a expressão
 
 \vspace{-3mm}
 \begin{equation}
-\text{ENOB} = \frac{\text{SINAD}-1.76}{6.02}
+\text{ENOB} = \frac{\text{SINAD}-1,76}{6,02}.
 \label{eq:ENOB}
 \end{equation}
 
 \subsection{Janela Rectangular, Janela de Hamming e Janela de Blackman-Harris}
 
-Sobre a FFT podem-se aplicar diversas janelas, procurando reduzir assim 
+A FFT é um algoritmo que permite obter a \textit{Discrete Fourier Transform} (DFT) , sendo então uma análise que permite converter tempo para frequência. Quando se calcula a DFT a entrada é um sinal digital e a saída é a análise digital espectral desse sinal. Inerentes à DFT estão erros e, para mitigar esses erros, recorre-se a um processo denominado de \textit{windowing}.
+
+A análise espectral da DFT depende de uma determinada frequência de amostragem, $f_{s}$, e, consequentemente, toda essa análise estará entre $0$ e metade de $f_{s}$. Assim, a largura de banda da DFT é proporcional ao ritmo de amostragem. Este período de amostragem é dado por
+
+\vspace{-3mm}
+\begin{equation}
+\bigtriangleup t = \frac{1}{f_{s}},
+\end{equation}
+
+\vspace{1mm}
+sendo que no domínio da frequência existem os chamados \textit{bins}. A frequência de um determinado \textit{bin} $k$ relaciona-se com a frequência do sinal de entrada de acordo com
+
+\vspace{-3mm}
+\begin{equation}
+f_{k} = \frac{k}{N \bigtriangleup t},
+\label{eq:freq_bin}
+\end{equation}
+
+\vspace{1mm}
+onde $k$ corresponde ao número do \textit{bin}, que é sempre um inteiro, e $N$ ao número de amostras. Através de \ref{eq:freq_bin} pode-se deduzir qual é a máxima frequência que pode ser representada por um dado número de amostras.
+
+\vspace{-3mm}
+\begin{equation}
+k = \frac{N f_{k}}{f_{s}}.
+\label{eq:max_bin}
+\end{equation}
+
+\vspace{1mm}
+Analise-se agora o caso do trabalho laboratorial, em que a onda de entrada tem uma frequência de 13,671875 kHz, a frequência de amostragem é de 1 MHz e são utilizadas 512 amostras. Espera-se que o máximo da amplitude ocorra em $k = 7$.
+
+Ainda para o mesmo sinal de entrada, quando a frequência de amostragem passa para 1,1 MHz, espera-se que o máximo de amplitude ocorra em $k = 6,36364$. Este valor não é inteiro  e cada \textit{bin} corresponde a uma frequência e não a um intervalo de frequências. Assim sendo, a DFT não consegue representar energia em $k = 6,36364$ pelo que a energia tem uma \textit{leak} entre os \textit{bins} $k = 6$ e $k = 7$, fenómeno conhecido como \textit{spectral leakage}.
+
+Para procurar resolver este problema de \textit{spectral leakage} existe \textit{windowing}. Com esse processo é possível concentrar a energia nos \textit{bins} que têm maior amplitude (os que estão próximos do \textit{bin} de amplitude máxima) e atenuar a energia dos \textit{bins} circundantes.
+
+O \textit{windowing} é implementado multiplicando o sinal de entrada por uma função de janela. Existem diversas funções de janelas, considerando-se aqui a janela rectangular, a janela de Hamming e a janela de Blackman-Harris.
+
+\begin{figure}[H]
+	\centering
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.60]{teoricas/rectangular}}
+	\linebreak
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.60]{teoricas/hamming}}
+	\linebreak
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.60]{teoricas/blackman}}
+	\vspace{-0.8em}
+	\caption{Magnitude (azul) e representação gráfica da DFT (laranja) da janela rectangular (a), magnitude (azul) e representação gráfica da DFT (laranja) da janela de Hamming (b) e  magnitude (azul) e representação gráfica da DFT (laranja) da janela de Blackman-Harris (c).}
+	\vspace{-0.8em}
+\end{figure}
 
 \end{document}

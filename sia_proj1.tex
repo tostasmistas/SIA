@@ -184,23 +184,30 @@ O \textit{windowing} é implementado multiplicando o sinal de entrada por uma fu
 
 \subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1 Mhz}
 
-	Na análise presente verificou-se a coerença entre a frequência do sinal de entreda e a frequência de amostragem, podendo dispensar-se o uso de janelas $windowing$, na FFT implentada.
-	Para isto acontecer é necessário cumprir as seguintes exigências:
+	Na análise presente verificou-se a coerença entre a frequência do sinal de entrada e a frequência de amostragem, podendo dispensar-se o uso do processo $windowing$, na FFT implementada.
+	Como já foi referido é necessário cumprir as seguintes exigências:
 		
-	\vspace{-3mm}
-	\begin{equation}
-			k = \frac{N f_{k}}{f_{s}}.
-		\label{eq:max_bin}
-	\end{equation}
+	 $k$ tem que ser um número inteiro, com a frequência $f_{k} = f_{in} = 13,671875$kHz. Usando a equação anterior (2.7), aplica-se uma frequência de amostragem de 1 MHz e um número de amostras igual 512. Concluido que $k = 7$ onde se espera uma máximo de amplitude.
+	 
+	 Para que a FFT consiga reporduzir o sinal correctamente sem distorção apartir das amostras obtidas é necessário que o $k$ seja um número inteiro, e que a frequência de amostragem da FFT seja igual à frequência de amostragem do ADC. Como foi escolhido usar 512 amostras, e sabesse que a frequência de amostragem do ADC é de $1$MHz, logo para que a FFT tenha a mesma frequência de amostragem, aplicando a equação seguinte (3.1) obteve-se uma janela temporal, $t_{wind} = 512\mu$s.
+	 
+	 \vspace{-3mm}
+	 \begin{equation}
+	 	t_{wind} = \frac{N}{f_{s}}.
+	 	\label{eq:temp_jan}
+	 \end{equation}
+	 
+	 \subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1.1 Mhz}
+	 
+	 Mantendo a mesma frequência de entrada, $13,671875$kHz, e alterando a frequência de amostragem para $1.1$MHz verifica-se a não coerença entre as duas frequências.
+	 Sendo necessário o uso do processo $windowing$.
+	
+	 Seguindo os passos da análise anterior, utilizou-se a equação (2.5) de forma a obter o valor de $k$ usando uma frequência $f_{k} = f_{in} = 13,671875$ kHz, uma frequência de amostragem de $1.1$MHz e um número de amostras igual a 512. Obteve-se um $k=6.36364$, confirmando a não coerença e a ocorrência de $spectral leakage$.
+	 
+	 Para que a FFT consiga representar correctamente o sinal pretendido , é necessário defenir um tamanho da janela correcto. Como já foi referido a frequência de amostragem da FFT tem que ser igual à frequência de amostragem do sinal de entrada, ou seja de $1,1$MHze um número de amostras igual a 512. Assim sendo, usando a equação (3.1), obteve-se uma janela temporal, $t_{wind} = 465,455\mu$s.
+	 
 		
-	$k$ tem que ser um número inteiro, com uma frequência $f_{k} = f_{in}$.
-	 
-	 Onde se pode ver que a onda de entrada tem uma frequência de 13,671875 kHz, a frequência de amostragem é de 1 MHz e são utilizadas 512 amostras. Espera-se que o máximo da amplitude ocorra em $k = 7$.
-	 
-	 Para que a FFT consiga reporduzir o sinal correctamente sem distorção apartir das amostras obtidas é necessário que o $k$ seja um número inteiro, e que a frequência de amostragem da FFT seja igual à frequência de amostragem do ADC. Como foi escolhido usar 512 amostras, e sabess que a frequência de amostragem do ADC é de $1$Mhz, logo para que a FFT tenha a mesma frequência, o tamanho da janela da FFT tem que ser 512 uss
-	 
-	 
-	 
+			
 		
 	
 

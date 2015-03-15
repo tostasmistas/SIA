@@ -6,3 +6,4 @@
 \contentsline {subsection}{\numberline {2.3}Janela Rectangular, Janela de Hamming e Janela de Blackman-Harris}{3}
 \contentsline {section}{\numberline {3}Demonstra\IeC {\c c}\IeC {\~a}o de Resultados}{4}
 \contentsline {subsection}{\numberline {3.1}An\IeC {\'a}lise de uma onda sinusoidal com frequ\IeC {\^e}ncia de amostragem de 1 Mhz}{4}
+\contentsline {subsection}{\numberline {3.2}An\IeC {\'a}lise de uma onda sinusoidal com frequ\IeC {\^e}ncia de amostragem de 1.1 Mhz}{5}

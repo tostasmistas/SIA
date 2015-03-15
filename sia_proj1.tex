@@ -182,4 +182,28 @@ O \textit{windowing} é implementado multiplicando o sinal de entrada por uma fu
 
 \section{Demonstração de Resultados}
 
+\subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1 Mhz}
+
+	Na análise presente verificou-se a coerença entre a frequência do sinal de entreda e a frequência de amostragem, podendo dispensar-se o uso de janelas $windowing$, na FFT implentada.
+	Para isto acontecer é necessário cumprir as seguintes exigências:
+		
+	\vspace{-3mm}
+	\begin{equation}
+			k = \frac{N f_{k}}{f_{s}}.
+		\label{eq:max_bin}
+	\end{equation}
+		
+	$k$ tem que ser um número inteiro, com uma frequência $f_{k} = f_{in}$.
+	 
+	 Onde se pode ver que a onda de entrada tem uma frequência de 13,671875 kHz, a frequência de amostragem é de 1 MHz e são utilizadas 512 amostras. Espera-se que o máximo da amplitude ocorra em $k = 7$.
+	 
+	 Para que a FFT consiga reporduzir o sinal correctamente sem distorção apartir das amostras obtidas é necessário que o $k$ seja um número inteiro, e que a frequência de amostragem da FFT seja igual à frequência de amostragem do ADC. Como foi escolhido usar 512 amostras, e sabess que a frequência de amostragem do ADC é de $1$Mhz, logo para que a FFT tenha a mesma frequência, o tamanho da janela da FFT tem que ser 512 uss
+	 
+	 
+	 
+		
+	
+
+
+
 \end{document}

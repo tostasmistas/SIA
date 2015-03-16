@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.6)  16 MAR 2015 02:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  16 MAR 2015 10:58
 entering extended mode
 **sia_proj1.tex
-("M:\~ downloads ~\git\SIA\sia_proj1.tex"
+(C:\Users\margarida\Downloads\git\SIA\sia_proj1.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
 croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
 ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
  lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
@@ -479,7 +479,7 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks25
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-("M:\~ downloads ~\git\SIA\sia_proj1.aux")
+(C:\Users\margarida\Downloads\git\SIA\sia_proj1.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
@@ -552,9 +552,8 @@ Package pdftex.def Info: ./logo.png used on input line 30.
 (pdftex.def)             Requested size: 141.61081pt x 54.80115pt.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <M:/~ downloads ~/git/SIA/
-logo.png>]
-("M:\~ downloads ~\git\SIA\sia_proj1.toc")
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/margarida/Downlo
+ads/git/SIA/logo.png>] (C:\Users\margarida\Downloads\git\SIA\sia_proj1.toc)
 \tf@toc=\write3
  [1
 
@@ -574,105 +573,101 @@ Package pdftex.def Info: ./teoricas/SAR_2.png used on input line 82.
 (pdftex.def)             Requested size: 215.6099pt x 68.17609pt.
  [1
 
- <M:/~ downloads ~/git/SIA/teoricas/SAR_1.png> <M:/~ downloads ~/git/SIA/teoric
-as/SAR_2.png>] [2]
-<teoricas/rectangular.png, id=35, 359.84438pt x 173.89969pt>
+ <C:/Users/margarida/Downloads/git/SIA/teoricas/SAR_1.png> <C:/Users/margarida/
+Downloads/git/SIA/teoricas/SAR_2.png>] [2]
+[3] <teoricas/rectangular.png, id=38, 359.84438pt x 173.89969pt>
 File: teoricas/rectangular.png Graphic file (type png)
 
 <use teoricas/rectangular.png>
-Package pdftex.def Info: teoricas/rectangular.png used on input line 173.
+Package pdftex.def Info: teoricas/rectangular.png used on input line 175.
 (pdftex.def)             Requested size: 233.89607pt x 113.03345pt.
 
-<teoricas/hamming.png, id=36, 359.09157pt x 173.14688pt>
+<teoricas/hamming.png, id=39, 359.09157pt x 173.14688pt>
 File: teoricas/hamming.png Graphic file (type png)
 
 <use teoricas/hamming.png>
-Package pdftex.def Info: teoricas/hamming.png used on input line 175.
+Package pdftex.def Info: teoricas/hamming.png used on input line 177.
 (pdftex.def)             Requested size: 233.40674pt x 112.54413pt.
 
-<teoricas/blackman.png, id=37, 359.84438pt x 173.89969pt>
+<teoricas/blackman.png, id=40, 359.84438pt x 173.89969pt>
 File: teoricas/blackman.png Graphic file (type png)
 
 <use teoricas/blackman.png>
-Package pdftex.def Info: teoricas/blackman.png used on input line 177.
+Package pdftex.def Info: teoricas/blackman.png used on input line 179.
 (pdftex.def)             Requested size: 233.89607pt x 113.03345pt.
- [3] [4 <M:/~ downloads ~/git/SIA/teoricas/rectangular.png> <M:/~ downloads ~/g
-it/SIA/teoricas/hamming.png> <M:/~ downloads ~/git/SIA/teoricas/blackman.png>] 
+ [4 <C:/Users/margarida/Downloads/git/SIA/teoricas/rectangular.png> <C:/Users/m
+argarida/Downloads/git/SIA/teoricas/hamming.png> <C:/Users/margarida/Downloads/
+git/SIA/teoricas/blackman.png>]
 <lab/rect.png, id=47, 236.38312pt x 137.01187pt>
 File: lab/rect.png Graphic file (type png)
-
-<use lab/rect.png>
-Package pdftex.def Info: lab/rect.png used on input line 207.
+ <use lab/rect.png>
+Package pdftex.def Info: lab/rect.png used on input line 209.
 (pdftex.def)             Requested size: 118.19127pt x 68.50577pt.
- <lab/f_fft_1M.png, id=48, 1445.4pt x 706.13812pt>
-File: lab/f_fft_1M.png Graphic file (type png)
 
-<use lab/f_fft_1M.png>
+<lab/f_fft_1M.png, id=48, 1445.4pt x 706.13812pt>
+File: lab/f_fft_1M.png Graphic file (type png)
+ <use lab/f_fft_1M.png>
 Package pdftex.def Info: lab/f_fft_1M.png used on input line 216.
 (pdftex.def)             Requested size: 462.53746pt x 225.96881pt.
- [5 <M:/~ downloads ~/git/SIA/lab/rect.png> <M:/~ downloads ~/git/SIA/lab/f_fft
-_1M.png>]
+
+[5 <C:/Users/margarida/Downloads/git/SIA/lab/rect.png> <C:/Users/margarida/Down
+loads/git/SIA/lab/f_fft_1M.png>]
 <lab/janelas.png, id=56, 549.55313pt x 147.55125pt>
 File: lab/janelas.png Graphic file (type png)
  <use lab/janelas.png>
-Package pdftex.def Info: lab/janelas.png used on input line 237.
+Package pdftex.def Info: lab/janelas.png used on input line 244.
 (pdftex.def)             Requested size: 274.7759pt x 73.77544pt.
 
 <lab/f_11M.png, id=57, 1927.2pt x 941.5175pt>
 File: lab/f_11M.png Graphic file (type png)
  <use lab/f_11M.png>
-Package pdftex.def Info: lab/f_11M.png used on input line 242.
+Package pdftex.def Info: lab/f_11M.png used on input line 251.
 (pdftex.def)             Requested size: 520.35097pt x 254.21312pt.
 
-Overfull \hbox (48.31973pt too wide) in paragraph at lines 242--243
+Overfull \hbox (48.31973pt too wide) in paragraph at lines 251--252
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<lab/f_fft_11M.png, id=58, 1445.4pt x 706.13812pt>
+[6 <C:/Users/margarida/Downloads/git/SIA/lab/janelas.png>]
+<lab/f_fft_11M.png, id=62, 1445.4pt x 706.13812pt>
 File: lab/f_fft_11M.png Graphic file (type png)
  <use lab/f_fft_11M.png>
-Package pdftex.def Info: lab/f_fft_11M.png used on input line 249.
+Package pdftex.def Info: lab/f_fft_11M.png used on input line 258.
 (pdftex.def)             Requested size: 476.98347pt x 233.02629pt.
 
-Overfull \hbox (4.95224pt too wide) in paragraph at lines 249--250
+Overfull \hbox (4.95224pt too wide) in paragraph at lines 258--259
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[6 <M:/~ downloads ~/git/SIA/lab/janelas.png>] [7 <M:/~ downloads ~/git/SIA/lab
-/f_11M.png (PNG copy)> <M:/~ downloads ~/git/SIA/lab/f_fft_11M.png>]
-("M:\~ downloads ~\git\SIA\sia_proj1.aux") ) 
+[7 <C:/Users/margarida/Downloads/git/SIA/lab/f_11M.png (PNG copy)> <C:/Users/ma
+rgarida/Downloads/git/SIA/lab/f_fft_11M.png>] [8]
+(C:\Users\margarida\Downloads\git\SIA\sia_proj1.aux) ) 
 Here is how much of TeX's memory you used:
- 4778 strings out of 493921
- 67201 string characters out of 3147271
- 143722 words of memory out of 3000000
- 7991 multiletter control sequences out of 15000+200000
+ 4779 strings out of 493921
+ 67318 string characters out of 3147270
+ 142722 words of memory out of 3000000
+ 7992 multiletter control sequences out of 15000+200000
  12091 words of font info for 43 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  44i,10n,47p,784b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on sia_proj1.pdf (9 pages, 586342 bytes).
+<C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on sia_proj1.pdf (10 pages, 587266 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
+ 120 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

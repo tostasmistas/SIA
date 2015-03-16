@@ -101,7 +101,7 @@ O \textit{signal-to-noise and distortion} (SINAD) é uma medida da \textit{perfo
 \end{equation}
 
 \vspace{1mm}
-O \textit{signal-to-noise ratio} (SNR) é calculado a partir dos dados da FFT, tal como a SINAD, mas as harmónicas do sinal são excluídas dos cálculos, deixando apenas os termos de ruído. De uma maneira mais abstracta pode ser descrito como a comparação entre o nível de sinal desejado ao nível de ruído. O cálculo do SNR, em $dB$, para um número $N$ de amostras  é feito de acordo com a expressão
+O \textit{signal-to-noise ratio} (SNR) é calculado a partir dos dados da FFT, tal como a SINAD, mas as harmónicas do sinal são excluídas dos cálculos, deixando apenas os termos de ruído. De uma maneira mais abstracta pode ser descrito como a comparação entre o nível de sinal desejado ao nível de ruído. O cálculo do SNR, em $dB$, para um número $N$ de \textit{bits} é feito de acordo com a expressão
 
 \vspace{-3mm}
 \begin{equation}
@@ -130,6 +130,8 @@ O \textit{effective number of bits} (ENOB) é uma medida da resolução de um AD
 \vspace{1mm}
 No caso do trabalho laboratorial o ENOB é de 4 \textit{bits}.
 
+De notar, que tratando-se de um ADC ideal que se está a estudar, os conceitos de SINAD e de SNR ``confundem-se'' pois não existe distorção.
+
 \subsection{Janela Rectangular, Janela de Hamming e Janela de Blackman-Harris}
 
 A FFT é um algoritmo que permite obter a \textit{Discrete Fourier Transform} (DFT) , sendo então uma análise que permite converter tempo para frequência. Quando se calcula a DFT a entrada é um sinal digital e a saída é a análise digital espectral desse sinal. Inerentes à DFT estão erros e, para mitigar esses erros, recorre-se a um processo denominado de \textit{windowing}.
@@ -146,16 +148,16 @@ sendo que no domínio da frequência existem os chamados \textit{bins}. A frequ�
 
 \vspace{-3mm}
 \begin{equation}
-f_{k} = \frac{k}{N \bigtriangleup t},
+f_{k} = \frac{k}{N_{s} \bigtriangleup t},
 \label{eq:freq_bin}
 \end{equation}
 
 \vspace{1mm}
-onde $k$ corresponde ao número do \textit{bin}, que é sempre um inteiro, e $N$ ao número de amostras. Através de \ref{eq:freq_bin} pode-se deduzir qual é a máxima frequência que pode ser representada por um dado número de amostras.
+onde $k$ corresponde ao número do \textit{bin}, que é sempre um inteiro, e $N_{s}$ ao número de amostras. Através de (\ref{eq:freq_bin}) pode-se deduzir qual é a máxima frequência que pode ser representada por um dado número de amostras.
 
 \vspace{-3mm}
 \begin{equation}
-k = \frac{N f_{k}}{f_{s}}.
+k = \frac{N_{s} f_{k}}{f_{s}}.
 \label{eq:max_bin}
 \end{equation}
 
@@ -182,17 +184,17 @@ O \textit{windowing} é implementado multiplicando o sinal de entrada por uma fu
 
 \section{Demonstração de Resultados}
 
-\subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1 Mhz}
+\subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1 MHz}
 
-Sabendo que se tem um frequência de amostragem, $f_{s}$, de 1 MHz e que a frequência do sinal de entrada, $f_{in}$, é de 13,671875 kHz, pode-se recorrer a \ref{eq:freq_bin} para determinar qual é a máxima frequência que pode ser representada por um dado número de amostras, que neste caso é 512. Assim, verifica-se que $k$ é 7, tal como visto anteriormente, e nesse ponto espera-se um máximo de amplitude.
+Sabendo que se tem um frequência de amostragem, $f_{s}$, de 1 MHz e que a frequência do sinal de entrada, $f_{in}$, é de 13,671875 kHz, pode-se recorrer a (\ref{eq:max_bin}) para determinar qual é a máxima frequência que pode ser representada por um dado número de amostras, que neste caso é 512. Assim, verifica-se que $k$ é 7, tal como visto anteriormente, e nesse ponto espera-se um máximo de amplitude.
 
 Uma vez que $k$ é um número inteiro, verifica-se coerência entre a frequência do sinal de entrada e a frequência de amostragem, pelo que pode-se dispensar o uso do processo de $windowing$ na FFT implementada.
 
-Para que a FFT consiga reproduzir o sinal correctamente e sem distorção a partir das amostras obtidas é necessário que $k$ seja um número inteiro, e que a frequência de amostragem da FFT seja igual à frequência de amostragem do ADC. Como se utilizam $N = 512$ amostras e, sabendo que a frequência de amostragem do ADC é de $1$ MHz, para que a FFT tenha a mesma frequência de amostragem, aplica-se a fórmula 
+Para que a FFT consiga reproduzir o sinal correctamente e sem distorção a partir das amostras obtidas é necessário que $k$ seja um número inteiro, e que a frequência de amostragem da FFT seja igual à frequência de amostragem do ADC. Como se utilizam $N_{s} = 512$ amostras e, sabendo que a frequência de amostragem do ADC é de $1$ MHz, para que a FFT tenha a mesma frequência de amostragem, aplica-se a fórmula 
 
 \vspace{-3mm}
 \begin{equation}
- 	t_{\text{janela}} = \frac{N}{f_{s}},
+ 	t_{\text{janela}} = \frac{N_{s}}{f_{s}},
  	\label{eq:temp_jan}
 \end{equation}
 
@@ -207,48 +209,61 @@ Com este valores definidos é então possível simular o circuito com o Cadence.
  	\includegraphics[keepaspectratio=true, scale=0.50]{lab/rect.png}
 \end{table}
 
-Pode-se observar na Tabela 1 os resultados do ENOB, SINAD, SNR e SFDR calculados a partir da ferramenta de cálculo do Cadence. De notar que se obteve um valor de 3,985 para o ENOB, valor que está muito próximo do ideal, uma vez que se esta a utilizar um ADC de 4 \textit{bits}.
+REFAZER TABELA COM UNIDADES, VERIFICAR SINAD E SNR
 
-COMENTAR SINAD, SNR E SFDR??
-
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.32]{lab/f_fft_1M.png}
 	\caption{Simulação obtida no Cadence para o ADC para um valor de $f_{s}$ de 1 MHz.}
 	\vspace{-0.8em}
 \end{figure}
 	 
+Pode-se observar na Tabela 1 os resultados do ENOB, SINAD, SNR e SFDR calculados a partir da ferramenta de cálculo do Cadence. De notar que se obteve um valor de 3,985 \textit{bits} para o ENOB, valor que está muito próximo do pretendido, uma vez que se esta a utilizar um ADC ideal de 4 \textit{bits}.
+
+O valor do SNR téorico pode ser calculado a partir de (\ref{eq:SNR}) e, sabendo que $N = 4$ \textit{bits}, dá um resultado de 25,84 dB. Para este caso o valor obtido foi de 25,75 dB, um resultado coerente com o número de \textit{bits} obtido para o conversor. 	 
+	 
 Na Figura 4, estão representados seis sinais no domínio temporal e um sinal no domínio da frequência. Pode-se visualizar o sinal sinusoidal de entrada, sinal à esquerda em cima, e os restantes quatro sinais representam a saída do ADC. No centro tem-se o sinal de saída do DAC. Por último, o sinal à direita, representa o espectro em frequência da FFT do sinal de saída do DAC.
 
-No espectro de frequência pode-se visualizar graficamente as conclusões anteriormente referidas. Como o sinal de entrada é composto por uma frequência fundamental e existe coerência entre a frequência de amostragem e a de entrada, ocorre só um \textit{delta} Dirac amostrado na frequência do sinal de entrada e um \textit{delta} Dirac amostrado em DC.
+No espectro de frequência pode-se visualizar graficamente as conclusões anteriormente referidas. Como o sinal de entrada é composto por uma frequência fundamental e existe coerência entre a frequência de amostragem e a de entrada, ocorre só um \textit{bin} na frequência do sinal de entrada e um \textit{bin} amostrado em DC. Mais ainda, verifica-se que não há distorção.
 
-\subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1,1 Mhz}
+\subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1,1 MHz}
 
-Mantendo a mesma frequência de entrada, $13,671875$kHz, e alterando a frequência de amostragem para $1.1$MHz verifica-se a não coerença entre as duas frequências.
-Sendo necessário o uso do processo $windowing$.
+Mantendo agora a mesma frequência para o sinal de entrada, $13,671875$ kHz, o mesmo número de amostras, $N_{s} = 512$, e alterando a frequência de amostragem para $1.1$ MHz, é refeita a análise relativamente ao ponto onde se espera que haja um máximo de amplitude da FFT. Recorrendo a (\ref{eq:max_bin}) obtém-se um valor de $k = 6,36364$, um valor que não é inteiro. 
 
-Seguindo os passos da análise anterior, utilizou-se a equação (2.5) de forma a obter o valor de $k$ usando uma frequência $f_{k} = f_{in} = 13,671875$ kHz, uma frequência de amostragem de $1.1$MHz e um número de amostras igual a 512. Obteve-se um $k=6.36364$, confirmando a não coerença e a ocorrência de $spectral leakage$.
+Sabendo que este valor não é inteiro, sabe-se também que ocorre \textit{spectral leakage}, ou seja, a energia estará dispersa entre $k = 6$ e $k = 7$.
 
-Para que a FFT consiga representar correctamente o sinal pretendido , é necessário defenir um tamanho da janela correcto. Como já foi referido a frequência de amostragem da FFT tem que ser igual à frequência de amostragem do sinal de entrada, ou seja de $1,1$MHze um número de amostras igual a 512. Assim sendo, usando a equação (3.1), obteve-se uma janela temporal, $t_{wind} = 465,455\mu$s.
+Para que a FFT consiga representar correctamente o sinal pretendido, é necessário definir um tamanho da janela correcto. Como já foi referido, a frequência de amostragem da FFT tem que ser igual à frequência de amostragem do sinal de entrada, ou seja de $1,1$ MHz com um número de amostras igual a 512. Assim, recorrendo a (\ref{eq:temp_jan}), obtém-se uma janela temporal, $t_{\text{janela}} = 465,455~\mu$s.
 
-\begin{table}[h]
+De notar que primeiramente foi feita uma simulação com a mesma janela temporal utilizada anteriormente, ou seja, com $t_{\text{janela}} = 512~\mu$s. Porém, com esta janela a FFT apresentava um \textit{bin} em $k = 7$, o que não correspondeu ao esperado de \textit{spectral leakage} e dispersão de energia. Desta maneira, alterou-se a janela e efectuaram-se novas simulações.
+
+Com este valores definidos é então possível simular o circuito com o Cadence.
+
+\begin{table}[H]
 	\centering
 	\caption{Valores obtidos para o ENOB, SINAD, SNR e SFDR com a janela rectangular, janela de Hamming e janela de Blackman-Harris.}
  	\includegraphics[keepaspectratio=true, scale=0.50]{lab/janelas.png}
 \end{table}
 
-\begin{figure}[h]
+REFAZER TABELA COM UNIDADES, VERIFICAR SINAD E SNR
+
+\begin{figure}[H]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.27]{lab/f_11M.png}
 	\caption{Simulação obtida no Cadence para o ADC para um valor de $f_{s}$ de 1,1 MHz.}
 	\vspace{-0.8em}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.33]{lab/f_fft_11M.png}
 	\caption{Simulação obtida no Cadence para a FFT, sobrepondo a janela rectangular com a de Hamming e de Blackman-Harris.}
 	\vspace{-0.8em}
 \end{figure}
+
+Pode-se observar na Tabela 2 os resultados do ENOB, SINAD, SNR e SFDR calculados a partir da ferramenta de cálculo do Cadence, para o caso de aplicar sobre a FFT uma janela rectangular, a janela de Hamming e a janela de Blackman-Harris. Para o caso da janela rectangular, o número de \textit{bits} obtido foi de 0,7218, ou seja, um valor afastado do teórico de 4 \textit{bits}. Isto ocorre porque há \textit{spectral leakage} e é necessário recorrer a \textit{windowing} para resolver o problema. A janela rectangular aplicada primeiramente tem o problema de todas as riscas espectrais terem a mesma ponderação.
+
+Primeiramente aplicou-se a janela de Hamming 
+
+\section{Conclusões}
 	 
 \end{document}

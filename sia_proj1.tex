@@ -203,6 +203,7 @@ Para que a FFT consiga reporduzir o sinal correctamente sem distorção apartir 
  	\includegraphics[keepaspectratio=true, scale=0.50]{lab/rect.png}
 \end{table}
 
+	Pode-se observar na tabela anterior os resultados da ENOB, SINAD, SNR e SFDR calculados a partir da ferramenta de calculo do CADENCE. Obte-se um valor de 3,985 para a ENOB, valor que está muito proxímo do ideal uma vez que se esta a utilizar um ADC 4 bits.
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.32]{lab/f_fft_1M.png}
@@ -210,6 +211,9 @@ Para que a FFT consiga reporduzir o sinal correctamente sem distorção apartir 
 	\vspace{-0.8em}
 \end{figure}
 	 
+	 Na figuara acima, figura 4, está representado 6 sinais no domínio temporal e 1 sinal no domínio da frequência. Pode-se visualizar o sinal sinusoidal de entrada como o primeiro sinal mais à esquerda e os restantes 4 sinais representam a saída do ADC. No centro tem-se o sinal de saída do DAC. Por último, o mais à direita, o espectro em frequências da FFT do sinal de saída do DAC.
+	 
+	 No espectro de frequência pode-se visualizar gráficamente as conclusõe anteriormente referidas. Como o sinal de entrada é composto por uma frequência fundamental e existe coerença entre a frequência de amostragem, deveria só ocorrer um Dirac amostrado na frequência do sinal de entrada e um Dirac amostrado em DC. Analisando o gráfico confirma-se essas conclusões.
 \subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1,1 Mhz}
 
 Mantendo a mesma frequência de entrada, $13,671875$kHz, e alterando a frequência de amostragem para $1.1$MHz verifica-se a não coerença entre as duas frequências.

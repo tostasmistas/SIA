@@ -224,7 +224,9 @@ O valor do SNR téorico pode ser calculado a partir de (\ref{eq:SNR}) e, sabendo
 	 
 Na Figura 4, estão representados seis sinais no domínio temporal e um sinal no domínio da frequência. Pode-se visualizar o sinal sinusoidal de entrada, sinal à esquerda em cima, e os restantes quatro sinais representam a saída do ADC. No centro tem-se o sinal de saída do DAC. Por último, o sinal à direita, representa o espectro em frequência da FFT do sinal de saída do DAC.
 
-No espectro de frequência pode-se visualizar graficamente as conclusões anteriormente referidas. Como o sinal de entrada é composto por uma frequência fundamental e existe coerência entre a frequência de amostragem e a de entrada, ocorre só um \textit{bin} na frequência do sinal de entrada e um \textit{bin} amostrado em DC. Mais ainda, verifica-se que não há distorção.
+No espectro de frequência pode-se visualizar graficamente as conclusões anteriormente referidas. Como o sinal de entrada é composto por uma frequência fundamental e existe coerência entre a frequência de amostragem e a de entrada, ocorre só um \textit{bin} na frequência do sinal de entrada, com amplitude correspondente a metade da amplitude do sinal de entrada, ou seja, 1,55 V.
+
+e um \textit{bin} amostrado em DC. Mais ainda, verifica-se que não há distorção.
 
 \subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1,1 MHz}
 
@@ -260,10 +262,20 @@ REFAZER TABELA COM UNIDADES, VERIFICAR SINAD E SNR
 	\vspace{-0.8em}
 \end{figure}
 
-Pode-se observar na Tabela 2 os resultados do ENOB, SINAD, SNR e SFDR calculados a partir da ferramenta de cálculo do Cadence, para o caso de aplicar sobre a FFT uma janela rectangular, a janela de Hamming e a janela de Blackman-Harris. Para o caso da janela rectangular, o número de \textit{bits} obtido foi de 0,7218, ou seja, um valor afastado do teórico de 4 \textit{bits}. Isto ocorre porque há \textit{spectral leakage} e é necessário recorrer a \textit{windowing} para resolver o problema. A janela rectangular aplicada primeiramente tem o problema de todas as riscas espectrais terem a mesma ponderação.
+Pode-se observar na Tabela 2 os resultados do ENOB, SINAD, SNR e SFDR calculados a partir da ferramenta de cálculo do Cadence, para o caso de aplicar sobre a FFT uma janela rectangular, a janela de Hamming e a janela de Blackman-Harris. Para o caso da janela rectangular, o número de \textit{bits} obtido foi de 0,7218, ou seja, um valor afastado do teórico de 4 \textit{bits}. Isto ocorre porque há \textit{spectral leakage}. 
 
-Primeiramente aplicou-se a janela de Hamming 
+Na Figura 5, à direita, observa-se o resultado da FFT com a aplicação de diversas janelas. Em cima, a vermelho, está o resultado com a janela rectangular, a azul, está o resultado com a janela de Hamming e a rosa, o resultado com a janela de Blackman-Harris. Analisando primeiramente a janela rectangular verifica-se que existe dispersão de energia, sendo o máximo de amplitude menor, passando de 1,55 V para 1,25 V. A janela rectangular tem o problema de todas as riscas espectrais terem a mesma ponderação, pelo que não consegue resolver o problema de \textit{spectral leakage}, sendo necessário aplicar outras janelas.
+
+A ideia de aplicar outras janelas é tentar concentrar a energia em torno do \textit{bin} correspondente ao da frequência fundamental, ou seja, em torno do lóbulo principal da resposta em frequência da janela. Ao mesmo tempo, consegue-se atenuar a energia em torno dos \textit{bins} circundantes.
+
+Primeiramente aplicou-se a janela de Hamming, e verifica-se na Tabela 2 que o ENOB passou para 3,305 \textit{bits}, um valor muito mais próximo do ideal. Comparativamente à janela rectangular, a resposta em frequência da janela de Hamming é mais concentrada no lóbulo principal, como se pode ver na Figura 3. Também nessa figura pode-se verificar que a janela de Blackman-Harris é ainda mais concentrada no lóbulo principal e atenua mais nos lóbulos secundários, ou seja, é mais selectiva. Isto pode ser comprovado pelo ENOB obtido para a janela de Blackman-Harris, que foi de 3,416 \textit{bits}, o mais próximo que se chegou dos 4 \textit{bits} ideais.
+
+Relativamente à amplitude do \textit{bin} em torno de $k = 7$, esta aumenta da janela rectangular, com valor de 1,25 V, para a janela de Hamming, com valor superior a 1,25 V e mais próximo de 1,5 V. Quando se passa para a janela de Blackman-Harris, a amplitude já está a 1,5 V, tal como pretendido. Isto ocorre por causa da centralização de energia que o \textit{windowing} implica.
+
+A melhoria introduzida pelo \textit{windowing} pode melhor ser observada na Figura 6. Em cima está a sobreposição entre a FFT obtida com janela rectangular, a vermelho, e com a janela de Hamming, a verde. Em baixo está a sobreposição entre a FFT obtida com janela rectangular, a vermelho, e com a janela de Blackman-Harris, a verde.
 
 \section{Conclusões}
+
+
 	 
 \end{document}

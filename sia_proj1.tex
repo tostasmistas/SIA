@@ -64,7 +64,7 @@ Com este trabalho laboratorial pretende-se introduzir o \textit{software} Cadenc
 \section{Introdução Teórica}
 \subsection{Conversores A/D e Conversores D/A}
 
-Começando por analisar os conversores analógico-digitais, as arquitecturas que os permitem podem ser divididas em três categorias: baixa-a-média velocidade, média velocidade e alta velocidade. O ADC utilizado neste trabalho é de aproximações sucessivas (SAR), sendo de média velocidade e exactidão. 
+Começando por analisar os conversores analógico-digitais, as arquitecturas que os permitem implementar podem ser divididas em três categorias: baixa-a-média velocidade, média velocidade e alta velocidade. O ADC utilizado neste trabalho é de aproximações sucessivas (SAR), sendo de média velocidade e exactidão. 
 
 Os conversores deste tipo estão entre os mais populares para realizar ADCs devido à sua versatilidade - conseguem efectuar conversões rápidas ou podem ser utilizados para que haja uma maior exactidão, operando a baixa potência nos dois casos. Este conjunto de características deriva de, no caso mais simples, o conversor necessitar apenas de um só comparador, um banco de condensadores com interruptores e pouca lógica de controlo digital. Na figura abaixo está esquematizado o circuito referido.
 
@@ -88,7 +88,7 @@ OS ADCs de aproximações sucessivas têm por base o algoritmo de procura conhec
 
 Existe um circuito \textit{sample-and-hold} que permite adquirir a tensão de entrada. De seguida um comparador analógico de tensão compara a tensão de entrada com a saída do DAC e coloca o resultado da comparação no registo de aproximações sucessivas (SAR). O SAR é inicializado de maneira a que o \textit{bit} mais significativo seja 1. Este código é dado ao DAC, que fornece então ao comparador uma tensão analógica equivalente à do código digital. O circuito comparador é assim capaz de efectuar a comparação entre a tensão de entrada amostrada e a tensão de referência. Se a tensão de referência for superior à tensão de entrada então é feito \textit{reset} ao \textit{bit}, passa a 0, caso contrário permanece a 1. 
 
-De seguida, o próximo \textit{bit} é colocado a 1 e feito o mesmo teste, continuando esta ``procura binária'' até que todos os \textit{bits} tenham sido testados no SAR. Assim, o conversor aplica o algoritmo para determinar a palavra digital mais próxima que corresponde à tensão de entrada amostrada.
+De seguida, o próximo \textit{bit} é colocado a 1 e é feito o mesmo teste, continuando esta ``procura binária'' até que todos os \textit{bits} tenham sido testados no SAR. Assim, o conversor aplica o algoritmo para determinar a palavra digital mais próxima que corresponde à tensão de entrada amostrada.
 
 \subsection{SINAD, SNR, SFDR e ENOB}
 
@@ -153,7 +153,7 @@ f_{k} = \frac{k}{N_{s} \bigtriangleup t},
 \end{equation}
 
 \vspace{1mm}
-onde $k$ corresponde ao número do \textit{bin}, que é sempre um inteiro, e $N_{s}$ ao número de amostras. Através de (\ref{eq:freq_bin}) pode-se deduzir qual é a máxima frequência que pode ser representada por um dado número de amostras.
+onde $k$ corresponde ao número do \textit{bin}, que é sempre um inteiro, e $N_{s}$ ao número de amostras. Através de (\ref{eq:freq_bin}) pode-se deduzir qual é a máxima frequência que pode ser representada por um dado número de amostras,
 
 \vspace{-3mm}
 \begin{equation}
@@ -209,8 +209,6 @@ Com este valores definidos é então possível simular o circuito com o Cadence.
  	\includegraphics[keepaspectratio=true, scale=0.50]{lab/rect.png}
 \end{table}
 
-REFAZER TABELA COM UNIDADES, VERIFICAR SINAD E SNR
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.32]{lab/f_fft_1M.png}
@@ -224,15 +222,11 @@ O valor do SNR téorico pode ser calculado a partir de (\ref{eq:SNR}) e, sabendo
 	 
 Na Figura 4, estão representados seis sinais no domínio temporal e um sinal no domínio da frequência. Pode-se visualizar o sinal sinusoidal de entrada, sinal à esquerda em cima, e os restantes quatro sinais representam a saída do ADC. No centro tem-se o sinal de saída do DAC. Por último, o sinal à direita, representa o espectro em frequência da FFT do sinal de saída do DAC.
 
-No espectro de frequência pode-se visualizar graficamente as conclusões anteriormente referidas. Como o sinal de entrada é composto por uma frequência fundamental e existe coerência entre a frequência de amostragem e a de entrada, ocorre só um \textit{bin} na frequência do sinal de entrada, com amplitude correspondente a metade da amplitude do sinal de entrada, ou seja, 1,55 V.
-
-e um \textit{bin} amostrado em DC. Mais ainda, verifica-se que não há distorção.
+No espectro de frequência pode-se visualizar graficamente as conclusões anteriormente referidas. Como o sinal de entrada é composto por uma frequência fundamental e existe coerência entre a frequência de amostragem e a de entrada, ocorre só um \textit{bin} na frequência do sinal de entrada, com amplitude correspondente a metade da amplitude do sinal de entrada, ou seja, 1,55 V. Ocorre também um \textit{bin} amostrado em DC. Mais ainda, verifica-se que não há distorção.
 
 \subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1,1 MHz}
 
-Mantendo agora a mesma frequência para o sinal de entrada, $13,671875$ kHz, o mesmo número de amostras, $N_{s} = 512$, e alterando a frequência de amostragem para $1.1$ MHz, é refeita a análise relativamente ao ponto onde se espera que haja um máximo de amplitude da FFT. Recorrendo a (\ref{eq:max_bin}) obtém-se um valor de $k = 6,36364$, um valor que não é inteiro. 
-
-Sabendo que este valor não é inteiro, sabe-se também que ocorre \textit{spectral leakage}, ou seja, a energia estará dispersa entre $k = 6$ e $k = 7$.
+Mantendo agora a mesma frequência para o sinal de entrada, $13,671875$ kHz, o mesmo número de amostras, $N_{s} = 512$, e alterando a frequência de amostragem para $1.1$ MHz, é refeita a análise relativamente ao ponto onde se espera que haja um máximo de amplitude da FFT. Recorrendo a (\ref{eq:max_bin}) obtém-se um valor de $k = 6,36364$, um valor que não é inteiro. Sabendo que este valor não é inteiro, sabe-se também que ocorre \textit{spectral leakage}, ou seja, a energia estará dispersa entre $k = 6$ e $k = 7$.
 
 Para que a FFT consiga representar correctamente o sinal pretendido, é necessário definir um tamanho da janela correcto. Como já foi referido, a frequência de amostragem da FFT tem que ser igual à frequência de amostragem do sinal de entrada, ou seja de $1,1$ MHz com um número de amostras igual a 512. Assim, recorrendo a (\ref{eq:temp_jan}), obtém-se uma janela temporal, $t_{\text{janela}} = 465,455~\mu$s.
 
@@ -245,8 +239,6 @@ Com este valores definidos é então possível simular o circuito com o Cadence.
 	\caption{Valores obtidos para o ENOB, SINAD, SNR e SFDR com a janela rectangular, janela de Hamming e janela de Blackman-Harris.}
  	\includegraphics[keepaspectratio=true, scale=0.50]{lab/janelas.png}
 \end{table}
-
-REFAZER TABELA COM UNIDADES, VERIFICAR SINAD E SNR
 
 \begin{figure}[H]
 	\centering

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  16 MAR 2015 12:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  16 MAR 2015 15:00
 entering extended mode
 **sia_proj1.tex
 (C:\Users\margarida\Downloads\git\SIA\sia_proj1.tex
@@ -598,33 +598,33 @@ Package pdftex.def Info: teoricas/blackman.png used on input line 179.
  [4 <C:/Users/margarida/Downloads/git/SIA/teoricas/rectangular.png> <C:/Users/m
 argarida/Downloads/git/SIA/teoricas/hamming.png> <C:/Users/margarida/Downloads/
 git/SIA/teoricas/blackman.png>]
-<lab/rect.png, id=47, 236.38312pt x 137.01187pt>
+<lab/rect.png, id=47, 264.99pt x 130.98938pt>
 File: lab/rect.png Graphic file (type png)
  <use lab/rect.png>
 Package pdftex.def Info: lab/rect.png used on input line 209.
-(pdftex.def)             Requested size: 118.19127pt x 68.50577pt.
+(pdftex.def)             Requested size: 132.49467pt x 65.49452pt.
 
 <lab/f_fft_1M.png, id=48, 1445.4pt x 706.13812pt>
 File: lab/f_fft_1M.png Graphic file (type png)
  <use lab/f_fft_1M.png>
-Package pdftex.def Info: lab/f_fft_1M.png used on input line 216.
+Package pdftex.def Info: lab/f_fft_1M.png used on input line 214.
 (pdftex.def)             Requested size: 462.53746pt x 225.96881pt.
 
 [5 <C:/Users/margarida/Downloads/git/SIA/lab/rect.png> <C:/Users/margarida/Down
 loads/git/SIA/lab/f_fft_1M.png>]
-<lab/janelas.png, id=56, 549.55313pt x 147.55125pt>
+<lab/janelas.png, id=56, 556.32843pt x 131.74219pt>
 File: lab/janelas.png Graphic file (type png)
  <use lab/janelas.png>
-Package pdftex.def Info: lab/janelas.png used on input line 246.
-(pdftex.def)             Requested size: 274.7759pt x 73.77544pt.
+Package pdftex.def Info: lab/janelas.png used on input line 240.
+(pdftex.def)             Requested size: 278.16353pt x 65.87093pt.
 
 <lab/f_11M.png, id=57, 1927.2pt x 941.5175pt>
 File: lab/f_11M.png Graphic file (type png)
  <use lab/f_11M.png>
-Package pdftex.def Info: lab/f_11M.png used on input line 253.
+Package pdftex.def Info: lab/f_11M.png used on input line 245.
 (pdftex.def)             Requested size: 520.35097pt x 254.21312pt.
 
-Overfull \hbox (48.31973pt too wide) in paragraph at lines 253--254
+Overfull \hbox (48.31973pt too wide) in paragraph at lines 245--246
  [][] 
  []
 
@@ -632,10 +632,10 @@ Overfull \hbox (48.31973pt too wide) in paragraph at lines 253--254
 <lab/f_fft_11M.png, id=62, 1445.4pt x 706.13812pt>
 File: lab/f_fft_11M.png Graphic file (type png)
  <use lab/f_fft_11M.png>
-Package pdftex.def Info: lab/f_fft_11M.png used on input line 260.
+Package pdftex.def Info: lab/f_fft_11M.png used on input line 252.
 (pdftex.def)             Requested size: 476.98347pt x 233.02629pt.
 
-Overfull \hbox (4.95224pt too wide) in paragraph at lines 260--261
+Overfull \hbox (4.95224pt too wide) in paragraph at lines 252--253
  [][] 
  []
 
@@ -665,7 +665,7 @@ onts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 sfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on sia_proj1.pdf (10 pages, 589383 bytes).
+Output written on sia_proj1.pdf (10 pages, 590592 bytes).
 PDF statistics:
  120 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -186,7 +186,7 @@ O \textit{windowing} é implementado multiplicando o sinal de entrada por uma fu
 
 \subsection{Análise de uma onda sinusoidal com frequência de amostragem de 1 MHz}
 
-Sabendo que se tem um frequência de amostragem, $f_{s}$, de 1 MHz e que a frequência do sinal de entrada, $f_{in}$, é de 13,671875 kHz, pode-se recorrer a (\ref{eq:max_bin}) para determinar qual é a máxima frequência que pode ser representada por um dado número de amostras, que neste caso é 512. Assim, verifica-se que $k$ é 7, tal como visto anteriormente, e nesse ponto espera-se um máximo de amplitude.
+Sabendo que se tem uma frequência de amostragem, $f_{s}$, de 1 MHz e que a frequência do sinal de entrada, $f_{in}$, é de 13,671875 kHz, pode-se recorrer a (\ref{eq:max_bin}) para determinar qual é a máxima frequência que pode ser representada por um dado número de amostras, que neste caso é 512. Assim, verifica-se que $k$ é 7, tal como visto anteriormente, e nesse ponto espera-se um máximo de amplitude.
 
 Uma vez que $k$ é um número inteiro, verifica-se coerência entre a frequência do sinal de entrada e a frequência de amostragem, pelo que pode-se dispensar o uso do processo de $windowing$ na FFT implementada.
 
@@ -268,6 +268,6 @@ A melhoria introduzida pelo \textit{windowing} pode melhor ser observada na Figu
 
 \section{Conclusões}
 
-Relativamente ao ADC utilizado neste trabalho pode-se concluir que é ideal para uma frequência de amostragem igual à frequência para o qual foi projectado, 1 MHz. Verifica-se também que alterar a frequência de amostragem diminui a resolução do ADC, podendo isto ser corrigido através de \textit{windowing}. Entre as várias janelas utilizadas, a de Blackman-Harris é a mais selectiva e, como tal, a que coloca o ENOB num valor mais próximo do ideal.
+Relativamente ao ADC utilizado neste trabalho pode-se concluir que é ideal para uma frequência de amostragem igual à frequência para o qual foi projectado, 1 MHz. Verifica-se também que alterar a frequência de amostragem, mantendo a mesma frequência à entrada, diminui a resolução do ADC, podendo isto ser corrigido através de \textit{windowing}. Entre as várias janelas utilizadas, a de Blackman-Harris é a mais selectiva e, como tal, a que coloca o ENOB num valor mais próximo do ideal.
 	 
 \end{document}

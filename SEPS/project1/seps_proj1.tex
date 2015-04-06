@@ -1,0 +1,180 @@
+% !TeX spellcheck = pt_BR
+\documentclass[11pt]{article}
+
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{fixltx2e}
+\usepackage[bottom]{footmisc}
+\usepackage{listings}
+\usepackage{color} 
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[font=footnotesize]{caption}
+
+\numberwithin{equation}{section}
+
+\linespread{1.3}
+\usepackage{indentfirst}
+\usepackage[top=2cm, bottom=2cm, right=2.5cm, left=2.5cm]{geometry}
+\addto\captionsportuguese{\renewcommand{\contentsname}{Índice}}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+
+\hfill \break
+\hfill \break
+
+\includegraphics[width=0.3\textwidth]{./logo}~\\[1cm]
+
+\textsc{\LARGE Instituto Superior Técnico}\\[0.25cm]
+\textsc{\Large Mestrado Integrado em Engenharia Electrotécnica e de Computadores}\\[1.8cm]
+\textsc{\huge Sistemas Electrónicos de Processamento de Sinal}\\[0.25cm]
+
+\vspace{6mm}
+
+{\huge \bfseries Introdução ao Processamento Digital de Sinal \& \linebreak BPSK Modem \\[1cm]}
+
+\begin{tabular}{ l l }
+Maria Margarida Dias dos Reis & \hspace{2mm} n.º 73099 \\
+David Gonçalo C. C. de Deus Oliveira & \hspace{2mm} n.º 73722 \\
+Nuno Miguel Rodrigues Machado & \hspace{2mm} n.º 74236
+
+\end{tabular}
+
+\vfill
+
+{\large Lisboa, 16 de Março de 2015} 
+
+\end{center}
+\end{titlepage}
+
+\pagenumbering{gobble}
+\clearpage
+
+\tableofcontents
+\pagebreak
+
+\clearpage
+\pagenumbering{arabic}
+
+\section{Introdução}
+
+\section{Projecto $\#$1 - NCO}
+
+\todo{intro - margarida}
+
+\subsection{} %pergunta 1
+
+\todo{margarida}
+
+\subsection{} %pergunta 2
+
+\todo{david}
+
+\subsection{} %pergunta 3
+
+\todo{david}
+
+\subsection{} %pergunta 4
+
+Foram criadas duas variáveis com o objectivo de controlar a amplitude e frequência do sinal sinusoidal. A variável \texttt{delta} representa o controlo da frequência, já a variável \texttt{amp} representa o controlo da amplitude. Como se pode identificar no código abaixo:  
+
+\begin{lstlisting}[language=C]
+void main(){
+	 ....
+	 /* Variavel de controlo de frequencia */
+	 short 	delta = 0 ;
+	 //Variavel de amplitude: Define um ganho de 1/2 
+	 short	amp = 16384; 
+	 ...
+	 while(1){                	   	//infinite loop
+		  if(intflag != FALSE){
+		  ...	
+		  //Obtencao do valor para a frequencia		
+		  delta = 16384 + (inbuf>>2); 
+		  ....
+		  //Controlo da amplitude e frequencia
+		  y = (amp*((y1*delta)>> 15)>>15);
+		
+		  if(status < 0)
+			y = -y;
+			
+		  AIC_buffer.channel[LEFT] = y;
+		  }
+	 }
+}
+\end{lstlisting}
+
+Como foi referido anteriormente na questão 2.1, a partir da rampa de integração pode-se calcular o valor de \texttt{delta} usando a seguinte relação:
+
+\vspace{-3mm}
+\begin{equation}
+\bigtriangleup = \frac{f_{0}}{f_{s}} 2^{16},
+\label{eq:freq_bin}
+\end{equation}
+
+Como o NCO tem como característica uma a frequência $f_{0}$ que varia entre $2$kHz e $6$kHz. Estes valores são controlados a partir da amplitude do sinal de entrada. Quando esta for minima, a frequência $f_{0}$ é de $2$kHz e quando for máxima, a frequência $f_{0}$ é de $6$kHz. Com estas especificações pode-se calcular o valor de \texttt{delta}, todos os valores referidos na tabela seguinte estão no formato $Q_{15}$:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+	\underline{$f_{0}$ kHz} &\underline{\texttt{delta}} \\ \hline
+		$2$ & $8192$  \\ \hline
+		$4$ & $16384$ \\ \hline
+		$6$ & $24576$ \\ \hline
+	\end{tabular}
+\end{table}
+
+Analisando este resultado verificou-se que o valor de \texttt{delta} oscila com uma amplitude de $8192$ em torno de $16384$. Ou seja, $f_{0}$ têm uma frequência central em 4 kHz oscilando com uma amplitude de 2 kHz. Com esta conclusão, teve-se de garantir que o valor da amplitude do sinal de entrada não ultrapasse os $8192$, mantendo a relação entre cada amostra. Optou-se por dividir o valor de cada amostra por $4$, deslocamento de 2 bits para a direita, pois a amplitude máxima é de $32768$. Em baixo está o código referente ao calculo  para obter o delta \texttt{delta}, todos as variáveis definidas neste excerto são de 16 bits, \texttt{short}, em formato $Q_{15}$:
+
+\begin{lstlisting}[language=C]
+		...	
+		//Obtencao do valor para a frequencia		
+		delta = 16384 + (inbuf>>2); 
+		....
+\end{lstlisting}
+
+
+
+\subsection{} %pergunta 5
+
+\todo{teddy}
+
+\subsection{} %pergunta 6
+
+\todo{teddy}
+
+\subsection{} %pergunta 7
+
+\todo{margarida}
+
+\subsection{} %pergunta 8
+
+\todo{margarida}
+
+\section{Projecto $\#$2 - Transmissor BPSK}
+
+\todo{intro - david}
+
+\subsection{} %pergunta 1
+
+\todo{david}
+
+\subsection{} %pergunta 2
+
+\todo{teddy}
+
+\subsection{} %pergunta 3
+
+\todo{margarida}
+
+\section{Conclusões}
+
+\end{document}

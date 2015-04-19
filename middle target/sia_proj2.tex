@@ -79,9 +79,11 @@ O circuito de ponto de partida para a realização do projecto é apresentado de
 	\vspace{-0.8em}
 \end{figure} 
 
-\section{Abordagem do Circuito}
+\pagebreak
 
-\subsection{Identificação dos Blocos do Circuito}
+\section{Abordagem ao Circuito}
+
+\subsection{Identificação do Funcionamento do Circuito}
 
 Analisando o circuito da Figura 1 em pormenor identificam-se 5 blocos, sendo importante analisar a função de cada um, para que melhor se possa compreender o funcionamento e comportamento do circuito na sua totalidade. 
 
@@ -89,19 +91,62 @@ O Bloco 1 representa o transístor responsável pela polarização do circuito. 
 
 \todo{blocos 4 e 5?}
 
+Relativamente ao par diferencial, o circuito pode funcionar de acordo com três situações:
+
+\begin{itemize}
+	\vspace{-3mm}
+	\item $v_{in-} = v_{in+} \rightarrow$ situação 1
+	\vspace{-1.5mm}
+	\item $v_{in-} > v_{in+} \rightarrow$ situação 2
+	\vspace{-1.5mm}
+	\item $v_{in-} < v_{in+} \rightarrow$ situação 3
+\end{itemize}
+
+Na situação 1, cada transístor do par diferencial, M\textsubscript{1} e M\textsubscript{2}, tem metade da corrente que passa em M\textsubscript{11} e o circuito apresenta o seguinte comportamento.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{teoricas/situacao1}
+	\vspace{-0.5em}
+	\caption{Funcionamento do circuito na situação 1.}
+	\vspace{-0.8em}
+\end{figure} 
+
+Considerando agora o extremo da situação 2, a tensão na \textit{gate} de M\textsubscript{1} toma o valor máximo da fonte de tensão que polariza esse transístor e a tensão na \textit{gate} de M\textsubscript{2} é nula. Assim, o circuito apresenta o seguinte comportamento.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{teoricas/situacao2}
+	\vspace{-0.5em}
+	\caption{Funcionamento do circuito no extremo da situação 2.}
+	\vspace{-0.8em}
+\end{figure} 
+
+Considerando agora o extremo da situação 3, a tensão na \textit{gate} de M\textsubscript{2} toma o valor máximo da fonte de tensão que polariza esse transístor e a tensão na \textit{gate} de M\textsubscript{1} é nula. Assim, o circuito apresenta o seguinte comportamento.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{teoricas/situacao3}
+	\vspace{-0.5em}
+	\caption{Funcionamento do circuito no extremo da situação 3.}
+	\vspace{-0.8em}
+\end{figure} 
+
 \subsection{Definicação das Dimensões dos Transístores}
 
 A primeira fase no projecto do amplificador passou por decidir as dimensões dos vários transístores. Sabe-se que a dimensão de um transístor é dada pelos parâmetros $W$ (\textit{width} - largura) e $L$ (\textit{lenght} - comprimento). 
 
-O valor de $L$ ficou decidido à partida como sendo 1 $\mu$m para todos os transístores do circuito, isto porque se tem como \textit{rule of thumb} que, para se evitar o efeito de modulação do comprimento do canal, o valor de $L$ deve ser maior ou igual a 1 $\mu$m. O valor de $W$ pode ser calculado recorrendo à equação que determina a corrente num transístor:
+O valor de $L$ ficou decidido à partida como sendo 1 $\mu$m para todos os transístores do circuito, isto porque se tem como \textit{rule of thumb} que, para se evitar o efeito de modulação do comprimento do canal, o valor de $L$ deve ser maior ou igual a 1 $\mu$m. O valor de $W$ pode ser calculado recorrendo à equação que determina a corrente num transístor. Para um transístor do tipo P a corrente é dada por
 
 \vspace{-3mm}
 \begin{equation}
-I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \Big(\frac{W}{L}\Big) \times(V_{GS}-V_{TH})^2 = k\times \Big(\frac{W}{L}\Big) \times V_{OD}^2.
+I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \Big(\frac{W}{L}\Big) \times(V_{GS}-V_{TH})^2 = k_P \times \Big(\frac{W}{L}\Big) \times V_{OD}^2,
 \label{eq:corrente}
 \end{equation}
 
 \vspace{1mm}
+sendo que para um transístor do tipo N troca o valor do factor de ganho, em vez de $k_P$ tem-se $k_N$.
+
 Da equação anterior pretende-se determinar o valor de $W$ dos vários transístores, sendo então necessário saber o valor de $L$ (já determinado anteriormente), o valor da corrente que passa nos transístores, $I_{D}$, o valor de $k$ e o valor da tensão de \textit{overdrive}, $V_{OD}$.
 
 O valor da tensão de \textit{overdrive} definiu-se como sendo de 0.2 V para todos os transístores. Este valor deriva de outra \textit{rule of thumb} que indica que se deve escolher para $V_{OD}$ um valor de 0.2V - menos do que isso e fica-se demasiado sensível a $V_{TH}$ e mais do que isso e fica-se com pouca margem de saturação, que é uma medida do quão dentro da saturação se está, sendo calculada por $V_{DS} - V_{OD}$.
@@ -122,5 +167,29 @@ Os valores já conhecidos que ajudam a obter o valor de $W$ através da equaçã
 	\vspace{-1.5mm}
 	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/tabela2}
 \end{table}
+
+Para determinar os valores das correntes que passam nos vários transístores começou-se por determinar a corrente máxima à saída do circuito. Existe uma relação entre a \textit{slew-rate}, SR, e a corrente de saída máxima, $I_{out_{max}}$ expressa por
+
+\vspace{-3mm}
+\begin{equation}
+\text{SR} = \frac{I_{out_{max}}}{C_L},
+\end{equation}
+
+\vspace{1mm}
+que nos permite concluir que quanto maior for a corrente de saída, mais depressa é carregado o condensador que constitui a carga.
+
+Com os valores da Tabela 1 obtém-se:
+
+\vspace{-3mm}
+\begin{equation}
+\text{SR} = \frac{I_{out_{max}}}{C_L} \leftrightarrow I_{out_{max}} = 200 \times 0.25 \times 10^{-6}~\text{A} = 50~\mu \text{A}.
+\end{equation}
+
+\vspace{1mm}
+Analisando as Figuras 3 a 4 percebe-se que a corrente $I_{out_{max}}$ corresponde a $I/2$, pelo que o valor máximo de $I$ corresponde a 100 $\mu$A. Assim, o dimensionamento dos transístores foi feito tendo em conta o máximo de corrente que por eles passa.
+
+\pagebreak
+
+\section{Conclusões}
 
 \end{document}

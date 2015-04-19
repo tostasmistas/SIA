@@ -83,7 +83,7 @@ O circuito de ponto de partida para a realização do projecto é apresentado de
 
 \section{Abordagem ao Circuito}
 
-\subsection{Identificação do Funcionamento do Circuito}
+\subsection{Funcionamento do Circuito}
 
 Analisando o circuito da Figura 1 em pormenor identificam-se 5 blocos, sendo importante analisar a função de cada um, para que melhor se possa compreender o funcionamento e comportamento do circuito na sua totalidade. 
 
@@ -132,7 +132,7 @@ Considerando agora o extremo da situação 3, a tensão na \textit{gate} de M\te
 	\vspace{-0.8em}
 \end{figure} 
 
-\subsection{Definicação das Dimensões dos Transístores}
+\subsection{Dimensionamento dos Transístores}
 
 A primeira fase no projecto do amplificador passou por decidir as dimensões dos vários transístores. Sabe-se que a dimensão de um transístor é dada pelos parâmetros $W$ (\textit{width} - largura) e $L$ (\textit{lenght} - comprimento). 
 
@@ -186,7 +186,26 @@ Com os valores da Tabela 1 obtém-se:
 \end{equation}
 
 \vspace{1mm}
-Analisando as Figuras 3 a 4 percebe-se que a corrente $I_{out_{max}}$ corresponde a $I/2$, pelo que o valor máximo de $I$ corresponde a 100 $\mu$A. Assim, o dimensionamento dos transístores foi feito tendo em conta o máximo de corrente que por eles passa.
+Analisando as Figuras 3 a 4 percebe-se que a corrente $I_{out_{max}}$ corresponde a $I/2$, pelo que o valor máximo de $I$ corresponde a 100 $\mu$A. O dimensionamento dos transístores foi feito tendo em conta o máximo de corrente que por eles passa, de acordo com
+
+\vspace{-3mm}
+\begin{equation}
+W_P  = \frac{I_{D_{max}} \times L}{k_P \times V_{OD}^2} \rightarrow \text{transístor tipo PMOS};
+\end{equation}
+\vspace{1mm}
+\begin{equation}
+W_N  = \frac{I_{D_{max}} \times L}{k_N \times V_{OD}^2} \rightarrow \text{transístor tipo NMOS}.
+\end{equation}
+
+\vspace{1mm}
+Os valores de $W$, calculados em função da corrente máxima que atravessa os vários transístores, apresentam-se na próxima tabela.
+
+\begin{table}[H]
+	\centering
+	\caption{Valores de $W$ dos transístores que constituem o circuito.}
+	\vspace{-1.5mm}
+	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/valoresW}
+\end{table}
 
 \pagebreak
 

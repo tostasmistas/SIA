@@ -83,13 +83,11 @@ O circuito de ponto de partida para a realização do projecto é apresentado de
 
 \section{Abordagem ao Circuito}
 
-\subsection{Funcionamento do Circuito}
+\subsection{Funcionamento Teórico do Circuito}
 
 Analisando o circuito da Figura 1 em pormenor identificam-se 5 blocos, sendo importante analisar a função de cada um, para que melhor se possa compreender o funcionamento e comportamento do circuito na sua totalidade. 
 
-O Bloco 1 representa o transístor responsável pela polarização do circuito. O Bloco 2 representa um par diferencial PMOS. O Bloco 3 corresponde a um espelho de corrente \textit{cascode} básico do tipo PMOS.
-
-\todo{blocos 4 e 5?}
+O Bloco 1 representa o transístor responsável pela polarização do circuito. O Bloco 2 representa um par diferencial PMOS. O Bloco 3 corresponde a um espelho de corrente \textit{cascode} básico do tipo PMOS. O Bloco 4 actua como isolamento. O Bloco 5 funciona como fonte de corrente que ``puxa'' sempre $I$ (corrente de M\textsubscript{11}) para o \textit{ground}.
 
 Relativamente ao par diferencial, o circuito pode funcionar de acordo com três situações:
 
@@ -132,7 +130,7 @@ Considerando agora o extremo da situação 3, a tensão na \textit{gate} de M\te
 	\vspace{-0.8em}
 \end{figure} 
 
-\subsection{Dimensionamento dos Transístores}
+\subsection{Primeiro Dimensionamento dos Transístores}
 
 A primeira fase no projecto do amplificador passou por decidir as dimensões dos vários transístores. Sabe-se que a dimensão de um transístor é dada pelos parâmetros $W$ (\textit{width} - largura) e $L$ (\textit{lenght} - comprimento). 
 
@@ -206,6 +204,24 @@ Os valores de $W$, calculados em função da corrente máxima que atravessa os v
 	\vspace{-1.5mm}
 	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/valoresW}
 \end{table}
+
+De notar que os transístores M\textsubscript{5} e M\textsubscript{6} têm as mesmas dimensões, tal como pretendido, pois formam um espelho de corrente que tem como rácio 1:1. O mesmo se aplica aos transístores M\textsubscript{7} e M\textsubscript{8}.
+
+\subsection{Primeira Simulação}
+
+Com o dimensionamento dos transístores feito procede-se a uma primeira simulação do circuito, com o intuito de verificar o seu funcionamento. Porém, para simular o circuito alterou-se a polarização   
+
+\todo{simulacao e verificacao do vgs}
+
+
+0 - corte
+1 - triodo
+2 - saturacao
+3- subthreshold
+
+No entanto, concluiu-se que o dimensionamento feito em função do máximo da corrente que percorre cada transístor não é a melhor opção pois a tensão $V_{GS}$
+
+polarizacao em corrente para que se tenha corrente. se for em tensao nao temos garantias.
 
 \pagebreak
 

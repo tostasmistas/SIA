@@ -85,6 +85,8 @@ O circuito de ponto de partida para a realização do projecto é apresentado de
 
 \subsection{Funcionamento Teórico do Circuito}
 
+\todo{introducao teorica do OTA}
+
 Analisando o circuito da Figura 1 em pormenor identificam-se 5 blocos, sendo importante analisar a função de cada um, para que melhor se possa compreender o funcionamento e comportamento do circuito na sua totalidade. 
 
 O Bloco 1 representa o transístor responsável pela polarização do circuito. O Bloco 2 representa um par diferencial PMOS. O Bloco 3 corresponde a um espelho de corrente \textit{cascode} básico do tipo PMOS. O Bloco 4 actua como isolamento. O Bloco 5 funciona como fonte de corrente que ``puxa'' sempre $I$ (corrente de M\textsubscript{11}) para o \textit{ground}.
@@ -196,11 +198,11 @@ W_N  = \frac{I_{D_{max}} \times L}{k_N \times V_{OD}^2} \rightarrow \text{trans�
 \end{equation}
 
 \vspace{1mm}
-Os valores de $W$, calculados em função da corrente máxima que atravessa os vários transístores, apresentam-se na próxima tabela.
+Os valores de $W$, calculados em função da corrente máxima que atravessa os vários transístores, apresentam-se na próxima tabela. De notar que os valores foram arredondados ao inteiro mais próximo.
 
 \begin{table}[H]
 	\centering
-	\caption{Valores de $W$ dos transístores que constituem o circuito.}
+	\caption{Valores de $W$ dos transístores que constituem o circuito, calculados em função da corrente máxima.}
 	\vspace{-1.5mm}
 	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/valoresW}
 \end{table}
@@ -209,7 +211,17 @@ De notar que os transístores M\textsubscript{5} e M\textsubscript{6} têm as me
 
 \subsection{Primeira Simulação}
 
-Com o dimensionamento dos transístores feito procede-se a uma primeira simulação do circuito, com o intuito de verificar o seu funcionamento. Porém, para simular o circuito alterou-se a polarização   
+Com o dimensionamento dos transístores feito procede-se a uma primeira simulação do circuito, com o intuito de verificar o seu funcionamento. Porém, antes de simular o circuito alterou-se a sua polarização, para que em vez de ser feita em tensão seja feita em corrente. Isto é feito porque uma polarização em corrente permite ter mais controlo, sendo que quando é feita em tensão não se tem garantias dos valores pretendidos.  
+
+Assim, o circuito da Figura 1 foi alterado para o apresentado de seguida.
+
+\todo{imagem teorica circuito alterado}
+
+Como se pode ver, o transístor M\textsubscript{11} que é originalmente polarizado em tensão com $V_{BIAS}$, Bloco 1, foi substituído por um espelho de corrente básico que é polarizado em corrente com $I_{BIAS}$. A polarização feita com recurso a $V_{BIAS_{2}}$ e $V_{BIAS_{3}}$ também foi alterada para passar a ser feita em corrente.
+
+O \textit{schematic} criado no Cadence que permite simular o circuito é apresentado de seguida.
+
+\todo{imagem do schematic}
 
 \todo{simulacao e verificacao do vgs}
 
@@ -221,7 +233,12 @@ Com o dimensionamento dos transístores feito procede-se a uma primeira simulaç
 
 No entanto, concluiu-se que o dimensionamento feito em função do máximo da corrente que percorre cada transístor não é a melhor opção pois a tensão $V_{GS}$
 
-polarizacao em corrente para que se tenha corrente. se for em tensao nao temos garantias.
+\begin{table}[H]
+	\centering
+	\caption{Valores de $W$ dos transístores que constituem o circuito, calculados em função do PFR.}
+	\vspace{-1.5mm}
+	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/valoresW2}
+\end{table}
 
 \pagebreak
 

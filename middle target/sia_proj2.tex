@@ -186,28 +186,28 @@ Com os valores da Tabela 1 obtém-se:
 \end{equation}
 
 \vspace{1mm}
-Analisando as Figuras 3 a 4 percebe-se que a corrente $I_{out_{max}}$ corresponde a $I/2$, pelo que o valor máximo de $I$ corresponde a 100 $\mu$A. O dimensionamento dos transístores foi feito tendo em conta o máximo de corrente que por eles passa, de acordo com
+Analisando as Figuras 3 a 4 percebe-se que a corrente $I_{out_{max}}$ corresponde a $I/2$, pelo que o valor máximo de $I$ corresponde a 100 $\mu$A. O dimensionamento dos transístores foi feito tendo em conta o ponto de funcionamento em repouso (PFR), situação 1, de acordo com
 
 \vspace{-3mm}
 \begin{equation}
-W_P  = \frac{I_{D_{max}} \times L}{k_P \times V_{OD}^2} \rightarrow \text{transístor tipo PMOS};
+W_P  = \frac{I_{D} \times L}{k_P \times V_{OD}^2} \rightarrow \text{transístor tipo PMOS};
 \end{equation}
 \vspace{1mm}
 \begin{equation}
-W_N  = \frac{I_{D_{max}} \times L}{k_N \times V_{OD}^2} \rightarrow \text{transístor tipo NMOS}.
+W_N  = \frac{I_{D} \times L}{k_N \times V_{OD}^2} \rightarrow \text{transístor tipo NMOS}.
 \end{equation}
 
 \vspace{1mm}
-Os valores de $W$, calculados em função da corrente máxima que atravessa os vários transístores, apresentam-se na próxima tabela. De notar que os valores foram arredondados ao inteiro mais próximo.
+Os valores obtidos para a \textit{width} dos vários transístores apresenta-se na tabela seguinte. De notar que os valores foram arredondados ao inteiro mais próximo.
 
 \begin{table}[H]
 	\centering
-	\caption{Valores de $W$ dos transístores que constituem o circuito, calculados em função da corrente máxima.}
+	\caption{Valores de $W$ dos transístores que constituem o circuito, calculados em função do PFR.}
 	\vspace{-1.5mm}
-	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/valoresW}
+	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/valoresW2}
 \end{table}
 
-De notar que os transístores M\textsubscript{5} e M\textsubscript{6} têm as mesmas dimensões, tal como pretendido, pois formam um espelho de corrente que tem como rácio 1:1. O mesmo se aplica aos transístores M\textsubscript{7} e M\textsubscript{8}.
+De referir que os transístores M\textsubscript{5} e M\textsubscript{6} têm as mesmas dimensões, tal como pretendido, pois formam um espelho de corrente que tem como rácio 1:1. O mesmo se aplica aos transístores M\textsubscript{7} e M\textsubscript{8}.
 
 \subsection{Primeira Simulação}
 
@@ -230,15 +230,6 @@ O \textit{schematic} criado no Cadence que permite simular o circuito é apresen
 1 - triodo
 2 - saturacao
 3- subthreshold
-
-No entanto, concluiu-se que o dimensionamento feito em função do máximo da corrente que percorre cada transístor não é a melhor opção pois a tensão $V_{GS}$
-
-\begin{table}[H]
-	\centering
-	\caption{Valores de $W$ dos transístores que constituem o circuito, calculados em função do PFR.}
-	\vspace{-1.5mm}
-	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/valoresW2}
-\end{table}
 
 \pagebreak
 

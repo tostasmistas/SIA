@@ -34,7 +34,7 @@
 \textsc{\Large Mestrado Integrado em Engenharia Electrotécnica e de Computadores}\\[1.8cm]
 \textsc{\huge Sistemas Integrados Analógicos}\\[0.25cm]
 
-{\huge \bfseries \textit{Design} de um Amplificador e ADC de 4 \textit{bits} \\[1cm]}
+{\huge \bfseries \textit{Design} de um Amplificador \\[1cm]}
 
 \begin{tabular}{ l l }
 João Bernardo Sequeira de Sá & \hspace{2mm} n.º 68254 \\
@@ -217,7 +217,7 @@ Assim, o circuito da Figura 1 foi alterado para o apresentado de seguida.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.53]{teoricas/primeirasimul}
+	\includegraphics[keepaspectratio=true, scale=0.55]{teoricas/primeirasimul}
 	\vspace{-0.5em}
 	\caption{Primeiro circuito de simulação do amplificador.}
 	\vspace{-0.8em}
@@ -231,19 +231,61 @@ De notar que os transístores M\textsubscript{11\textsubscript{1}} e M\textsubsc
 
 Na Figura 6 encontra-se o \textit{schematic} criado no Cadence correspondente ao da Figura 5.
 
-\todo{imagem do schematic}
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.70]{exps/Woriginais}
+	\vspace{-0.5em}
+	\caption{\textit{Schematic} do circuito criado para a primeira simulação.}
+	\vspace{-0.8em}
+\end{figure} 
 
 Com o \textit{schematic} anterior projectou-se um símbolo e criou-se um novo \textit{schematic} de \textit{testbench}, como se pode ver na Figura 7.
 
-\todo{imagem do testbench}
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.47]{exps/testbench}
+	\vspace{-0.5em}
+	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito.}
+	\vspace{-0.8em}
+\end{figure} 
 
-\todo{simulacao e verificacao do vgs}
+Recorrendo ao circuito da figura anterior efectuou-se uma análise \textit{transient} durante 2 ms. Para verificar se o circuito funciona como pretendido otpou-se por verificar se todos os transístores do amplificador tem a corrente $I_D$ pretendida, ou seja, de acordo com a Figura 1, e se estão na região de saturação.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.85]{exps/PFRoriginais}
+	\vspace{-0.5em}
+	\caption{Valores do PFR do \textit{schematic} da Figura 6.}
+	\vspace{-0.8em}
+\end{figure} 
 
-0 - corte
-1 - triodo
-2 - saturacao
-3- subthreshold
+A região de funcionamento dos transístores pode ser vista na secção \textit{region}: 0 implica que o transístor está ao corte, 1 que está no tríodo, 2 que está na zona de saturação e 3 na região de \textit{subthreshold}.
+
+Como se pode ver, todos os transístores do amplificador estão na região 2, tal como pretendido, assim como os que polarizam através de $I_{BIAS}$. Os transístores M\textsubscript{12} e M\textsubscript{14} do espelho de corrente \textit{cascode} \textit{low-voltage} estão também saturados e o transístor M\textsubscript{13} está no tríodo, tal como se queria.
+
+Porém, apesar de os transístores estarem a funcionar na zona correcta, o valor das suas correntes está ligeiramente afastado do pretendio. Os transístores M\textsubscript{3}, M\textsubscript{4}, M\textsubscript{5}, M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8} deveriam ter um valor de $I_D$ de 50 $\mu$A, sendo, no entanto, o valor registado pela simulação de 42.6 $\mu$A. Para os transístores M\textsubscript{9} e M\textsubscript{10} esperava-se um valor de $I_D$ de 100 $\mu$A, sendo, no entanto, o valor registado pela simulação de 91.57 $\mu$A. As correntes do espelho de corrente básico estão de acordo com o esperado, sendo que os transístores M\textsubscript{1} e M\textsubscript{2} têm um valor de corrente de 48.97 $\mu$A, um valor próximo do esperado de 50 $\mu$A.
+
+\todo{verificacao do vgs na simulacao}
+
+Face à ligeira discrepância nos valores obtidos decidiu-se proceder a um ajuste nas dimensões dos transístores para se obter valores mais próximos dos esperados.
+
+\todo{explicar ajustes teoricamente, para nao parecer que foi à toa}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.70]{exps/Wajustados}
+	\vspace{-0.5em}
+	\caption{\textit{Schematic} do circuito com os valores de $W$ ajustados.}
+	\vspace{-0.8em}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[keepaspectratio=true, scale=0.85]{exps/PFRajustados}
+	\vspace{-0.5em}
+	\caption{Valores do PFR do \textit{schematic} da Figura 9.}
+	\vspace{-0.8em}
+\end{figure}
 
 \pagebreak
 

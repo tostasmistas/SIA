@@ -215,13 +215,27 @@ Com o dimensionamento dos transístores feito procede-se a uma primeira simulaç
 
 Assim, o circuito da Figura 1 foi alterado para o apresentado de seguida.
 
-\todo{imagem teorica circuito alterado}
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.53]{teoricas/primeirasimul}
+	\vspace{-0.5em}
+	\caption{Primeiro circuito de simulação do amplificador.}
+	\vspace{-0.8em}
+\end{figure} 
 
-Como se pode ver, o transístor M\textsubscript{11} que é originalmente polarizado em tensão com $V_{BIAS}$, Bloco 1, foi substituído por um espelho de corrente básico que é polarizado em corrente com $I_{BIAS}$. A polarização feita com recurso a $V_{BIAS_{2}}$ e $V_{BIAS_{3}}$ também foi alterada para passar a ser feita em corrente.
+Na figura anterior pode-se ver o valor de $W$ utilizado nos vários transístores, sendo que para todos o valor de $L$ é de 1 $\mu$m.
 
-O \textit{schematic} criado no Cadence que permite simular o circuito é apresentado de seguida.
+Como se pode ver, o transístor M\textsubscript{11} que é originalmente polarizado em tensão com $V_{BIAS}$, Bloco 1, foi substituído por um espelho de corrente básico que é polarizado em corrente com $I_{BIAS}$. A polarização feita com recurso a $V_{BIAS_{2}}$ e $V_{BIAS_{3}}$ foi tanbém alterada para passar a ser feita em corrente com $I_{BIAS_{2}}$, através de um espelho de corrente \textit{cascode} \textit{low-voltage}. O valor de $I_{BIAS}$ e de $I_{BIAS_{2}}$ é de 100 $\mu$A.
+
+De notar que os transístores M\textsubscript{11\textsubscript{1}} e M\textsubscript{11\textsubscript{2}} têm a mesma dimensão que aquela que foi determinada para M\textsubscript{11}, uma vez que a corrente que os atravessa é também 100 $\mu$A e são do tipo PMOS. Já os transístores M\textsubscript{12} e M\textsubscript{14} têm a mesma dimensão que M\textsubscript{9} e M\textsubscript{10}, uma vez que a corrente que os atravessa é também 100 $\mu$A e são do tipo NMOS. O transístor M\textsubscript{13}, de acordo com o funcionamento teórico de um espelho de corrente \textit{cascode} \textit{low-voltage}, deve ter um $W$ 3 vezes inferior ao de M\textsubscript{12}, assim como deve funcionar sempre no tríodo, o que implica uma \textit{width} de 9 $\mu$m.
+
+Na Figura 6 encontra-se o \textit{schematic} criado no Cadence correspondente ao da Figura 5.
 
 \todo{imagem do schematic}
+
+Com o \textit{schematic} anterior projectou-se um símbolo e criou-se um novo \textit{schematic} de \textit{testbench}, como se pode ver na Figura 7.
+
+\todo{imagem do testbench}
 
 \todo{simulacao e verificacao do vgs}
 

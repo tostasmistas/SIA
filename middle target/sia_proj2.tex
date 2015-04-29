@@ -140,7 +140,7 @@ O valor de $L$ ficou decidido à partida como sendo 1 $\mu$m para todos os trans
 
 \vspace{-3mm}
 \begin{equation}
-I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \Big(\frac{W}{L}\Big) \times(V_{GS}-V_{TH})^2 = k_P \times \Big(\frac{W}{L}\Big) \times V_{OD}^2,
+I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \left(\frac{W}{L}\right) \times \left(V_{GS}-V_{TH}^2\right) = k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2,
 \label{eq:corrente}
 \end{equation}
 
@@ -265,11 +265,34 @@ Como se pode ver, todos os transístores do amplificador estão na região 2, ta
 
 Porém, apesar de os transístores estarem a funcionar na zona correcta, o valor das suas correntes está ligeiramente afastado do pretendio. Os transístores M\textsubscript{3}, M\textsubscript{4}, M\textsubscript{5}, M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8} deveriam ter um valor de $I_D$ de 50 $\mu$A, sendo, no entanto, o valor registado pela simulação de 42.6 $\mu$A. Para os transístores M\textsubscript{9} e M\textsubscript{10} esperava-se um valor de $I_D$ de 100 $\mu$A, sendo, no entanto, o valor registado pela simulação de 91.57 $\mu$A. As correntes do espelho de corrente básico estão de acordo com o esperado, sendo que os transístores M\textsubscript{1} e M\textsubscript{2} têm um valor de corrente de 48.97 $\mu$A, um valor próximo do esperado de 50 $\mu$A.
 
-\todo{verificacao do vgs na simulacao}
+Até agora, para efectuar o dimensionamento dos transístores o critério que se teve em consideração foi a \textit{slew-rate}. Assim, com recurso à calculadora do Cadence calculou-se o seu valor, sendo este de $170.7\times10^6$ V/segundo $\leftrightarrow 170.7$ V/$\mu$s. O valor pretendido é de 200 V/$\mu$s, verificando-se então alguma diferença entre os dois valores.
 
-Face à ligeira discrepância nos valores obtidos decidiu-se proceder a um ajuste nas dimensões dos transístores para se obter valores mais próximos dos esperados.
+Relativamente aos valores de $V_{GS}$ para os vários transístores, os valores teóricos esperados foram calculados com base nos \textit{process parameters} da seguinte forma:
 
-\todo{explicar ajustes teoricamente, para nao parecer que foi à toa}
+\vspace{-3mm}
+\begin{equation}
+V_{TH_{P}} \approx 0.6 V \rightarrow V_{GS} = V_{OD} + V_{TH_{N}} = 0.2 + 0.6 = 0.8 V \rightarrow \text{transístor tipo PMOS};
+\end{equation}
+\begin{equation}
+V_{TH_{N}} \approx 0.5 V \rightarrow V_{GS} = V_{OD} + V_{TH_{N}} = 0.2 + 0.5 = 0.7 V \rightarrow \text{transístor tipo NMOS}.
+\end{equation}
+
+\vspace{1mm}
+Na Figura 6 pode-se verificar \todo{comentarios sobre os valores de vgs}
+
+Face à ligeira discrepância nos valores obtidos para a corrente nos vários transístores e para a \textit{slew-rate}, decidiu-se proceder a um ajuste nas dimensões dos transístores para se obter valores mais próximos dos esperados. Este ajuste foi feito ao nível dos transístores M\textsubscript{3} e M\textsubscript{4} pois, ao aumentar as suas dimensões faz-se variar as suas tensões $V_{GS}$, e como tal $V_{BIAS_{2}}$, o que resulta num aumento da tensão $V_{DS}$ de M\textsubscript{9}, que por sua vez faz aumentar a corrente daquele ramo.
+
+O ajuste feito nesses dois transístores passou por aumentar o seu rácio $W/L$ para o dobro, ou seja, o valor de $W$ passou de 14$\mu$m para 28$\mu$m. À primeira vista não parecer ser um ajuste fino, no entanto, está associado à existência de um efeito se segunda-ordem.
+
+De facto, quando se é mais criterioso, a corrente de um transístor não é calculada de acordo com a equação (2.1), mas sim de acordo com
+
+\vspace{-3mm}
+\begin{equation}
+I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \left(\frac{W}{L}\right) \times \left(V_{GS}-V_{TH}^2\right) \times \left(1+\lambda V_{DS}\right) = k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2 \times \left(1+\lambda V_{DS}\right).
+\end{equation}
+
+\vspace{1mm}
+Como se pode ver, sobre o valor da corrente existe um efeito de segunda-ordem com a introdução da parcela $\left(1+\lambda V_{DS}\right)$. Assim se explica que, quando o valor de $W$ de M\textsubscript{3} e M\textsubscript{4} passa para o dobro, a corrente nos transístores aumenta em aproximadamente 7$\mu$A, conseguindo-se obter o valor desejado de 50$\mu$A.
 
 \begin{figure}[H]
 	\centering

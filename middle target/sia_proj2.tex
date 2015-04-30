@@ -12,6 +12,7 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[font=footnotesize]{caption}
+\usepackage{relsize}
 
 \numberwithin{equation}{section}
 
@@ -81,9 +82,7 @@ O circuito de ponto de partida para a realização do projecto é apresentado de
 
 \pagebreak
 
-\section{Abordagem ao Circuito}
-
-\subsection{Funcionamento Teórico do Circuito}
+\section{Funcionamento Teórico do Circuito}
 
 \todo{introducao teorica do OTA}
 
@@ -132,9 +131,13 @@ Considerando agora o extremo da situação 3, a tensão na \textit{gate} de M\te
 	\vspace{-0.8em}
 \end{figure} 
 
-\subsection{Primeiro Dimensionamento dos Transístores}
+\section{Dimensionamento dos Transístores}
 
 A primeira fase no projecto do amplificador passou por decidir as dimensões dos vários transístores. Sabe-se que a dimensão de um transístor é dada pelos parâmetros $W$ (\textit{width} - largura) e $L$ (\textit{lenght} - comprimento). 
+
+\subsection{\textit{Slew-Rate}}
+
+Para efectuar o primeiro dimensionamento dos transístores teve-se em consideração o critério da \textit{slew-rate}, onde se pretende atingir um valor de 200 V/$\mu$s.
 
 O valor de $L$ ficou decidido à partida como sendo 1 $\mu$m para todos os transístores do circuito, isto porque se tem como \textit{rule of thumb} que, para se evitar o efeito de modulação do comprimento do canal, o valor de $L$ deve ser maior ou igual a 1 $\mu$m. O valor de $W$ pode ser calculado recorrendo à equação que determina a corrente num transístor. Para um transístor do tipo P a corrente é dada por
 
@@ -209,8 +212,6 @@ Os valores obtidos para a \textit{width} dos vários transístores apresenta-se 
 
 De referir que os transístores M\textsubscript{5} e M\textsubscript{6} têm as mesmas dimensões, tal como pretendido, pois formam um espelho de corrente que tem como rácio 1:1. O mesmo se aplica aos transístores M\textsubscript{7} e M\textsubscript{8}.
 
-\subsection{Primeira Simulação}
-
 Com o dimensionamento dos transístores feito procede-se a uma primeira simulação do circuito, com o intuito de verificar o seu funcionamento. Porém, antes de simular o circuito alterou-se a sua polarização, para que em vez de ser feita em tensão seja feita em corrente. Isto é feito porque uma polarização em corrente permite ter mais controlo, sendo que quando é feita em tensão não se tem garantias dos valores pretendidos.  
 
 Assim, o circuito da Figura 1 foi alterado para o apresentado de seguida.
@@ -282,7 +283,7 @@ Na Figura 6 pode-se verificar \todo{comentarios sobre os valores de vgs}
 
 Face à ligeira discrepância nos valores obtidos para a corrente nos vários transístores e para a \textit{slew-rate}, decidiu-se proceder a um ajuste nas dimensões dos transístores para se obter valores mais próximos dos esperados. Este ajuste foi feito ao nível dos transístores M\textsubscript{3} e M\textsubscript{4} pois, ao aumentar as suas dimensões faz-se variar as suas tensões $V_{GS}$, e como tal $V_{BIAS_{2}}$, o que resulta num aumento da tensão $V_{DS}$ de M\textsubscript{9}, que por sua vez faz aumentar a corrente daquele ramo.
 
-O ajuste feito nesses dois transístores passou por aumentar o seu rácio $W/L$ para o dobro, ou seja, o valor de $W$ passou de 14$\mu$m para 28$\mu$m. À primeira vista não parecer ser um ajuste fino, no entanto, está associado à existência de um efeito se segunda-ordem.
+O ajuste feito nesses dois transístores passou por aumentar o seu rácio $W/L$ para o dobro, ou seja, o valor de $W$ passou de 14$\mu$m para 28$\mu$m. À primeira vista não parecer ser um ajuste fino, no entanto, está associado à existência de um efeito de segunda-ordem.
 
 De facto, quando se é mais criterioso, a corrente de um transístor não é calculada de acordo com a equação (2.1), mas sim de acordo com
 
@@ -294,6 +295,10 @@ I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \left(\frac{W}{L}\right) \times \left(V_{
 \vspace{1mm}
 Como se pode ver, sobre o valor da corrente existe um efeito de segunda-ordem com a introdução da parcela $\left(1+\lambda V_{DS}\right)$. Assim se explica que, quando o valor de $W$ de M\textsubscript{3} e M\textsubscript{4} passa para o dobro, a corrente nos transístores aumenta em aproximadamente 7$\mu$A, conseguindo-se obter o valor desejado de 50$\mu$A.
 
+Os transístores M\textsubscript{9} e M\textsubscript{10} também viram as suas dimensões alteradas e, após um ajuste fino, o seu valor de $W$ passou de 29$\mu$m para 30$\mu$m. Fizeram-se mais ajustes finos, sendo que o transístor M\textsubscript{12} passou para um $W$ de 28$\mu$m e o transístor M\textsubscript{13} para um $W$ de 7$\mu$m.
+
+Na Figura 9 apresenta o circuito com o ajuste nas dimensões dos transístores.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.70]{exps/Wajustados}
@@ -304,11 +309,41 @@ Como se pode ver, sobre o valor da corrente existe um efeito de segunda-ordem co
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[keepaspectratio=true, scale=0.85]{exps/PFRajustados}
+	\includegraphics[keepaspectratio=true, scale=0.85]{exps/PFRajustados}
 	\vspace{-0.5em}
 	\caption{Valores do PFR do \textit{schematic} da Figura 9.}
 	\vspace{-0.8em}
 \end{figure}
+
+Como se pode ver na figura anterior, o valor da corrente nos transístores M\textsubscript{3} a M\textsubscript{8} passou para 50.39$\mu$A, um valor muito próximo do pretendido de 50$\mu$A. Relativamente aos transístores M\textsubscript{9} e M\textsubscript{10}, passaram a ter uma corrente de 99.36$\mu$A, um valor também bastante próximo do pretendido de 100$\mu$A.
+
+Face a estes ajustes mediu-se novamente o valor da \textit{slew-rate} para verificar se o critério já é cumprido. O valor medido foi de $199.9\times10^6$ V/segundo $\leftrightarrow 199.9$ V/$\mu$s, um valor que se considera óptimo.
+
+Assim, o estado actual do circuito é apresentado de seguida. Na tabela da direita pode-se ver as especificações pretendidas e as que se verificam até ao momento, sendo que a verde se assinalam aquelas que se considera cumpridas e a vermelho aquelas que se pretende melhorar.
+
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[c]{0.58\textwidth}
+		\begin{figure}[H]
+			\includegraphics[keepaspectratio=true, scale=0.34]{teoricas/ajuste1}
+			\caption{Circuito actual.}
+			\vspace{-0.8em}
+		\end{figure}
+	\end{minipage}
+	\begin{minipage}[c]{0.24\textwidth}
+		\centering
+		\begin{table}[H]
+			\centering
+			\caption{Especificações.}
+			\vspace{-1.5mm}
+			\includegraphics[keepaspectratio=true, scale=0.33]{teoricas/tabajuste1}
+		\end{table}
+	\end{minipage}	
+\end{figure}
+
+\subsection{Ganho e Largura de Banda}
+
+\subsection{Margem de Fase}
 
 \pagebreak
 

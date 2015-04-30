@@ -45,7 +45,7 @@ Nuno Miguel Rodrigues Machado & \hspace{2mm} n.º 74236
 
 \vfill
 
-{\large Lisboa, 1 de Maio de 2015} 
+{\large Lisboa, 3 de Maio de 2015} 
 
 \end{center}
 \end{titlepage}
@@ -295,7 +295,7 @@ I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \left(\frac{W}{L}\right) \times \left(V_{
 \vspace{1mm}
 Como se pode ver, sobre o valor da corrente existe um efeito de segunda-ordem com a introdução da parcela $\left(1+\lambda V_{DS}\right)$. Assim se explica que, quando o valor de $W$ de M\textsubscript{3} e M\textsubscript{4} passa para o dobro, a corrente nos transístores aumenta em aproximadamente 7$\mu$A, conseguindo-se obter o valor desejado de 50$\mu$A.
 
-Os transístores M\textsubscript{9} e M\textsubscript{10} também viram as suas dimensões alteradas e, após um ajuste fino, o seu valor de $W$ passou de 29$\mu$m para 30$\mu$m. Fizeram-se mais ajustes finos, sendo que o transístor M\textsubscript{12} passou para um $W$ de 28$\mu$m e o transístor M\textsubscript{13} para um $W$ de 7$\mu$m.
+Os transístores M\textsubscript{9} e M\textsubscript{10} também viram as suas dimensões alteradas e, após um ajuste fino, o seu valor de $W$ passou de 29$\mu$m para 30$\mu$m. Fizeram-se mais ajustes finos, sendo que o transístor M\textsubscript{12} passou para um $W$ de 28$\mu$m e o transístor M\textsubscript{13} para um $W$ de 7$\mu$m. Estes ajustes nos transístores foram feitos com o objectivo de melhorar a corrente dos respectivos ramos.
 
 Na Figura 9 apresenta o circuito com o ajuste nas dimensões dos transístores.
 
@@ -319,7 +319,7 @@ Como se pode ver na figura anterior, o valor da corrente nos transístores M\tex
 
 Face a estes ajustes mediu-se novamente o valor da \textit{slew-rate} para verificar se o critério já é cumprido. O valor medido foi de $199.9\times10^6$ V/segundo $\leftrightarrow 199.9$ V/$\mu$s, um valor que se considera óptimo.
 
-Assim, o estado actual do circuito é apresentado de seguida. Na tabela da direita pode-se ver as especificações pretendidas e as que se verificam até ao momento, sendo que a verde se assinalam aquelas que se considera cumpridas e a vermelho aquelas que se pretende melhorar.
+Assim, o estado actual do circuito é apresentado de seguida. Na tabela da direita pode-se ver as especificações pretendidas e as que se verificam até ao momento, sendo que a verde se assinalam aquelas que se considera cumpridas e a vermelho aquelas que se pretende melhorar. É de referir que ainda não se tem em consideração o critério da área, pois essa é uma preocupação final.
 
 \begin{figure}[h]
 	\centering
@@ -342,6 +342,22 @@ Assim, o estado actual do circuito é apresentado de seguida. Na tabela da direi
 \end{figure}
 
 \subsection{Ganho e Largura de Banda}
+
+Com o critério da \textit{slew-rate} bem definido, o foco vira agora para o critério do ganho para sinais de baixa amplitude e simultaneamente para o critério da largura de banda. O ganho do circuito é dado pela equação (3.10) e a largura de banda, que está associada à frequência do pólo dominante, é dada pela equação (3.11) tal como se pode ver de seguida.
+
+\vspace{-3mm}
+\begin{equation}
+A_{v} = g_{m_1} R_o =  g_{m_1}\left[\left(g_{m_4}r_{o_4}\left(r_{o_2}//r_{o_{10}}\right)\right)//\left(g_{m_6}r_{o_6}r_{o_8}\right)\right];
+\end{equation}
+\vspace{-2mm}
+\begin{equation}
+f_{p} = \frac{1}{2\pi C_L R_o} = \frac{1}{2\pi C_L \left[\left(g_{m_4}r_{o_4}\left(r_{o_2}//r_{o_{10}}\right)\right)//\left(g_{m_6}r_{o_6}r_{o_8}\right)\right]}.
+\end{equation}
+
+\vspace{4mm}
+Face aos valores da Tabela 4, conclui-se que o pretendido é diminuir o ganho para sinais de baixa amplitude e aumentar a largura de banda. Por análise das equações anteriores percebe-se que o parâmetro comum às duas é $R_o$, resistência de saída do amplificador \textit{folded cascode}, pelo que o que se pretende é diminuir o valor desse parâmetro.
+
+O valor de $R_o$ depende das resistências de saída de M\textsubscript{2} $\left(r_{o_2}\right)$, M\textsubscript{4} $\left(r_{o_4}\right)$, M\textsubscript{6} $\left(r_{o_6}\right)$, M\textsubscript{8} $\left(r_{o_8}\right)$ e M\textsubscript{10} $\left(r_{o_{10}}\right)$ e também da transcondutância de M\textsubscript{4} $\left(g_{m_4}\right)$ e M\textsubscript{6} $\left(g_{m_6}\right)$. 
 
 \subsection{Margem de Fase}
 

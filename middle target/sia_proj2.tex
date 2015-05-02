@@ -148,7 +148,7 @@ O valor de $L$ ficou decidido à partida como sendo 1 $\mu$m para todos os trans
 
 \vspace{-3mm}
 \begin{equation}
-I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \left(\frac{W}{L}\right) \times \left(V_{GS}-V_{TH}^2\right) = k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2,
+I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \left(\frac{W}{L}\right) \times \left(V_{GS}-V_{TH}\right)^2 = k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2,
 \label{eq:corrente}
 \end{equation}
 
@@ -325,13 +325,13 @@ De facto, quando se é mais criterioso, a corrente de um transístor não é cal
 
 \vspace{-3mm}
 \begin{equation}
-I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \left(\frac{W}{L}\right) \times \left(V_{GS}-V_{TH}^2\right) \times \left(1+\lambda V_{DS}\right) = k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2 \times \left(1+\lambda V_{DS}\right).
+I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \left(\frac{W}{L}\right) \times \left(V_{GS}-V_{TH}\right)^2 \times \left(1+\lambda V_{DS}\right) = k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2 \times \left(1+\lambda V_{DS}\right).
 \end{equation}
 
 \vspace{1mm}
 Como se pode ver, sobre o valor da corrente existe um efeito de segunda-ordem com a introdução da parcela $\left(1+\lambda V_{DS}\right)$. Assim se explica que, quando o valor de $W$ de M\textsubscript{3} e M\textsubscript{4} passa para o dobro, a corrente nos transístores aumenta em aproximadamente 7$\mu$A, conseguindo-se obter o valor desejado de 50$\mu$A.
 
-Os transístores M\textsubscript{9} e M\textsubscript{10} também viram as suas dimensões alteradas e, após um ajuste fino, o seu valor de $W$ passou de 29$\mu$m para 30$\mu$m. Fizeram-se mais ajustes finos, sendo que o transístor M\textsubscript{12} passou para um $W$ de 28$\mu$m e o transístor M\textsubscript{13} para um $W$ de 7$\mu$m. Estes ajustes nos transístores foram feitos com o objectivo de melhorar a corrente dos respectivos ramos.
+Fizeram-se mais ajustes finos nos transístores que polarizam o amplificador, sendo que o transístor M\textsubscript{12} passou para um $W$ de 28$\mu$m e o transístor M\textsubscript{13} para um $W$ de 7$\mu$m. Estes ajustes nos transístores foram feitos com o objectivo de melhorar a corrente dos respectivos ramos.
 
 Na Figura \ref{fig:ajustefail} apresenta-se o circuito com o ajuste nas dimensões dos transístores.
 
@@ -380,19 +380,23 @@ Assim, o estado actual do circuito é apresentado de seguida.
 	\end{minipage}	
 \end{figure}
 
+\vspace{-2mm}
+
 \subsection{\textit{Slew-Rate}, Ganho, Largura de Banda e Margem de Fase}
 
 Por análise da tabela anterior, verifica-se que o valor da largura de banda corresponde a metade do pretendido, sendo que depois se torna mais complicado conseguir recuperar sem comprometer a \textit{slew-rate} já obtida. 
 
 Assim, optou-se por uma nova abordagem em que fica decidido não alterar o rácio $W/L$ dos transístores, com vista a não modificar o valor da sua transcondutância e não comprometer a sua região de funcionamento.
 
-Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} de maneira igual à modificação de $W$, ou seja, $L$ passa para 2$\mu$m. \unsure{no M12 e M13 tambem se fez o ajuste do L para manter o racio? assim alterámos gm. O mesmo para M9 e M10} Face a esta modificação o circuito comporta-se da seguinte maneira. 
+Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} de maneira igual à modificação de $W$, ou seja, $L$ passa também para o dobro, ficando a 2$\mu$m. Relativamente ao ajuste fino feito nos transístores M\textsubscript{13} e M\textsubscript{14}, opta-se por não manter o seu rácio $W/L$, algo que não é problemático, uma vez que não fazem parte do circuito do amplificador, mas sim parte de um circuito que o polariza em corrente. Face a esta modificação o circuito comporta-se da seguinte maneira. 
 
-\begin{figure}[h]
+\vspace{-2mm}
+
+\begin{figure}[H]
 	\centering
 	\begin{minipage}[c]{0.58\textwidth}
 		\begin{figure}[H]
-			\includegraphics[keepaspectratio=true, scale=0.34]{teoricas/ajuste1}
+			\includegraphics[keepaspectratio=true, scale=0.30]{teoricas/ajuste2}
 			\caption{Circuito actual.}
 			\vspace{-0.8em}
 		\end{figure}
@@ -403,12 +407,12 @@ Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $
 			\centering
 			\caption{Especificações.}
 			\vspace{-1.5mm}
-			\includegraphics[keepaspectratio=true, scale=0.33]{teoricas/tabajuste2}
+			\includegraphics[keepaspectratio=true, scale=0.31]{teoricas/tabajuste2}
 		\end{table}
 	\end{minipage}	
 \end{figure}
 
-Como se poder pela Tabela 6, a \textit{slew-rate} desceu drasticamente face ao valor da Tabela 5. Assim, conclui-se que passar o rácio $W/L$ dos transístores M\textsubscript{3} e M\textsubscript{4} para o dobro é muito e optou-se por aumentar, numa primeira fase, em 30\%. Optou-se também nesta altura por ter em consideração o critério do ganho, da largura de banda e da margem de fase - tomou-se esta decisão pois uma análise teórica de todos estes factores revela o quão afectados são uns pelos outros.
+Como se pode ver pela Tabela 6, a \textit{slew-rate} desceu drasticamente face ao valor da Tabela 5. Assim, conclui-se que passar o rácio $W/L$ dos transístores M\textsubscript{3} e M\textsubscript{4} para o dobro é muito e optou-se por aumentar, numa primeira fase, em 30\% face ao valor original de $W = 14\mu$m e $L = 1\mu$m. Optou-se também nesta altura por ter em consideração o critério do ganho, da largura de banda e da margem de fase - tomou-se esta decisão pois uma análise teórica de todos estes factores revela o quão afectados são uns pelos outros.
 
 Veja-se: o ganho do circuito é dado pela equação (3.10) e a largura de banda, que está associada à frequência do pólo dominante, é dada pela equação (3.11) tal como se pode ver de seguida. A margem de fase é afectada por \change{referir o que afecta PM}.
 
@@ -423,11 +427,28 @@ f_{p} = \frac{1}{2\pi C_L R_o} = \frac{1}{2\pi C_L \left[\left(g_{m_4}r_{o_4}\le
 
 \vspace{4mm}
 
-\change{rever esta parte de baixo - agora é diferente}
+O parâmetro comum ao ganho e à largura de banda é $R_o$ - resistência de saída do amplificador \textit{folded cascode}. O valor de $R_o$ depende das resistências de saída de M\textsubscript{2} $\left(r_{o_2}\right)$, M\textsubscript{4} $\left(r_{o_4}\right)$, M\textsubscript{6} $\left(r_{o_6}\right)$, M\textsubscript{8} $\left(r_{o_8}\right)$ e M\textsubscript{10} $\left(r_{o_{10}}\right)$ e também da transcondutância de M\textsubscript{4} $\left(g_{m_4}\right)$ e M\textsubscript{6} $\left(g_{m_6}\right)$. 
 
-Face aos valores da Tabela 4, conclui-se que o pretendido é diminuir o ganho para sinais de baixa amplitude e aumentar a largura de banda. Por análise das equações anteriores percebe-se que o parâmetro comum às duas é $R_o$, resistência de saída do amplificador \textit{folded cascode}, pelo que o que se pretende é diminuir o valor desse parâmetro.
+O valor da transcondutância é directamente proporcional ao rácio $W/L$ e a resistência de saída de um transístor é dada por:
 
-O valor de $R_o$ depende das resistências de saída de M\textsubscript{2} $\left(r_{o_2}\right)$, M\textsubscript{4} $\left(r_{o_4}\right)$, M\textsubscript{6} $\left(r_{o_6}\right)$, M\textsubscript{8} $\left(r_{o_8}\right)$ e M\textsubscript{10} $\left(r_{o_{10}}\right)$ e também da transcondutância de M\textsubscript{4} $\left(g_{m_4}\right)$ e M\textsubscript{6} $\left(g_{m_6}\right)$. 
+\vspace{-3mm}
+\begin{equation}
+r_{o} = \left[\lambda \frac{1}{2}\mu_{n}C_{ox}\times \left(\frac{W}{L}\right) \times \left(V_{GS}-V_{TH}\right)^2\right]^{-1}.
+\end{equation}
+
+\vspace{1mm}
+Sabendo que se procura sempre manter o rácio das dimensões dos transístores vem:
+
+\vspace{-3mm}
+\begin{equation}
+g_{m}: ~\text{aumentar/diminuir}~W~\text{e}~\text{aumentar/diminuir}~L \rightarrow~\text{mantém valor}~de~g_{m};
+\end{equation}
+\begin{equation}
+r_{o}:  \begin{cases} ~\text{aumentar}~W~\text{e}~\text{aumentar}~L \rightarrow~\text{aumenta valor de}~de~r_{o}; \\ ~\text{diminuir}~W~\text{e}~\text{diminuir}~L \rightarrow~\text{diminui valor de}~de~r_{o}. \end{cases}
+\end{equation}
+
+\vspace{1mm}
+
 
 \subsection{\textit{Budget} da Corrente}
 

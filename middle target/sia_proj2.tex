@@ -9,10 +9,15 @@
 \usepackage{fixltx2e}
 \usepackage[bottom]{footmisc}
 \usepackage{color}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+\usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
 \usepackage[font=footnotesize]{caption}
-\usepackage{relsize}
 
 \numberwithin{equation}{section}
 
@@ -84,11 +89,11 @@ O circuito de ponto de partida para a realização do projecto é apresentado de
 
 \section{Funcionamento Teórico do Circuito}
 
-\todo{introducao teorica do OTA}
+O circuito a desenvolver é do tipo \textit{folded cascode} CMOS OTA (\textit{Operational Transconductance Amplifier}). Os amplificadores OTA são caracterizados por apresentar ganhos e valores de impedância de saída elevados. O valor elevado da impedância de saída  faz com que sejam especialmente indicados para cargas capacitivas podendo, no entanto, servir para cargas resistivas pequenas através de \textit{feedback}.
 
-Analisando o circuito da Figura 1 em pormenor identificam-se 5 blocos, sendo importante analisar a função de cada um, para que melhor se possa compreender o funcionamento e comportamento do circuito na sua totalidade. 
+Quando se compara o \textit{folded cascode} com o \textit{telescopic} observa-se que se tem o dobro da corrente e ganhos muito similares. No entanto, deve-se notar que se tem melhor largura de banda, \textit{slew-rate}, estabilidade e impedância de saída mais elevada. O compromisso por estas qualidades é uma velocidade de resposta inferior, assim como índices de ruido superiores e uma pior resposta na frequência.
 
-O Bloco 1 representa o transístor responsável pela polarização do circuito. O Bloco 2 representa um par diferencial PMOS. O Bloco 3 corresponde a um espelho de corrente \textit{cascode} básico do tipo PMOS. O Bloco 4 actua como isolamento. O Bloco 5 funciona como fonte de corrente que ``puxa'' sempre $I$ (corrente de M\textsubscript{11}) para o \textit{ground}.
+Analisando o circuito da Figura 1 em pormenor identificam-se 5 blocos, sendo importante analisar a função de cada um, para que melhor se possa compreender o funcionamento e comportamento do circuito na sua totalidade. O Bloco 1 representa o transístor responsável pela polarização do circuito. O Bloco 2 representa um par diferencial PMOS. O Bloco 3 corresponde a um espelho de corrente \textit{cascode} básico do tipo PMOS. O Bloco 4 actua como isolamento. O Bloco 5 funciona como fonte de corrente que ``puxa'' sempre $I$ (corrente de M\textsubscript{11}) para o \textit{ground}.
 
 Relativamente ao par diferencial, o circuito pode funcionar de acordo com três situações:
 
@@ -105,7 +110,7 @@ Na situação 1, cada transístor do par diferencial, M\textsubscript{1} e M\tex
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.50]{teoricas/situacao1}
+	\includegraphics[keepaspectratio=true, scale=0.47]{teoricas/situacao1}
 	\vspace{-0.5em}
 	\caption{Funcionamento do circuito na situação 1.}
 	\vspace{-0.8em}
@@ -115,7 +120,7 @@ Considerando agora o extremo da situação 2, a tensão na \textit{gate} de M\te
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.50]{teoricas/situacao2}
+	\includegraphics[keepaspectratio=true, scale=0.47]{teoricas/situacao2}
 	\vspace{-0.5em}
 	\caption{Funcionamento do circuito no extremo da situação 2.}
 	\vspace{-0.8em}
@@ -125,7 +130,7 @@ Considerando agora o extremo da situação 3, a tensão na \textit{gate} de M\te
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.50]{teoricas/situacao3}
+	\includegraphics[keepaspectratio=true, scale=0.47]{teoricas/situacao3}
 	\vspace{-0.5em}
 	\caption{Funcionamento do circuito no extremo da situação 3.}
 	\vspace{-0.8em}
@@ -237,26 +242,46 @@ Na Figura 6 encontra-se o \textit{schematic} criado no Cadence correspondente ao
 	\includegraphics[keepaspectratio=true, scale=0.70]{exps/Woriginais}
 	\vspace{-0.5em}
 	\caption{\textit{Schematic} do circuito criado para a primeira simulação.}
+	\label{fig:schematic1}
 	\vspace{-0.8em}
 \end{figure} 
 
-Com o \textit{schematic} anterior projectou-se um símbolo e criou-se um novo \textit{schematic} de \textit{testbench}, como se pode ver na Figura 7.
+Com o \textit{schematic} anterior projectou-se um símbolo e criaram-se novos \textit{schematics} de \textit{testbench}, como se pode ver nas Figura 7, 8 e 9.
+
+\change{preciso das imagens ds testbenchs}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.47]{exps/testbench}
 	\vspace{-0.5em}
-	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito.}
+	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito em testes transiente e de resposta DC.}
 	\vspace{-0.8em}
 \end{figure} 
 
-Recorrendo ao circuito da figura anterior efectuou-se uma análise \textit{transient} durante 2 ms. Para verificar se o circuito funciona como pretendido otpou-se por verificar se todos os transístores do amplificador tem a corrente $I_D$ pretendida, ou seja, de acordo com a Figura 1, e se estão na região de saturação.
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.47]{exps/testbench}
+	\vspace{-0.5em}
+	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito em testes de resposta AC.}
+	\vspace{-0.8em}
+\end{figure} 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.85]{exps/PFRoriginais}
+	\includegraphics[keepaspectratio=true, scale=0.47]{exps/testbench}
 	\vspace{-0.5em}
-	\caption{Valores do PFR do \textit{schematic} da Figura 6.}
+	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito em testes da \textit{slew-rate}.}
+	\vspace{-0.8em}
+\end{figure} 
+
+Recorrendo ao circuito da Figura 7 efectuou-se uma análise transiente durante 2 ms. Para verificar se o circuito funciona como pretendido otpou-se por verificar se todos os transístores do amplificador tem a corrente $I_D$ pretendida, ou seja, de acordo com a Figura 1, e se estão na região de saturação.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.85]{exps/PFRoriginaisVTH}
+	\vspace{-0.5em}
+	\caption{Valores do PFR do \textit{schematic} da Figura \ref{fig:schematic1}.}
+	\label{fig:PFR1}
 	\vspace{-0.8em}
 \end{figure} 
 
@@ -266,20 +291,31 @@ Como se pode ver, todos os transístores do amplificador estão na região 2, ta
 
 Porém, apesar de os transístores estarem a funcionar na zona correcta, o valor das suas correntes está ligeiramente afastado do pretendio. Os transístores M\textsubscript{3}, M\textsubscript{4}, M\textsubscript{5}, M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8} deveriam ter um valor de $I_D$ de 50 $\mu$A, sendo, no entanto, o valor registado pela simulação de 42.6 $\mu$A. Para os transístores M\textsubscript{9} e M\textsubscript{10} esperava-se um valor de $I_D$ de 100 $\mu$A, sendo, no entanto, o valor registado pela simulação de 91.57 $\mu$A. As correntes do espelho de corrente básico estão de acordo com o esperado, sendo que os transístores M\textsubscript{1} e M\textsubscript{2} têm um valor de corrente de 48.97 $\mu$A, um valor próximo do esperado de 50 $\mu$A.
 
-Até agora, para efectuar o dimensionamento dos transístores o critério que se teve em consideração foi a \textit{slew-rate}. Assim, com recurso à calculadora do Cadence calculou-se o seu valor, sendo este de $170.7\times10^6$ V/segundo $\leftrightarrow 170.7$ V/$\mu$s. O valor pretendido é de 200 V/$\mu$s, verificando-se então alguma diferença entre os dois valores.
+Até agora, para efectuar o dimensionamento dos transístores o critério que se teve em consideração foi a \textit{slew-rate}. Assim, com recurso à calculadora do Cadence calculou-se o seu valor, sendo este de $170.7\times10^6$ V/segundo $\leftrightarrow 169.9$ V/$\mu$s. O valor pretendido é de 200 V/$\mu$s, verificando-se então alguma diferença entre os dois valores.
 
 Relativamente aos valores de $V_{GS}$ para os vários transístores, os valores teóricos esperados foram calculados com base nos \textit{process parameters} da seguinte forma:
 
-\vspace{-3mm}
+\vspace{-6mm}
 \begin{equation}
-V_{TH_{P}} \approx 0.6 V \rightarrow V_{GS} = V_{OD} + V_{TH_{N}} = 0.2 + 0.6 = 0.8 V \rightarrow \text{transístor tipo PMOS};
+V_{TH_{0_{P}}} \approx 0.6 V \rightarrow V_{GS} = V_{OD} + V_{TH_{N}} = 0.2 + 0.6 = 0.8 V \rightarrow \text{transístor tipo PMOS};
 \end{equation}
 \begin{equation}
-V_{TH_{N}} \approx 0.5 V \rightarrow V_{GS} = V_{OD} + V_{TH_{N}} = 0.2 + 0.5 = 0.7 V \rightarrow \text{transístor tipo NMOS}.
+V_{TH_{0_{N}}} \approx 0.5 V \rightarrow V_{GS} = V_{OD} + V_{TH_{N}} = 0.2 + 0.5 = 0.7 V \rightarrow \text{transístor tipo NMOS}.
 \end{equation}
 
 \vspace{1mm}
-Na Figura 6 pode-se verificar \todo{comentarios sobre os valores de vgs}
+Na Figura \ref{fig:PFR1} pode-se verificar que certos transístores do amplificador sofrem de efeito de corpo, ou seja, não têm o \textit{bulk} à mesma tensão que a \textit{source}. Para transístores NMOS tal ocorre se a \textit{source} não estiver ligada a GND e, para transístores PMOS, se a \textit{source} não estiver ligada a VDD.
+
+Quando um transístor sofre de efeito de corpo o seu valor de $V_{TH}$ desvia-se de $V_{TH_{0}}$ (tensão de limiar na ausência de efeito de corpo) e, como tal, a sua tensão $V_{GS}$ toma também valores diferentes. De facto, os transístores PMOS que sofrem de feito de corpo (M\textsubscript{1}, M\textsubscript{2}, M\textsubscript{5} e M\textsubscript{6}), quando comparados aos que não sofrem, apresentam uma tensão de limiar mais afastada do valor da equação (3.7).
+
+Na tabela seguinte pode-se ver as especificações pretendidas e as que se verificam até ao momento, sendo que a verde se assinalam aquelas que se considera cumpridas e a vermelho aquelas que se pretende melhorar. É de referir que ainda não se tem em consideração o critério da área, pois essa é uma preocupação final.
+
+\begin{table}[H]
+	\centering
+	\caption{Especificações actuais do circuito.}
+	\vspace{-1.5mm}
+	\includegraphics[keepaspectratio=true, scale=0.40]{teoricas/valoresoriginais}
+\end{table}
 
 Face à ligeira discrepância nos valores obtidos para a corrente nos vários transístores e para a \textit{slew-rate}, decidiu-se proceder a um ajuste nas dimensões dos transístores para se obter valores mais próximos dos esperados. Este ajuste foi feito ao nível dos transístores M\textsubscript{3} e M\textsubscript{4} pois, ao aumentar as suas dimensões faz-se variar as suas tensões $V_{GS}$, e como tal $V_{BIAS_{2}}$, o que resulta num aumento da tensão $V_{DS}$ de M\textsubscript{9}, que por sua vez faz aumentar a corrente daquele ramo.
 
@@ -297,13 +333,14 @@ Como se pode ver, sobre o valor da corrente existe um efeito de segunda-ordem co
 
 Os transístores M\textsubscript{9} e M\textsubscript{10} também viram as suas dimensões alteradas e, após um ajuste fino, o seu valor de $W$ passou de 29$\mu$m para 30$\mu$m. Fizeram-se mais ajustes finos, sendo que o transístor M\textsubscript{12} passou para um $W$ de 28$\mu$m e o transístor M\textsubscript{13} para um $W$ de 7$\mu$m. Estes ajustes nos transístores foram feitos com o objectivo de melhorar a corrente dos respectivos ramos.
 
-Na Figura 9 apresenta o circuito com o ajuste nas dimensões dos transístores.
+Na Figura \ref{fig:ajustefail} apresenta-se o circuito com o ajuste nas dimensões dos transístores.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.70]{exps/Wajustados}
 	\vspace{-0.5em}
 	\caption{\textit{Schematic} do circuito com os valores de $W$ ajustados.}
+	\label{fig:ajustefail}
 	\vspace{-0.8em}
 \end{figure}
 
@@ -319,7 +356,9 @@ Como se pode ver na figura anterior, o valor da corrente nos transístores M\tex
 
 Face a estes ajustes mediu-se novamente o valor da \textit{slew-rate} para verificar se o critério já é cumprido. O valor medido foi de $199.9\times10^6$ V/segundo $\leftrightarrow 199.9$ V/$\mu$s, um valor que se considera óptimo.
 
-Assim, o estado actual do circuito é apresentado de seguida. Na tabela da direita pode-se ver as especificações pretendidas e as que se verificam até ao momento, sendo que a verde se assinalam aquelas que se considera cumpridas e a vermelho aquelas que se pretende melhorar. É de referir que ainda não se tem em consideração o critério da área, pois essa é uma preocupação final.
+Assim, o estado actual do circuito é apresentado de seguida. 
+
+\pagebreak
 
 \begin{figure}[h]
 	\centering
@@ -341,9 +380,37 @@ Assim, o estado actual do circuito é apresentado de seguida. Na tabela da direi
 	\end{minipage}	
 \end{figure}
 
-\subsection{Ganho e Largura de Banda}
+\subsection{\textit{Slew-Rate}, Ganho, Largura de Banda e Margem de Fase}
 
-Com o critério da \textit{slew-rate} bem definido, o foco vira agora para o critério do ganho para sinais de baixa amplitude e simultaneamente para o critério da largura de banda. O ganho do circuito é dado pela equação (3.10) e a largura de banda, que está associada à frequência do pólo dominante, é dada pela equação (3.11) tal como se pode ver de seguida.
+Por análise da tabela anterior, verifica-se que o valor da largura de banda corresponde a metade do pretendido, sendo que depois se torna mais complicado conseguir recuperar sem comprometer a \textit{slew-rate} já obtida. 
+
+Assim, optou-se por uma nova abordagem em que fica decidido não alterar o rácio $W/L$ dos transístores, com vista a não modificar o valor da sua transcondutância e não comprometer a sua região de funcionamento.
+
+Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} de maneira igual à modificação de $W$, ou seja, $L$ passa para 2$\mu$m. \unsure{no M12 e M13 tambem se fez o ajuste do L para manter o racio? assim alterámos gm. O mesmo para M9 e M10} Face a esta modificação o circuito comporta-se da seguinte maneira. 
+
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[c]{0.58\textwidth}
+		\begin{figure}[H]
+			\includegraphics[keepaspectratio=true, scale=0.34]{teoricas/ajuste1}
+			\caption{Circuito actual.}
+			\vspace{-0.8em}
+		\end{figure}
+	\end{minipage}
+	\begin{minipage}[c]{0.24\textwidth}
+		\centering
+		\begin{table}[H]
+			\centering
+			\caption{Especificações.}
+			\vspace{-1.5mm}
+			\includegraphics[keepaspectratio=true, scale=0.33]{teoricas/tabajuste2}
+		\end{table}
+	\end{minipage}	
+\end{figure}
+
+Como se poder pela Tabela 6, a \textit{slew-rate} desceu drasticamente face ao valor da Tabela 5. Assim, conclui-se que passar o rácio $W/L$ dos transístores M\textsubscript{3} e M\textsubscript{4} para o dobro é muito e optou-se por aumentar, numa primeira fase, em 30\%. Optou-se também nesta altura por ter em consideração o critério do ganho, da largura de banda e da margem de fase - tomou-se esta decisão pois uma análise teórica de todos estes factores revela o quão afectados são uns pelos outros.
+
+Veja-se: o ganho do circuito é dado pela equação (3.10) e a largura de banda, que está associada à frequência do pólo dominante, é dada pela equação (3.11) tal como se pode ver de seguida. A margem de fase é afectada por \change{referir o que afecta PM}.
 
 \vspace{-3mm}
 \begin{equation}
@@ -355,14 +422,21 @@ f_{p} = \frac{1}{2\pi C_L R_o} = \frac{1}{2\pi C_L \left[\left(g_{m_4}r_{o_4}\le
 \end{equation}
 
 \vspace{4mm}
+
+\change{rever esta parte de baixo - agora é diferente}
+
 Face aos valores da Tabela 4, conclui-se que o pretendido é diminuir o ganho para sinais de baixa amplitude e aumentar a largura de banda. Por análise das equações anteriores percebe-se que o parâmetro comum às duas é $R_o$, resistência de saída do amplificador \textit{folded cascode}, pelo que o que se pretende é diminuir o valor desse parâmetro.
 
 O valor de $R_o$ depende das resistências de saída de M\textsubscript{2} $\left(r_{o_2}\right)$, M\textsubscript{4} $\left(r_{o_4}\right)$, M\textsubscript{6} $\left(r_{o_6}\right)$, M\textsubscript{8} $\left(r_{o_8}\right)$ e M\textsubscript{10} $\left(r_{o_{10}}\right)$ e também da transcondutância de M\textsubscript{4} $\left(g_{m_4}\right)$ e M\textsubscript{6} $\left(g_{m_6}\right)$. 
 
-\subsection{Margem de Fase}
+\subsection{\textit{Budget} da Corrente}
 
 \pagebreak
 
 \section{Conclusões}
+
+\pagebreak
+
+\listoftodos[Notes]
 
 \end{document}

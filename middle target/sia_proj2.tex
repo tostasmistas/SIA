@@ -490,7 +490,7 @@ As tensões $V_{DB_2}$ e $V_{DB_9}$ são dadas pelas seguintes equações:
 	\end{equation}
 	
 \vspace{1mm}
-Analisando o circuito observa-se que a resistência $R_{2}$ depende da resistência de saída do transístor  M\textsubscript{11\textsubscript{1}}, ou seja de $r_{o_{11\_2}}$. A resistência $R_{9}$ depende dos transístores M\textsubscript{2}, M\textsubscript{3}, M\textsubscript{5} e M\textsubscript{7}. Veja-se:
+Analisando o circuito observa-se que a resistência $R_{2}$ depende da resistência de saída do transístor  $M_{11\_2}$, ou seja de $r_{o_{11\_2}}$. A resistência $R_{9}$ depende dos transístores M\textsubscript{2}, M\textsubscript{3}, M\textsubscript{5} e M\textsubscript{7}. Veja-se:
 	
 \vspace{-3mm}
 \begin{equation}
@@ -498,7 +498,9 @@ R_{9} = \left(g_{m_2}r_{o_2}\right)//\left(g_{m_3}r_{o_3}r_{o_5}r_{o_7}\right);
 \end{equation}
 
 \todo{falar agora de como se juntou toda esta logica para produzir a tabela}
-Em primeiro lugar foi decidido obter o \textit{SlewRate} desejado mas não comprometendo as restantes especificações, a solução encontrada foi aumentar a corrente que passa nos transístores $M_9$ e $M_10$ aumentado as suas dimensões de $W$ e $L$ e as dos transístores $M_3$ e $M_4$, esta alteração como já foi referido altera o efeito de segunda ordem. Com a \textit{SlewRate} próximo do valor pretendido 
+Em primeiro lugar foi decidido obter a \textit{SlewRate} desejada mas não comprometendo as restantes especificações, a solução encontrada foi aumentar a corrente que passa nos transístores $M_9$ e $M_{10}$ aumentado as suas dimensões de $W$ e $L$ e as dos transístores $M_3$ e $M_4$, esta alteração como já foi referido altera o efeito de segunda ordem. Com a \textit{SlewRate} próximo do valor pretendido segui-se o objectivo de reduzir a largura de banda e aumentar o ganho, observando as equações anteriores o aumento de $W$ e de $L$ dos transístores $M_7$ e $M_8$ traduz num aumento de $r_o$ e numa diminuição de $f_p$ e aumento do ganho, observar a iteração 2 na tabela seguinte. Obteve-se em contrapartida uma diminuição da \textit{SlewRate} tendo sido corrigida com o aumento de $W$ e $L$ dos transístores $M_9$ e $M_{10}$, iteração 3 da tabela, verificou-se que esta alteração não originava melhorias ao circuito, pelo contrário, aumentava a largura de banda e diminui-a o ganho.
+
+Partindo da iteração 2, continuou-se a reduzir a largura de banda e aumentar o ganho, aumentando o $W$ e $L$ dos transístores $M_7$, $M_8$, $M_5$ e $M_6$ aumentando o $r_o$, iteração 4 e 5. De seguida optou-se por aumentar a margem de  fase, diminuiu-se o $W$ e o $L$ dos transístores $M_3$ e $M_4$ o que diminui o $V_{DB_9}$ aumentando a margem de fase, iteração 6. Continuou-se a com o objectivo de aumentar a margem de fase,           
 \info{pode ajudar a explicar - na tabela estava: na iteraçao 3 houve uma ma alteraçao e voltou-se atras. na iteraçao 21 houve um ajuste de gm3 e gm4}
 	
 Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.

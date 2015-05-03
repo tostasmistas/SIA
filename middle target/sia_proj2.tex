@@ -505,9 +505,9 @@ Com a \textit{slew-rate} próxima do valor pretendido seguiu-se o objectivo de r
 
 Partindo da iteração 2, continuou-se a reduzir a largura de banda e aumentar o ganho, aumentando o $W$ e $L$ dos transístores M\textsubscript{5}, M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8}, aumentando então o seus valores de $r_o$ -  iteração 4 e 5. 
 
-De seguida, optou-se por aumentar a margem de  fase e, para tal, diminuiu-se o valor de $W$ e $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} o que diminui o $V_{DB_9}$ aumentando a margem de fase - iteração 6. Continuou-se com o objectivo de aumentar a margem de fase, \todo{continuar}
-         
-Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.
+De seguida, optou-se por aumentar a margem de fase e, para tal, diminuiu-se o valor de $W$ e $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} o que diminui o $V_{DB_9}$ aumentando a margem de fase - iteração 6. Continuou-se com o objectivo de aumentar a margem de fase, aumentando o $W$ e o $L$ de M\textsuperscript{1} e M\textsuperscript{2}, alterando a margem de fase como na iteração anterior.
+
+Seguiu-se este raciocínio até chegar às especificações próximas das pretendidas. Relativamente aos rácios de $W/L$ que se procura manter, estes são apresentados na seguinte tabela.
 
 \begin{table}[H]
 	\centering
@@ -516,9 +516,11 @@ Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.
 	\includegraphics[keepaspectratio=true, scale=0.33]{teoricas/racios}
 \end{table}
 
-De seguida apresenta-se uma tabela que representa a linha temporal das mudanças que foram sendo feitas nas dimensões dos transístores de acordo com a lógica anteriormente explicada. Cada célula da tabela corresponde a um rácio $W/L$ do par de transístores correspondente e, para cada alteração feita numa determinada iteração, representa-se também o actual valor das especificações que se pretende cumprir.
+Na página seguinte apresenta-se uma tabela que representa a linha temporal das mudanças que foram sendo feitas nas dimensões dos transístores de acordo com a lógica anteriormente explicada. Cada célula da tabela corresponde a um rácio $W/L$ do par de transístores correspondente e, para cada alteração feita numa determinada iteração, representa-se também o actual valor das especificações que se pretende cumprir.
 
-De referir que, os transístores são sempre modificados aos pares, ou seja, um ajuste em M\textsubscript{1} implica igual ajuste em M\textsubscript{2}, sendo o mesmo válido para M\textsubscript{3} e M\textsubscript{4}, M\textsubscript{5} e M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8} e ainda para M\textsubscript{9} e M\textsubscript{10}. Isto feito para que o circuito não fique em desiquilíbrio.
+De referir que, os transístores são sempre modificados aos pares, ou seja, um ajuste em M\textsubscript{1} implica igual ajuste em M\textsubscript{2}, sendo o mesmo válido para M\textsubscript{3} e M\textsubscript{4}, M\textsubscript{5} e M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8} e ainda para M\textsubscript{9} e M\textsubscript{10}, sendo isto feito para que o circuito não fique em desiquilíbrio.
+
+É de notar também que existem dois transístores, M\textsubscript{5} e M\textsubscript{6}, que possuem um $L$ menor que 1 $um$m, sendo esta alteração necessária para que se obtivesse um valor de \textit{slew-rate} bom sem afectar as restantes especificações.
 
 \begin{table}[H]
 	\centering
@@ -602,7 +604,50 @@ De seguida, optou-se por modificar a polarização de $I_{BIAS_{2}}$ que é efec
 
 Assim, o circuito final é apresentado de seguida.
 
-\todo{montes de imagens}
+\todo{imagem circuito word}
+
+\begin{table}[H]
+	\centering
+	\caption{Especificações actuais do circuito.}
+	\vspace{-1.5mm}
+	\includegraphics[keepaspectratio=true, scale=0.40]{teoricas/tabsemarea}
+\end{table}
+
+Na Figura TAL encontra-se o \textit{schematic} criado no Cadence correspondente ao da Figura TAL.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.70]{exps/dimen_final}
+	\vspace{-0.5em}
+	\caption{\textit{Schematic} do circuito actual.}
+	\vspace{-0.8em}
+\end{figure} 
+
+Apresenta-se de seguida as simulações obtidas com o Cadence.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.75]{exps/PFR_final}
+	\vspace{-0.5em}
+	\caption{Valores do PFR do \textit{schematic} da Figura TAL.}
+	\vspace{-0.8em}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.25]{exps/snapshotDc_Slewrate}
+	\vspace{-0.5em}
+	\caption{Resposta transiente do circuito.}
+	\vspace{-0.8em}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.25]{exps/snapshotAC_Final}
+	\vspace{-0.5em}
+	\caption{Resposta em frequência do circuito.}
+	\vspace{-0.8em}
+\end{figure} 
 
 \pagebreak
 
@@ -628,7 +673,16 @@ A partir desta forma compacta e fazendo uso da régua do Cadence cujas unidades 
 \end{equation}
 
 \vspace{-1mm}
-Como se veririca, a área obtida está bastante abaixo da especificada, que era 0.02 $\text{mm}^2$. Assim, obtém-se uma área cerca de 3.3 vezes menor, pelo que, mesmo que haja algum factor de erro no método de cálculo, podemos considerar que o objectivo foi cumprido.
+Como se veririca, a área obtida está bastante abaixo da especificada, que era 0.02 $\text{mm}^2$. Assim, obtém-se uma área cerca de 3.3 vezes menor, pelo que, mesmo que haja algum factor de erro no método de cálculo, podemos considerar que o objectivo foi cumprido. 
+
+Na tabela seguinte apresentam-se todas as especificações do circuito e quais os seus valores experimentais e teóricos.
+
+\begin{table}[H]
+	\centering
+	\caption{Especificações actuais do circuito.}
+	\vspace{-1.5mm}
+	\includegraphics[keepaspectratio=true, scale=0.40]{teoricas/tabcarea}
+\end{table}
 
 \pagebreak
 

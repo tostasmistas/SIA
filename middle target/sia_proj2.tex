@@ -388,7 +388,7 @@ Por análise da tabela anterior, verifica-se que o valor da largura de banda cor
 
 Assim, optou-se por uma nova abordagem em que fica decidido não alterar o rácio $W/L$ dos transístores, com vista a não modificar o valor da sua transcondutância e não comprometer a sua região de funcionamento.
 
-Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} de maneira igual à modificação de $W$, ou seja, $L$ passa também para o dobro, ficando a 2$\mu$m. Relativamente ao ajuste fino feito nos transístores M\textsubscript{13} e M\textsubscript{14}, opta-se por não manter o seu rácio $W/L$, algo que não é problemático, uma vez que não fazem parte do circuito do amplificador, mas sim parte de um circuito que o polariza em corrente. Face a esta modificação o circuito comporta-se da seguinte maneira. 
+Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} de maneira igual à modificação de $W$, ou seja, $L$ passa também para o dobro, ficando a 2$\mu$m. Relativamente ao ajuste fino feito nos transístores M\textsubscript{12} e M\textsubscript{13}, opta-se por não manter o seu rácio $W/L$, algo que não é problemático, uma vez que não fazem parte do circuito do amplificador, mas sim parte de um circuito que o polariza em corrente. Face a esta modificação o circuito comporta-se da seguinte maneira. 
 
 \vspace{-2mm}
 
@@ -451,13 +451,25 @@ r_{o}:  \begin{cases} ~\text{aumentar}~W~\text{e}~\text{aumentar}~L \rightarrow~
 
 \begin{table}[H]
 	\centering
-	\caption{Especificações.}
+	\caption{Linha temporal das alterações nas dimensões dos transístores e valores experimentais registados.}
 	\vspace{-1.5mm}
 	\includegraphics[keepaspectratio=true, scale=0.40]{teoricas/tabelaF1}
 \end{table}
 
-
 \subsection{\textit{Budget} da Corrente}
+
+Com as especificações associadas ao ganho, largura de banda, margem de fase e \textit{slew-rate} cumpridas, o foco vira agora para o \textit{budget} de corrente, de modo a que o consumo de corrente no circuito seja o mínimo possível.
+
+Para tal, opta-se por ``injectar'' uma corrente de 5$\mu$A na polarização de $V_{BIAS}$ e então ajustar a dimensão dos transístores do espelho de corrente básico, para que a corrente fornecida ao par diferencial seja de 100$\mu$A na mesma. Olhando apenas para o circuito do espelho de corrente vem:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/cmirror}
+	\vspace{-0.5em}
+	\caption{Espelho de corrente básico que polariza $V_{BIAS}$ em corrente.}
+	\vspace{-0.8em}
+\end{figure}
+
 
 \pagebreak
 

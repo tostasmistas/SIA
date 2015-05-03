@@ -239,7 +239,7 @@ Na Figura 6 encontra-se o \textit{schematic} criado no Cadence correspondente ao
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.70]{exps/Woriginais}
+	\includegraphics[keepaspectratio=true, scale=0.80]{exps/Woriginais}
 	\vspace{-0.5em}
 	\caption{\textit{Schematic} do circuito criado para a primeira simulação.}
 	\label{fig:schematic1}
@@ -248,17 +248,21 @@ Na Figura 6 encontra-se o \textit{schematic} criado no Cadence correspondente ao
 
 Com o \textit{schematic} anterior projectou-se um símbolo e criaram-se novos \textit{schematics} de \textit{testbench}, como se pode ver nas Figura 7, 8 e 9.
 
+\vspace{3mm}
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.25]{exps/TBdctrans}
+	\includegraphics[keepaspectratio=true, scale=0.60]{exps/TBdctrans}
 	\vspace{-0.5em}
 	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito em testes transiente e de resposta DC.}
 	\vspace{-0.8em}
 \end{figure} 
 
+\vspace{4mm}
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.25]{exps/TBac}
+	\includegraphics[keepaspectratio=true, scale=0.60]{exps/TBac}
 	\vspace{-0.5em}
 	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito em testes de resposta AC.}
 	\vspace{-0.8em}
@@ -266,7 +270,7 @@ Com o \textit{schematic} anterior projectou-se um símbolo e criaram-se novos \t
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.25]{exps/TBslewrate}
+	\includegraphics[keepaspectratio=true, scale=0.60]{exps/TBslewrate}
 	\vspace{-0.5em}
 	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito em testes da \textit{slew-rate}.}
 	\vspace{-0.8em}
@@ -317,7 +321,7 @@ Na tabela seguinte pode-se ver as especificações pretendidas e as que se verif
 
 Face à ligeira discrepância nos valores obtidos para a corrente nos vários transístores e para a \textit{slew-rate}, decidiu-se proceder a um ajuste nas dimensões dos transístores para se obter valores mais próximos dos esperados. Este ajuste foi feito ao nível dos transístores M\textsubscript{3} e M\textsubscript{4} pois, ao aumentar as suas dimensões faz-se variar as suas tensões $V_{GS}$, e como tal $V_{BIAS_{2}}$, o que resulta num aumento da tensão $V_{DS}$ de M\textsubscript{9}, que por sua vez faz aumentar a corrente daquele ramo.
 
-O ajuste feito nesses dois transístores passou por aumentar o seu rácio $W/L$ para o dobro, ou seja, o valor de $W$ passou de 14$\mu$m para 28$\mu$m. À primeira vista não parecer ser um ajuste fino, no entanto, está associado à existência de um efeito de segunda-ordem.
+O ajuste feito nesses dois transístores passou por aumentar o seu rácio $W/L$ para o dobro, ou seja, o valor de $W$ passou de 14 $\mu$m para 28 $\mu$m. À primeira vista não parecer ser um ajuste fino, no entanto, está associado à existência de um efeito de segunda-ordem.
 
 De facto, quando se é mais criterioso, a corrente de um transístor não é calculada de acordo com a equação (2.1), mas sim de acordo com
 
@@ -329,7 +333,7 @@ I_{D} = \frac{1}{2}\mu_{n}C_{ox}\times \left(\frac{W}{L}\right) \times \left(V_{
 \vspace{1mm}
 Como se pode ver, sobre o valor da corrente existe um efeito de segunda-ordem com a introdução da parcela $\left(1+\lambda V_{DS}\right)$. Assim se explica que, quando o valor de $W$ de M\textsubscript{3} e M\textsubscript{4} passa para o dobro, a corrente nos transístores aumenta em aproximadamente 7$\mu$A, conseguindo-se obter o valor desejado de 50$\mu$A.
 
-Fizeram-se mais ajustes finos nos transístores que polarizam o amplificador, sendo que o transístor M\textsubscript{12} passou para um $W$ de 28$\mu$m e o transístor M\textsubscript{13} para um $W$ de 7$\mu$m. Estes ajustes nos transístores foram feitos com o objectivo de melhorar a corrente dos respectivos ramos.
+Fizeram-se mais ajustes finos nos transístores que polarizam o amplificador, sendo que o transístor M\textsubscript{12} passou para um $W$ de 28 $\mu$m e o transístor M\textsubscript{13} para um $W$ de 7 $\mu$m. Estes ajustes nos transístores foram feitos com o objectivo de melhorar a corrente dos respectivos ramos.
 
 Na Figura \ref{fig:ajustefail} apresenta-se o circuito com o ajuste nas dimensões dos transístores.
 
@@ -350,7 +354,7 @@ Na Figura \ref{fig:ajustefail} apresenta-se o circuito com o ajuste nas dimensõ
 	\vspace{-0.8em}
 \end{figure}
 
-Como se pode ver na figura anterior, o valor da corrente nos transístores M\textsubscript{3} a M\textsubscript{8} passou para 50.39$\mu$A, um valor muito próximo do pretendido de 50$\mu$A. Relativamente aos transístores M\textsubscript{9} e M\textsubscript{10}, passaram a ter uma corrente de 99.36$\mu$A, um valor também bastante próximo do pretendido de 100$\mu$A.
+Como se pode ver na figura anterior, o valor da corrente nos transístores M\textsubscript{3} a M\textsubscript{8} passou para 50.39 $\mu$A, um valor muito próximo do pretendido de 50 $\mu$A. Relativamente aos transístores M\textsubscript{9} e M\textsubscript{10}, passaram a ter uma corrente de 99.36 $\mu$A, um valor também bastante próximo do pretendido de 100 $\mu$A.
 
 Face a estes ajustes mediu-se novamente o valor da \textit{slew-rate} para verificar se o critério já é cumprido. O valor medido foi de $199.9\times10^6$ V/segundo $\leftrightarrow 199.9$ V/$\mu$s, um valor que se considera óptimo.
 
@@ -384,7 +388,7 @@ Por análise da tabela anterior, verifica-se que o valor da largura de banda cor
 
 Assim, optou-se por uma nova abordagem em que fica decidido não alterar o rácio $W/L$ dos transístores, com vista a não modificar o valor da sua transcondutância e não comprometer a sua região de funcionamento.
 
-Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} de maneira igual à modificação de $W$, ou seja, $L$ passa também para o dobro, ficando a 2$\mu$m. Relativamente ao ajuste fino feito nos transístores M\textsubscript{12} e M\textsubscript{13}, opta-se por não manter o seu rácio $W/L$, algo que não é problemático, uma vez que não fazem parte do circuito do amplificador, mas sim parte de um circuito que o polariza em corrente. Face a esta modificação o circuito comporta-se da seguinte maneira. 
+Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} de maneira igual à modificação de $W$, ou seja, $L$ passa também para o dobro, ficando a 2 $\mu$m. Relativamente ao ajuste fino feito nos transístores M\textsubscript{12} e M\textsubscript{13}, opta-se por não manter o seu rácio $W/L$, algo que não é problemático, uma vez que não fazem parte do circuito do amplificador, mas sim parte de um circuito que o polariza em corrente. Face a esta modificação o circuito comporta-se da seguinte maneira. 
 
 \vspace{-2mm}
 
@@ -408,7 +412,7 @@ Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $
 	\end{minipage}	
 \end{figure}
 
-Como se pode ver pela Tabela 6, a \textit{slew-rate} desceu drasticamente face ao valor da Tabela 5. Assim, conclui-se que passar o rácio $W/L$ dos transístores M\textsubscript{3} e M\textsubscript{4} para o dobro é muito e optou-se por aumentar, numa primeira fase, em 30\% face ao valor original de $W = 14\mu$m e $L = 1\mu$m. Optou-se também nesta altura por ter em consideração o critério do ganho, da largura de banda e da margem de fase - tomou-se esta decisão pois uma análise teórica de todos estes factores revela o quão afectados são uns pelos outros.
+Como se pode ver pela Tabela 6, a \textit{slew-rate} desceu drasticamente face ao valor da Tabela 5. Assim, conclui-se que passar o rácio $W/L$ dos transístores M\textsubscript{3} e M\textsubscript{4} para o dobro é muito e optou-se por aumentar, numa primeira fase, em 30\% face ao valor original de $W = 14~\mu$m e $L = 1~\mu$m. Optou-se também nesta altura por ter em consideração o critério do ganho, da largura de banda e da margem de fase - tomou-se esta decisão pois uma análise teórica de todos estes factores revela o quão afectados são uns pelos outros.
 
 Veja-se: o ganho do circuito é dado pela equação (3.10) e a largura de banda, que está associada à frequência do pólo dominante, é dada pela equação (3.11).
 
@@ -443,14 +447,14 @@ g_{m}: ~\text{aumentar/diminuir}~W~\text{e}~\text{aumentar/diminuir}~L \rightarr
 r_{o}:  \begin{cases} ~\text{aumentar}~W~\text{e}~\text{aumentar}~L \rightarrow~\text{aumenta valor de}~de~r_{o} \\ ~\text{diminuir}~W~\text{e}~\text{diminuir}~L \rightarrow~\text{diminui valor de}~de~r_{o} \end{cases}
 \end{equation}
 
-A margem de fase,$PM$, é afectada pela frequência do pólo não dominante, sendo dada pela equação (3.15), tal como se pode ver de seguida.
+A margem de fase, $PM$, é afectada pela frequência do pólo não dominante, sendo dada pela equação (3.15), tal como se pode ver de seguida.
 
 \vspace{-3mm}
 \begin{equation}
 f_{np} = \frac{g_{m_3}}{2\pi C_{n_1}} \approx \frac{g_{m_3}}{2\pi \left[C_{gs_3} + C_{db_2} + C_{db_9}\right]}.
 \end{equation}
 
-\vspace{1mm}
+\vspace{3mm}
 Analisando a equação anterior tem-se quatro graus de liberdade: $g_{m_3}$, $C_{gs_3}$, $C_{db_2}$ e $C_{db_9}$. Como foi referido anteriormente, o rácio $W/L$ mantém-se, logo o valor de $g_{m_3}$ é constante. Assim, os parâmetros que afectam de facto a frequência do pólo não dominante são $C_{gs_3}$, $C_{db_2}$ e $C_{db_9}$. De seguida apresentam-se as equações que definem $C_{gs}$ e $C_{db}$ em função de $W$, $L$ e $V_{DB}$.
 
 \vspace{-3mm}
@@ -471,24 +475,29 @@ C_{db} = \frac{C_{db0}}{\sqrt{1 + \frac{V_{DB}}{V_0}}};
 f_{np}:  \begin{cases} ~\text{aumentar}~W~\text{e}~\text{aumentar}~L \rightarrow~\text{aumenta valor de}~C_{gs} \rightarrow~\text{diminui valor de}~f_{np} \\ ~\text{aumentar}~V_{DB} \rightarrow~\text{diminui valor de}~C_{db} \rightarrow~\text{aumenta valor de}~f_{np}\end{cases}
 \end{equation}
 
-Os $V_{DB_2}$ e $V_{DB_9}$ é dado pelas seguintes equações:
+\vspace{3mm}
+
+As tensões $V_{DB_2}$ e $V_{DB_9}$ são dadas pelas seguintes equações:
 	\vspace{-3mm}
 	\begin{equation}
 	V_{DB_2} = V_D - V_B = V_{DD} - R_{2} I_D - V_{DD} = - R_{o_{11\_2}} I_D ;
 	\end{equation}
-	\vspace{-3mm}
 	\begin{equation}
 	V_{DB_9} = V_D - V_B = V_{DD} - R_{9} I_D - GND = V_{DD} - R_{o_9} I_D ;
 	\end{equation}
 	
-Analisando o circuito observa-se que a resistência $R_{2}$ depende da resistência de saída do transístor $M_{11\_2}$, ou seja de $R_{o_{11\_2}}$. A resistência $R_{9}$ depende dos transístores $M_{2}$, $M_{7}$, $M_{5}$ e  $M_{3}$, ou seja:
-	\vspace{-3mm}
-	\begin{equation}
-	R_{9} = \left(g_{m_2}r_{o_2}\right)//\left(g_{m_3}r_{o_3}r_{o_5}r_{o_7}\right);
-	\end{equation}
+\vspace{1mm}
+Analisando o circuito observa-se que a resistência $R_{2}$ depende da resistência de saída do transístor  M\textsubscript{11\textsubscript{1}}, ou seja de $r_{o_{11\_2}}$. A resistência $R_{9}$ depende dos transístores M\textsubscript{2}, M\textsubscript{3}, M\textsubscript{5} e M\textsubscript{7}. Veja-se:
 	
+\vspace{-3mm}
+\begin{equation}
+R_{9} = \left(g_{m_2}r_{o_2}\right)//\left(g_{m_3}r_{o_3}r_{o_5}r_{o_7}\right);
+\end{equation}
 
+\todo{falar agora de como se juntou toda esta logica para produzir a tabela}
 
+\info{pode ajudar a explicar - na tabela estava: na iteraçao 3 houve uma ma alteraçao e voltou-se atras. na iteraçao 21 houve um ajuste de gm3 e gm4}
+	
 Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.
 
 \begin{table}[H]
@@ -502,7 +511,6 @@ De seguida apresenta-se uma tabela que representa a linha temporal das mudanças
 
 De referir que, os transístores são sempre modificados aos pares, ou seja, um ajuste em M\textsubscript{1} implica igual ajuste em M\textsubscript{2}, sendo o mesmo válido para M\textsubscript{3} e M\textsubscript{4}, M\textsubscript{5} e M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8} e ainda para M\textsubscript{9} e M\textsubscript{10}. Isto feito para que o circuito não fique em desiquilíbrio.
 
-
 \begin{table}[H]
 	\centering
 	\caption{Linha temporal das alterações nas dimensões dos transístores e valores experimentais registados.}
@@ -510,9 +518,7 @@ De referir que, os transístores são sempre modificados aos pares, ou seja, um 
 	\includegraphics[keepaspectratio=true, scale=0.40]{teoricas/tabelaF1}
 \end{table}
 
-Como se pode ver, quando se atinge última iteração as especificações estão bastante próximas do pretendido: um ganho para sinais de baixa amplitude de 70.123 dB (teórico é de 70 dB), uma largura de banda de 61 kHz (teórico é de 60 kHz), uma margem de fase de 61.37$^\circ$ (teórico é de 60$^\circ$) e uma \textit{slew-rate} de 197.2 V/$\mu$s (teórico é de 200 V/$\mu$s).
-
-Assim, o circuito que permite atingir as especificações determinadas anteriormente é:
+Como se pode ver, quando se atinge última iteração as especificações estão bastante próximas do pretendido e o circuito que permite atingir estas as especificações determinadas anteriormente é:
 
 \begin{figure}[H]
 	\centering
@@ -521,6 +527,35 @@ Assim, o circuito que permite atingir as especificações determinadas anteriorm
 	\caption{Circuito actual.}
 	\vspace{-0.8em}
 \end{figure}
+
+\begin{table}[H]
+	\centering
+	\caption{Especificações actuais do circuito.}
+	\vspace{-1.5mm}
+	\includegraphics[keepaspectratio=true, scale=0.40]{teoricas/specsajustesF1}
+\end{table}
+
+Na Figura 16 encontra-se o \textit{schematic} criado no Cadence correspondente ao da Figura 15.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.75]{exps/schematicajustesF1}
+	\vspace{-0.5em}
+	\caption{\textit{Schematic} do circuito actual.}
+	\vspace{-0.8em}
+\end{figure} 
+
+Apresenta-se de seguida as simulações obtidas com o Cadence.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.85]{exps/PFRajustesF1}
+	\vspace{-0.5em}
+	\caption{Valores do PFR do \textit{schematic} da Figura 16.}
+	\vspace{-0.8em}
+\end{figure} 
+
+\todo{graficos da simulação DC e AC}
 
 \subsection{\textit{Budget} da Corrente}
 
@@ -536,12 +571,17 @@ Para tal, opta-se por ``injectar'' uma corrente de 5$\mu$A na polarização de $
 	\vspace{-0.8em}
 \end{figure}
 
+\pagebreak
 
+\section{Área}
 
+\todo{explicar como se fez para calcular a area e apresentar desenho e calculos}
 
 \pagebreak
 
 \section{Conclusões}
+
+\todo{sugiro: o Cadence funciona muito bem a partir de casa}
 
 \pagebreak
 

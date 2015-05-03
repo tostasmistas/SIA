@@ -499,16 +499,14 @@ Analisando o circuito observa-se que a resistência $R_{2}$ depende da resistên
 R_{9} = \left(g_{m_2}r_{o_2}\right)//\left(g_{m_3}r_{o_3}r_{o_5}r_{o_7}\right);
 \end{equation}
 
-\todo{falar agora de como se juntou toda esta logica para produzir a tabela}
 Em primeiro lugar, decidiu-se obter a \textit{slew-rate} desejada, não comprometendo as restantes especificações. A solução encontrada foi aumentar a corrente que passa nos transístores M\textsubscript{9} e M\textsubscript{10} aumentado os seus valores de $W$ e $L$, ou seja, as suas dimensões, assim como as dos transístores M\textsubscript{3} e M\textsubscript{4} - esta alteração está associada ao efeito de segunda ordem referido anteriormente. 
 
 Com a \textit{slew-rate} próxima do valor pretendido seguiu-se o objectivo de reduzir a largura de banda e aumentar o ganho. Observando as equações anteriores, deduz-se que o aumento de $W$ e de $L$ dos transístores M\textsubscript{7} e M\textsubscript{8} traduz-se num aumento de $r_o$ e numa diminuição de $f_p$, o que implica um aumento do ganho - iteração 2 na tabela seguinte. Obteve-se, porém, em contrapartida uma diminuição da \textit{slew-rate} que foi corrigida com o aumento de $W$ e $L$ dos transístores M\textsubscript{9} e M\textsubscript{10} - iteração 3 da tabela. Verificou-se que esta alteração não originava melhorias ao circuito, pelo contrário, aumentava a largura de banda e provocava uma diminuição do ganho.
 
 Partindo da iteração 2, continuou-se a reduzir a largura de banda e aumentar o ganho, aumentando o $W$ e $L$ dos transístores M\textsubscript{5}, M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8}, aumentando então o seus valores de $r_o$ -  iteração 4 e 5. 
 
-De seguida, optou-se por aumentar a margem de  fase e, para tal, diminuiu-se o valor de $W$ e $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} o que diminui o $V_{DB_9}$ aumentando a margem de fase - iteração 6. Continuou-se com o objectivo de aumentar a margem de fase,           
-\info{pode ajudar a explicar - na tabela estava: na iteraçao 3 houve uma ma alteraçao e voltou-se atras. na iteraçao 21 houve um ajuste de gm3 e gm4}
-	
+De seguida, optou-se por aumentar a margem de  fase e, para tal, diminuiu-se o valor de $W$ e $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} o que diminui o $V_{DB_9}$ aumentando a margem de fase - iteração 6. Continuou-se com o objectivo de aumentar a margem de fase, \todo{continuar}
+         
 Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.
 
 \begin{table}[H]
@@ -590,16 +588,17 @@ Do circuito anterior vem:
 \end{equation}
 
 \vspace{1mm}
-que permite concluir que a relação entre as duas correntes é controlada pela dimensão dos transístores. Pretende-se que $I_{BIAS}$ seja 5 $\mu$A e que $I_{OUT}$ seja 100 $\mu$A. Efectuou-se o ajuste nas dimensões de M\textsubscript{11\textsubscript{1}}, mantendo as de M\textsubscript{11\textsubscript{2}} fixas. Assim:
+que permite concluir que a relação entre as duas correntes é controlada pela dimensão dos transístores. Pretende-se que $I_{BIAS}$ seja 5 $\mu$A e que $I_{OUT}$ seja 100 $\mu$A. Efectuou-se o ajuste nas dimensões de M\textsubscript{11\textsubscript{1}}, mantendo o valor de $L$ fixo a 1 $\mu$m e mantendo também fixas as dimensões de M\textsubscript{11\textsubscript{2}}. Assim:
 
-\vspace{-3mm}
+\vspace{-2mm}
 \begin{equation}
 \frac{100}{5} = \frac{\left(86/1\right)}{\left(W/L\right)_{11_{1}}} \leftrightarrow \left(W/L\right)_{11_{1}} = \frac{86}{20} \leftrightarrow W = 4.3~\mu\text{m}.
 \end{equation}
 
 \vspace{1mm}
+Foram efectuados testes com a nova polarização do circuito, o que resultou num ajuste do valor de $W$ obtido anteriormente, ficando então M\textsubscript{11\textsubscript{1}} com uma \textit{width} de 4.9 $\mu$m. Com este ajuste a corrente que é fornecida ao par diferencial ficou definida de acordo com o pretendido.
 
-\todo{continuar esta mudanca de 100uA para 5uA}
+Face a esta alteração o \textit{budget} de corrente passou para \todo{precido de valor de current budget}
 
 \unsure{vamos tentar ajustar IBIAS2 que continua a 100uA?}
 
@@ -631,7 +630,18 @@ Como se veririca, a área obtida está bastante abaixo da especificada, que era 
 
 \section{Conclusões}
 
-\todo{sugiro: o Cadence funciona muito bem a partir de casa}
+Tal como já foi observado, todos os requisitos impostos foram cumpridos, alguns deles com resultados melhores do que esperado pelo que se pode concluir que o dimensionamento foi realizado com sucesso.
+
+O processo utilizado começou, em primeira instância, por uma análise do circuito de forma a compreender o seu funcionamento assim como perceber quais os principais blocos que o constituem. Após esta análise iniciou-se então o dimensionamento dos transístores constituintes, através de cálculos teóricos, utilizando a equação da corrente no dreno, a \textit{slew-rate} requerida e considerando, sempre que possível, o comprimento $L$ destes a 1 $\mu$m obtendo depois a largura $W$ através de diversas relações matemáticas.
+
+Com estes valores iniciais, começou-se então o processo de simulação no Cadence. Em primeira análise, o único requisito que se cumpria era o \textit{budget} de corrente pelo que seria necessário melhorar todos os outros.
+Tinha-se então o ponto de partida pelo que se deu inicio à tarefa de estudar quais as melhores formas de se influenciar cada uma das especificações. A abordagem tomada foi de manter o rácio $W/L$ e olhar para as equações do ganho, da frequência do pólo dominante e da frequência do pólo não dominante de forma a compreender qual o impacto nos parâmetros de alterações nas dimensões. Com isto, é possível definir melhor quais os graus de liberdade e fica-se com uma ideia de quais as melhores acções a tomar.
+
+Com este estudo feito optou-se então por criar uma tabela de alterações do estilo ``diário de bordo'' onde se colocaram as alterações feitas e os resultados obtidos nas simulações com o Cadence. Neste processo foi-se aproximando os parâmetros obtidos dos desejados sendo que, por vezes, ao aproximar uns se piorava outros, sendo então necessário voltar a iterações anteriores. Esta abordagem foi essencial para se conseguir os resultados desejados.
+
+Por fim, obtiveram-se os valores requeridos, fazendo-se então alterações minutas de forma a obter-se os melhores resultados possíveis. Tomou-se atenção ao \textit{budget} de corrente, fazendo-se alterações nos espelhos de corrente que polarizam o circuito de forma obter o valor desejado. Fez-se também uma previsão da área a partir do Cadence, que levou a um valor bastante inferior ao dos requisitos, ficando-se assim com todas as especificações cumpridas.
+
+Ao longo deste dimensionamento aprofundaram-se os conhecimentos tanto no funcionamento da ferramenta Cadence como do \textit{workflow} do projecto de um amplificador, assim como das melhores formas de identificar como impactar os parâmetros e chegar aos objectivos impostos.
 
 \pagebreak
 

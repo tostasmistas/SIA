@@ -447,7 +447,7 @@ g_{m}: ~\text{aumentar/diminuir}~W~\text{e}~\text{aumentar/diminuir}~L \rightarr
 r_{o}:  \begin{cases} ~\text{aumentar}~W~\text{e}~\text{aumentar}~L \rightarrow~\text{aumenta valor de}~de~r_{o} \\ ~\text{diminuir}~W~\text{e}~\text{diminuir}~L \rightarrow~\text{diminui valor de}~de~r_{o} \end{cases}
 \end{equation}
 
-A margem de fase é afectada pela frequência do pólo não dominante, sendo dada pela equação (3.15), tal como se pode ver de seguida.
+A margem de fase,$PM$, é afectada pela frequência do pólo não dominante, sendo dada pela equação (3.15), tal como se pode ver de seguida.
 
 \vspace{-3mm}
 \begin{equation}
@@ -468,6 +468,24 @@ C_{db} = \frac{C_{db0}}{\sqrt{1 + \frac{V_{DB}}{V_0}}};
 	
 \vspace{1mm}
 
+\begin{equation}
+	PM: ~\text{aumentar}~f_{np}\rightarrow~\text{diminui valor de}~PM;
+\end{equation}
+\begin{equation}
+f_{np}:  \begin{cases} ~\text{aumentar}~W~\text{e}~\text{aumentar}~L \rightarrow~\text{aumenta valor de}~C_{gs} \rightarrow~\text{diminui valor de}~f_{np} \\ ~\text{aumentar}~V_{DB} \rightarrow~\text{diminui valor de}~C_{db} \rightarrow~\text{aumenta valor de}~f_{np}\end{cases}
+\end{equation}
+
+Os $V_{DB_2}$ e $V_{DB_9}$ é dado pelas seguintes equações:
+	\vspace{-3mm}
+	\begin{equation}
+	V_{DB_2} = V_D - V_B = V_{DD} - R_{o_2} I_D - V_{DD} = - R_{o_{11\_2}} I_D ;
+	\end{equation}
+	\vspace{-3mm}
+	\begin{equation}
+	V_{DB_9} = V_D - V_B = V_{DD} - R_{o_9} I_D - GND = V_{DD} - R_{o_9} I_D ;
+	\end{equation}
+	
+Analisando o circuito observa-se que a resistência $R_{o_2}$ depende da resistência de saída do transístor $M_{11\_2}$  
 \improvement{ainda haverá mais texto aqui?}
 
 Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.
@@ -480,6 +498,7 @@ Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.
 \end{table}
 
 De seguida apresenta-se uma tabela que representa a linha temporal das mudanças que foram sendo feitas nas dimensões dos transístores de acordo com a lógica anteriormente explicada. Cada célula da tabela corresponde a um rácio $W/L$ do par de transístores correspondente e, para cada alteração feita numa determinada iteração, representa-se também o actual valor das especificações que se pretende cumprir.
+
 
 \improvement{referir que se mudam aos pares}
 

@@ -446,8 +446,10 @@ g_{m}: ~\text{aumentar/diminuir}~W~\text{e}~\text{aumentar/diminuir}~L \rightarr
 \begin{equation}
 r_{o}:  \begin{cases} ~\text{aumentar}~W~\text{e}~\text{aumentar}~L \rightarrow~\text{aumenta valor de}~de~r_{o} \\ ~\text{diminuir}~W~\text{e}~\text{diminuir}~L \rightarrow~\text{diminui valor de}~de~r_{o} \end{cases}
 \end{equation}
-Quando se analisa o comportamento dos amplificador em altas frequências é necessário verificar a estabilidade do amplificador, ou seja verificar a margem de fase. Como o comportamento dos transístores não é constante com a frequência, o ganho diminui drasticamente para altas frequências. Esta diminuição deve-se ao facto da existência de dois tipos de efeitos capacitivos internos, efeito capacitivo da \textit{gate} e o efeito capacitivo de depleção.
-Sendo os efeitos definidos pelas capacidades, $C_{db}$, capacidade entre o \textit{dreno} e a \textit{base}, $C_{gb}$, capacidade entre a \textit{gate} e a \textit{base}, $C_{gd}$, capacidade entre a \textit{gate} e o \textit{dreno}, $C_{gs}$, capacidade entre a \textit{gate} e a \textit{source} e $C_{sb}$, capacidade entre a \textit{source} e a \textit{base} do transístor. 
+
+Quando se analisa o comportamento dos amplificador em altas frequências, é necessário verificar a estabilidade do amplificador, ou seja verificar a margem de fase. Como o comportamento dos transístores não é constante com a frequência, o ganho diminui drasticamente para altas frequências. Esta diminuição deve-se ao facto da existência de dois tipos de efeitos capacitivos internos - efeito capacitivo da \textit{gate} e efeito capacitivo de depleção.
+
+Sendo os efeitos definidos pelas capacidades: $C_{db}$ corresponde à capacidade entre o dreno e a base, $C_{gb}$ é a capacidade entre a \textit{gate} e a base, $C_{gd}$ é capacidade entre a \textit{gate} e o dreno, $C_{gs}$ é a capacidade entre a \textit{gate} e a \textit{source} e $C_{sb}$ é a capacidade entre a \textit{source} e a base do transístor. 
 
 A margem de fase, $PM$, é afectada pela frequência do pólo não dominante, sendo dada pela equação (3.15), tal como se pode ver de seguida.
 
@@ -498,9 +500,13 @@ R_{9} = \left(g_{m_2}r_{o_2}\right)//\left(g_{m_3}r_{o_3}r_{o_5}r_{o_7}\right);
 \end{equation}
 
 \todo{falar agora de como se juntou toda esta logica para produzir a tabela}
-Em primeiro lugar foi decidido obter a \textit{SlewRate} desejada mas não comprometendo as restantes especificações, a solução encontrada foi aumentar a corrente que passa nos transístores $M_9$ e $M_{10}$ aumentado as suas dimensões de $W$ e $L$ e as dos transístores $M_3$ e $M_4$, esta alteração como já foi referido altera o efeito de segunda ordem. Com a \textit{SlewRate} próximo do valor pretendido segui-se o objectivo de reduzir a largura de banda e aumentar o ganho, observando as equações anteriores o aumento de $W$ e de $L$ dos transístores $M_7$ e $M_8$ traduz num aumento de $r_o$ e numa diminuição de $f_p$ e aumento do ganho, observar a iteração 2 na tabela seguinte. Obteve-se em contrapartida uma diminuição da \textit{SlewRate} tendo sido corrigida com o aumento de $W$ e $L$ dos transístores $M_9$ e $M_{10}$, iteração 3 da tabela, verificou-se que esta alteração não originava melhorias ao circuito, pelo contrário, aumentava a largura de banda e diminui-a o ganho.
+Em primeiro lugar, decidiu-se obter a \textit{slew-rate} desejada, não comprometendo as restantes especificações. A solução encontrada foi aumentar a corrente que passa nos transístores M\textsubscript{9} e M\textsubscript{10} aumentado os seus valores de $W$ e $L$, ou seja, as suas dimensões, assim como as dos transístores M\textsubscript{3} e M\textsubscript{4} - esta alteração está associada ao efeito de segunda ordem referido anteriormente. 
 
-Partindo da iteração 2, continuou-se a reduzir a largura de banda e aumentar o ganho, aumentando o $W$ e $L$ dos transístores $M_7$, $M_8$, $M_5$ e $M_6$ aumentando o $r_o$, iteração 4 e 5. De seguida optou-se por aumentar a margem de  fase, diminuiu-se o $W$ e o $L$ dos transístores $M_3$ e $M_4$ o que diminui o $V_{DB_9}$ aumentando a margem de fase, iteração 6. Continuou-se a com o objectivo de aumentar a margem de fase,           
+Com a \textit{slew-rate} próxima do valor pretendido seguiu-se o objectivo de reduzir a largura de banda e aumentar o ganho. Observando as equações anteriores, deduz-se que o aumento de $W$ e de $L$ dos transístores M\textsubscript{7} e M\textsubscript{8} traduz-se num aumento de $r_o$ e numa diminuição de $f_p$, o que implica um aumento do ganho - iteração 2 na tabela seguinte. Obteve-se, porém, em contrapartida uma diminuição da \textit{slew-rate} que foi corrigida com o aumento de $W$ e $L$ dos transístores M\textsubscript{9} e M\textsubscript{10} - iteração 3 da tabela. Verificou-se que esta alteração não originava melhorias ao circuito, pelo contrário, aumentava a largura de banda e provocava uma diminuição do ganho.
+
+Partindo da iteração 2, continuou-se a reduzir a largura de banda e aumentar o ganho, aumentando o $W$ e $L$ dos transístores M\textsubscript{5}, M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8}, aumentando então o seus valores de $r_o$ -  iteração 4 e 5. 
+
+De seguida, optou-se por aumentar a margem de  fase e, para tal, diminuiu-se o valor de $W$ e $L$ dos transístores M\textsubscript{3} e M\textsubscript{4} o que diminui o $V_{DB_9}$ aumentando a margem de fase - iteração 6. Continuou-se com o objectivo de aumentar a margem de fase,           
 \info{pode ajudar a explicar - na tabela estava: na iteraçao 3 houve uma ma alteraçao e voltou-se atras. na iteraçao 21 houve um ajuste de gm3 e gm4}
 	
 Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.
@@ -539,8 +545,6 @@ Como se pode ver, quando se atinge última iteração as especificações estão
 	\vspace{-1.5mm}
 	\includegraphics[keepaspectratio=true, scale=0.40]{teoricas/specsajustesF1}
 \end{table}
-
-\unsure{ultrapassamos budget da corrente, mas nao faz mal porque depois vamos mudar. por isso vou manter na mesma e depois ate me ajuda a explicar na seccao seguinte}
 
 Na Figura 16 encontra-se o \textit{schematic} criado no Cadence correspondente ao da Figura 15.
 
@@ -586,7 +590,14 @@ Do circuito anterior vem:
 \end{equation}
 
 \vspace{1mm}
-que permite concluir que a relação entre as duas correntes é controlada pela dimensão dos transístores. Pretende-se que $I_{BIAS}$ seja 5 $\mu$A e que $I_{OUT}$ seja 100 $\mu$A.  
+que permite concluir que a relação entre as duas correntes é controlada pela dimensão dos transístores. Pretende-se que $I_{BIAS}$ seja 5 $\mu$A e que $I_{OUT}$ seja 100 $\mu$A. Efectuou-se o ajuste nas dimensões de M\textsubscript{11\textsubscript{1}}, mantendo as de M\textsubscript{11\textsubscript{2}} fixas. Assim:
+
+\vspace{-3mm}
+\begin{equation}
+\frac{100}{5} = \frac{\left(86/1\right)}{\left(W/L\right)_{11_{1}}} \leftrightarrow \left(W/L\right)_{11_{1}} = \frac{86}{20} \leftrightarrow W = 4.3~\mu\text{m}.
+\end{equation}
+
+\vspace{1mm}
 
 \todo{continuar esta mudanca de 100uA para 5uA}
 
@@ -596,7 +607,19 @@ que permite concluir que a relação entre as duas correntes é controlada pela 
 
 \section{Área}
 
-\todo{explicar como se fez para calcular a area e apresentar desenho e calculos}
+De forma a que se possa obter uma estimativa da área que o circuito ocupa fez-se um novo \textit{schematic} no qual se colocou apenas o símbolos dos transístores com as dimensões que se obtiveram, sem qualquer ligação. A partir desse \textit{schematic} obteve-se então o layout respectivo, movimentado-se os blocos de forma a que se obtivesse a forma mais compacta possível tal como se mostra na imagem seguinte.
+
+\todo{inserir imagem}
+
+A partir desta forma compacta e fazendo uso da régua do Cadence cujas unidades são $\mu$m, é possível obter uma estimativa da área, multiplicando a largura pela altura. Multiplica-se ainda este resultado por um factor de 1.2 de forma a sobrestimar-se a área pois aqui não se consideram as ligações nem eventuais discrepâncias das dimensões reais. Tem-se assim
+
+\vspace{-7mm}
+\begin{equation}
+\text{Área} = 1.2\times l\times h = 1.2\times\left(120.3 \times 10^{-6}\right) \times \left(49.3 \times 10^{-6}\right) \times \left(1 \times 10^{-6}\right) = 0.00712~\text{mm}^2.
+\end{equation}
+
+\vspace{-1mm}
+Como se veririca, a área obtida está bastante abaixo da especificada, que era 0.02 $\text{mm}^2$. Assim, obtém-se uma área cerca de 2.5 vezes menor, pelo que, mesmo que haja algum factor de erro no método de cálculo, podemos considerar que o objectivo foi cumprido.
 
 \pagebreak
 

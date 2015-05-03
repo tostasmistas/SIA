@@ -570,7 +570,7 @@ Apresenta-se de seguida as simulações obtidas com o Cadence.
 
 Com as especificações associadas ao ganho, largura de banda, margem de fase e \textit{slew-rate} cumpridas, o foco vira agora para o \textit{budget} de corrente, de modo a que o consumo de corrente no circuito seja o mínimo possível. De facto, como se pode ver na Tabela 9, o \textit{budget} de corrente actual está acima do especificado e uma mudança no circuito é obrigatória.
 
-Numa primeira abordagem para se corrigir este problema, opta-se por ``injectar'' uma corrente de 5$\mu$A na polarização de $V_{BIAS}$ e então ajustar a dimensão dos transístores do espelho de corrente básico, para que a corrente fornecida ao par diferencial seja de 100$\mu$A na mesma. Olhando apenas para o circuito do espelho de corrente vem:
+Numa primeira abordagem para se corrigir este problema, opta-se por ``injectar'' uma corrente de 5 $\mu$A na polarização de $V_{BIAS}$ e então ajustar a dimensão dos transístores do espelho de corrente básico, para que a corrente fornecida ao par diferencial seja de 100 $\mu$A na mesma. Olhando apenas para o circuito do espelho de corrente vem:
 
 \begin{figure}[H]
 	\centering
@@ -596,29 +596,39 @@ que permite concluir que a relação entre as duas correntes é controlada pela 
 \end{equation}
 
 \vspace{1mm}
-Foram efectuados testes com a nova polarização do circuito, o que resultou num ajuste do valor de $W$ obtido anteriormente, ficando então M\textsubscript{11\textsubscript{1}} com uma \textit{width} de 4.9 $\mu$m. Com este ajuste a corrente que é fornecida ao par diferencial ficou definida de acordo com o pretendido.
+Foram efectuados testes com a nova polarização do circuito, o que resultou num ajuste do valor de $W$ obtido anteriormente, ficando então M\textsubscript{11\textsubscript{1}} com uma \textit{width} de 4.9 $\mu$m. Com este ajuste a corrente que é fornecida ao par diferencial ficou definida de acordo com o pretendido. Face a esta alteração o \textit{budget} de corrente passou para \todo{precido de valor de current budget}
 
-Face a esta alteração o \textit{budget} de corrente passou para \todo{precido de valor de current budget}
+De seguida, optou-se por modificar a polarização de $I_{BIAS_{2}}$ que é efectuada com o espelho de corrente \textit{cascode} \textit{low-voltage}. Prentede-se ``injectar'' uma corrente de 25 $\mu$A \todo{continuar a explicar esta mudanca}
 
-\unsure{vamos tentar ajustar IBIAS2 que continua a 100uA?}
+Assim, o circuito final é apresentado de seguida.
+
+\todo{montes de imagens}
 
 \pagebreak
 
 \section{Área}
 
+Com os critérios de ganho, largura de banda, margem de fase, \textit{slew-rate} e \textit{budget} de corrente cumpridos, verifica-se qual a área ocupada pelo circuito.
+
 De forma a que se possa obter uma estimativa da área que o circuito ocupa fez-se um novo \textit{schematic} no qual se colocou apenas o símbolos dos transístores com as dimensões que se obtiveram, sem qualquer ligação. A partir desse \textit{schematic} obteve-se então o layout respectivo, movimentado-se os blocos de forma a que se obtivesse a forma mais compacta possível tal como se mostra na imagem seguinte.
 
-\todo{inserir imagem}
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.45]{exps/area}
+	\vspace{-0.5em}
+	\caption{Pseudo-\textit{layout} do circuito.}
+	\vspace{-0.8em}
+\end{figure}
 
 A partir desta forma compacta e fazendo uso da régua do Cadence cujas unidades são $\mu$m, é possível obter uma estimativa da área, multiplicando a largura pela altura. Multiplica-se ainda este resultado por um factor de 1.2 de forma a sobrestimar-se a área pois aqui não se consideram as ligações nem eventuais discrepâncias das dimensões reais. Tem-se assim
 
 \vspace{-7mm}
 \begin{equation}
-\text{Área} = 1.2\times l\times h = 1.2\times\left(120.3 \times 10^{-6}\right) \times \left(49.3 \times 10^{-6}\right) \times \left(1 \times 10^{-6}\right) = 0.00712~\text{mm}^2.
+\text{Área} = 1.2\times l\times h = 1.2\times\left(114.05 \times 10^{-6}\right) \times \left(44.70 \times 10^{-6}\right) \times \left(1 \times 10^{-6}\right) = 0.00611~\text{mm}^2.
 \end{equation}
 
 \vspace{-1mm}
-Como se veririca, a área obtida está bastante abaixo da especificada, que era 0.02 $\text{mm}^2$. Assim, obtém-se uma área cerca de 2.5 vezes menor, pelo que, mesmo que haja algum factor de erro no método de cálculo, podemos considerar que o objectivo foi cumprido.
+Como se veririca, a área obtida está bastante abaixo da especificada, que era 0.02 $\text{mm}^2$. Assim, obtém-se uma área cerca de 3.3 vezes menor, pelo que, mesmo que haja algum factor de erro no método de cálculo, podemos considerar que o objectivo foi cumprido.
 
 \pagebreak
 

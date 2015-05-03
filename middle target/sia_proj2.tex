@@ -522,7 +522,7 @@ Na página seguinte apresenta-se uma tabela que representa a linha temporal das 
 
 De referir que, os transístores são sempre modificados aos pares, ou seja, um ajuste em M\textsubscript{1} implica igual ajuste em M\textsubscript{2}, sendo o mesmo válido para M\textsubscript{3} e M\textsubscript{4}, M\textsubscript{5} e M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8} e ainda para M\textsubscript{9} e M\textsubscript{10}, sendo isto feito para que o circuito não fique em desiquilíbrio.
 
-É de notar também que existem dois transístores, M\textsubscript{5} e M\textsubscript{6}, que possuem um $L$ menor que 1 $um$m, sendo esta alteração necessária para que se obtivesse um valor de \textit{slew-rate} bom sem afectar as restantes especificações.
+É de notar também que existem dois transístores, M\textsubscript{5} e M\textsubscript{6}, que possuem um $L$ menor que 1 $\mu m$, sendo esta alteração necessária para que se obtivesse um valor de \textit{slew-rate} bom sem afectar as restantes especificações.
 
 \begin{table}[H]
 	\centering
@@ -602,7 +602,23 @@ que permite concluir que a relação entre as duas correntes é controlada pela 
 \vspace{1mm}
 Foram efectuados testes com a nova polarização do circuito, o que resultou num ajuste do valor de $W$ obtido anteriormente, ficando então M\textsubscript{11\textsubscript{1}} com uma \textit{width} de 4.9 $\mu$m. Com este ajuste a corrente que é fornecida ao par diferencial ficou definida de acordo com o pretendido. Face a esta alteração o \textit{budget} de corrente passou para \todo{precido de valor de current budget}
 
-De seguida, optou-se por modificar a polarização de $I_{BIAS_{2}}$ que é efectuada com o espelho de corrente \textit{cascode} \textit{low-voltage}. Prentede-se ``injectar'' uma corrente de 25 $\mu$A \todo{continuar a explicar esta mudanca}
+De seguida, optou-se por modificar a polarização de $I_{BIAS_{2}}$ que é efectuada com o espelho de corrente \textit{cascode} \textit{low-voltage}. Prentede-se agora polarizar o espelho de corrente \textit{cascode low-voltage} anteriormente referido com uma corrente de 25 $\mu$A. Primeiro é necessário redimensionar os transístores para a corrente dimensionada, usando a equação da corrente (3.1) para um transístor do tipo N obtém-se os seguintes valores, define-se $L = 1\mu m$.
+
+	\vspace{-2mm}
+	\begin{equation}
+	M_{12} \Rightarrow W = \frac{I_D L}{k_N V_{OD} ^2 } = 7.2 \mu m;
+	\end{equation}
+	\begin{equation}
+	M_{13} \Rightarrow W =\frac{W_{12}}{3} = 2.4 \mu m;
+	\end{equation}
+	\begin{equation}
+	M_{14} \Rightarrow W = \frac{I_D L}{k_N V_{OD} ^2 } = 7.2 \mu m;
+	\end{equation}
+
+Com estes valores base foi realizado a simulação do circuito sendo necessário ajustar alguns dos valores anteriores e nos transístores M\textsubscript{7} e M\textsubscript{8} deforma a obter as especificações desejadas. Assim sendo,
+M\textsubscript{12} tem um $W$ de 7.1 $\mu m$, M\textsubscript{13} tem um $W$ de 1.8 $\mu m$, M\textsubscript{14} tem um $W$ de 7.2 $\mu m$, M\textsubscript{7} tem um $W$ de 111.8 $\mu m$ e um $L$ de 2.6 $\mu m$ e o M\textsubscript{8} tem um $W$ de 111.8 $\mu m$ e um $L$ de 2.6 $\mu m$.
+
+ \todo{continuar a explicar esta mudanca}
 
 Assim, o circuito final é apresentado de seguida.
 

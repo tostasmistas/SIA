@@ -412,7 +412,7 @@ Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $
 	\end{minipage}	
 \end{figure}
 
-Como se pode ver pela Tabela 6, a \textit{slew-rate} desceu drasticamente face ao valor da Tabela 5. Assim, conclui-se que passar o rácio $W/L$ dos transístores M\textsubscript{3} e M\textsubscript{4} para o dobro é muito e optou-se por aumentar, numa primeira fase, em 30\% face ao valor original de $W = 14~\mu$m e $L = 1~\mu$m. Optou-se também nesta altura por ter em consideração o critério do ganho, da largura de banda e da margem de fase - tomou-se esta decisão pois uma análise teórica de todos estes factores revela o quão afectados são uns pelos outros.
+Como se pode ver pela Tabela 6, a \textit{slew-rate} desceu drasticamente face ao valor da Tabela 5. Assim, conclui-se que passar o rácio $W/L$ dos transístores M\textsubscript{3} e M\textsubscript{4} para o dobro é muito e optou-se por aumentar, numa primeira fase, em 30\% face ao valor original de $W = 14~\mu$m e $L = 1~\mu$m. Também nesta altura, verificou-se que considerar apenas o critério da \textit{slew-rate} como estando isolado dos demais critérios não é a melhor abordagem. De facto, optou-se por ter agora também em consideração o critério do ganho, da largura de banda e da margem de fase - tomou-se esta decisão pois uma análise teórica de todos estes factores revela o quão afectados são uns pelos outros.
 
 Veja-se: o ganho do circuito é dado pela equação (3.10) e a largura de banda, que está associada à frequência do pólo dominante, é dada pela equação (3.11).
 
@@ -537,6 +537,8 @@ Como se pode ver, quando se atinge última iteração as especificações estão
 	\includegraphics[keepaspectratio=true, scale=0.40]{teoricas/specsajustesF1}
 \end{table}
 
+\unsure{ultrapassamos budget da corrente, mas nao faz mal porque depois vamos mudar. por isso vou manter na mesma e depois ate me ajuda a explicar na seccao seguinte}
+
 Na Figura 16 encontra-se o \textit{schematic} criado no Cadence correspondente ao da Figura 15.
 
 \begin{figure}[H]
@@ -561,9 +563,9 @@ Apresenta-se de seguida as simulações obtidas com o Cadence.
 
 \subsection{\textit{Budget} da Corrente}
 
-Com as especificações associadas ao ganho, largura de banda, margem de fase e \textit{slew-rate} cumpridas, o foco vira agora para o \textit{budget} de corrente, de modo a que o consumo de corrente no circuito seja o mínimo possível.
+Com as especificações associadas ao ganho, largura de banda, margem de fase e \textit{slew-rate} cumpridas, o foco vira agora para o \textit{budget} de corrente, de modo a que o consumo de corrente no circuito seja o mínimo possível. De facto, como se pode ver na Tabela 9, o \textit{budget} de corrente actual está acima do especificado e uma mudança no circuito é obrigatória.
 
-Para tal, opta-se por ``injectar'' uma corrente de 5$\mu$A na polarização de $V_{BIAS}$ e então ajustar a dimensão dos transístores do espelho de corrente básico, para que a corrente fornecida ao par diferencial seja de 100$\mu$A na mesma. Olhando apenas para o circuito do espelho de corrente vem:
+Numa primeira abordagem para se corrigir este problema, opta-se por ``injectar'' uma corrente de 5$\mu$A na polarização de $V_{BIAS}$ e então ajustar a dimensão dos transístores do espelho de corrente básico, para que a corrente fornecida ao par diferencial seja de 100$\mu$A na mesma. Olhando apenas para o circuito do espelho de corrente vem:
 
 \begin{figure}[H]
 	\centering

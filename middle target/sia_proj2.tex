@@ -414,7 +414,7 @@ Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $
 
 Como se pode ver pela Tabela 6, a \textit{slew-rate} desceu drasticamente face ao valor da Tabela 5. Assim, conclui-se que passar o rácio $W/L$ dos transístores M\textsubscript{3} e M\textsubscript{4} para o dobro é muito e optou-se por aumentar, numa primeira fase, em 30\% face ao valor original de $W = 14\mu$m e $L = 1\mu$m. Optou-se também nesta altura por ter em consideração o critério do ganho, da largura de banda e da margem de fase - tomou-se esta decisão pois uma análise teórica de todos estes factores revela o quão afectados são uns pelos outros.
 
-Veja-se: o ganho do circuito é dado pela equação (3.10) e a largura de banda, que está associada à frequência do pólo dominante, é dada pela equação (3.11) tal como se pode ver de seguida. A margem de fase é afectada por \change{referir o que afecta PM}.
+Veja-se: o ganho do circuito é dado pela equação (3.10) e a largura de banda, que está associada à frequência do pólo dominante, é dada pela equação (3.11).
 
 \vspace{-3mm}
 \begin{equation}
@@ -424,6 +424,7 @@ A_{v} = g_{m_1} R_o =  g_{m_1}\left[\left(g_{m_4}r_{o_4}\left(r_{o_2}//r_{o_{10}
 \begin{equation}
 f_{p} = \frac{1}{2\pi C_L R_o} = \frac{1}{2\pi C_L \left[\left(g_{m_4}r_{o_4}\left(r_{o_2}//r_{o_{10}}\right)\right)//\left(g_{m_6}r_{o_6}r_{o_8}\right)\right]}.
 \end{equation}
+
 
 \vspace{4mm}
 
@@ -447,6 +448,26 @@ g_{m}: ~\text{aumentar/diminuir}~W~\text{e}~\text{aumentar/diminuir}~L \rightarr
 r_{o}:  \begin{cases} ~\text{aumentar}~W~\text{e}~\text{aumentar}~L \rightarrow~\text{aumenta valor de}~de~r_{o} \\ ~\text{diminuir}~W~\text{e}~\text{diminuir}~L \rightarrow~\text{diminui valor de}~de~r_{o} \end{cases}
 \end{equation}
 
+
+A margem de fase é afectada pela frequência do pólo não dominante, sendo dada pela equação (3.15) tal como se pode ver de seguida.
+
+\vspace{-2mm}
+\begin{equation}
+f_{np} = \frac{g_{m_3}}{2\pi C_{n_1}} \approx \frac{g_{m_3}}{2\pi \left[C_{gs_3} + C_{db_2} + C_{db_9}\right]}.
+\end{equation}
+\vspace{4mm}
+
+Analisando a equação anterior tem-se quatro graus de liberdade, $g_{m_3}$, $C_{gs_3}$, $C_{db_2}$ e $C_{db_9}$. Como foi referido anteriormente  rácio $W/L$ mantém-se, logo o $g_{m_3}$ é constante. Agora os parâmetros que afectam a frequência do pólo não dominante são $C_{gs_3}$, $C_{db_2}$ e $C_{db_9}$. De seguida está representado as equações de $C_{gs}$ e $C_{db}$ em função de $W$, $L$ e $V_{DB}$.
+	\vspace{-2mm}
+	\begin{equation}
+	C_{gs} = \frac{2}{3} W L C_{ox};
+	\end{equation}
+	\vspace{-2mm}
+	\begin{equation}
+	C_{db} = \frac{C_{db0}}{\sqrt{1 + \frac{V_{DB}}{V_0}}};
+	\end{equation}
+	\vspace{4mm}
+	
 \vspace{1mm}
 
 \begin{table}[H]

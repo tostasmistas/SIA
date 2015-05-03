@@ -474,15 +474,20 @@ f_{np}:  \begin{cases} ~\text{aumentar}~W~\text{e}~\text{aumentar}~L \rightarrow
 Os $V_{DB_2}$ e $V_{DB_9}$ é dado pelas seguintes equações:
 	\vspace{-3mm}
 	\begin{equation}
-	V_{DB_2} = V_D - V_B = V_{DD} - R_{o_2} I_D - V_{DD} = - R_{o_{11\_2}} I_D ;
+	V_{DB_2} = V_D - V_B = V_{DD} - R_{2} I_D - V_{DD} = - R_{o_{11\_2}} I_D ;
 	\end{equation}
 	\vspace{-3mm}
 	\begin{equation}
-	V_{DB_9} = V_D - V_B = V_{DD} - R_{o_9} I_D - GND = V_{DD} - R_{o_9} I_D ;
+	V_{DB_9} = V_D - V_B = V_{DD} - R_{9} I_D - GND = V_{DD} - R_{o_9} I_D ;
 	\end{equation}
 	
-Analisando o circuito observa-se que a resistência $R_{o_2}$ depende da resistência de saída do transístor $M_{11\_2}$  
-\improvement{ainda haverá mais texto aqui?}
+Analisando o circuito observa-se que a resistência $R_{2}$ depende da resistência de saída do transístor $M_{11\_2}$, ou seja de $R_{o_{11\_2}}$. A resistência $R_{9}$ depende dos transístores $M_{2}$, $M_{7}$, $M_{5}$ e  $M_{3}$, ou seja:
+	\vspace{-3mm}
+	\begin{equation}
+	R_{9} = \left(g_{m_2}r_{o_2}\right)//\left(g_{m_3}r_{o_3}r_{o_5}r_{o_7}\right);
+	\end{equation}
+	
+
 
 Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.
 

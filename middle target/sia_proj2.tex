@@ -248,11 +248,9 @@ Na Figura 6 encontra-se o \textit{schematic} criado no Cadence correspondente ao
 
 Com o \textit{schematic} anterior projectou-se um símbolo e criaram-se novos \textit{schematics} de \textit{testbench}, como se pode ver nas Figura 7, 8 e 9.
 
-\change{preciso das imagens ds testbenchs}
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.47]{exps/testbench}
+	\includegraphics[keepaspectratio=true, scale=0.25]{exps/TBdctrans}
 	\vspace{-0.5em}
 	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito em testes transiente e de resposta DC.}
 	\vspace{-0.8em}
@@ -260,7 +258,7 @@ Com o \textit{schematic} anterior projectou-se um símbolo e criaram-se novos \t
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.47]{exps/testbench}
+	\includegraphics[keepaspectratio=true, scale=0.25]{exps/TBac}
 	\vspace{-0.5em}
 	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito em testes de resposta AC.}
 	\vspace{-0.8em}
@@ -268,7 +266,7 @@ Com o \textit{schematic} anterior projectou-se um símbolo e criaram-se novos \t
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.47]{exps/testbench}
+	\includegraphics[keepaspectratio=true, scale=0.25]{exps/TBslewrate}
 	\vspace{-0.5em}
 	\caption{\textit{Schematic} do \textit{testbench} que permite simular o circuito em testes da \textit{slew-rate}.}
 	\vspace{-0.8em}
@@ -358,8 +356,6 @@ Face a estes ajustes mediu-se novamente o valor da \textit{slew-rate} para verif
 
 Assim, o estado actual do circuito é apresentado de seguida. 
 
-\pagebreak
-
 \begin{figure}[h]
 	\centering
 	\begin{minipage}[c]{0.58\textwidth}
@@ -396,7 +392,7 @@ Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $
 	\centering
 	\begin{minipage}[c]{0.58\textwidth}
 		\begin{figure}[H]
-			\includegraphics[keepaspectratio=true, scale=0.30]{teoricas/ajuste2}
+			\includegraphics[keepaspectratio=true, scale=0.34]{teoricas/ajuste2}
 			\caption{Circuito actual.}
 			\vspace{-0.8em}
 		\end{figure}
@@ -407,7 +403,7 @@ Olhando então para o primeiro ajuste feito, optou-se por modificar o valor de $
 			\centering
 			\caption{Especificações.}
 			\vspace{-1.5mm}
-			\includegraphics[keepaspectratio=true, scale=0.31]{teoricas/tabajuste2}
+			\includegraphics[keepaspectratio=true, scale=0.33]{teoricas/tabajuste2}
 		\end{table}
 	\end{minipage}	
 \end{figure}
@@ -481,7 +477,7 @@ Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.
 
 De seguida apresenta-se uma tabela que representa a linha temporal das mudanças que foram sendo feitas nas dimensões dos transístores de acordo com a lógica anteriormente explicada. Cada célula da tabela corresponde a um rácio $W/L$ do par de transístores correspondente e, para cada alteração feita numa determinada iteração, representa-se também o actual valor das especificações que se pretende cumprir.
 
-\improvement{referir que se mudam aos pares}
+De referir que, os transístores são sempre modificados aos pares, ou seja, um ajuste em M\textsubscript{1} implica igual ajuste em M\textsubscript{2}, sendo o mesmo válido para M\textsubscript{3} e M\textsubscript{4}, M\textsubscript{5} e M\textsubscript{6}, M\textsubscript{7} e M\textsubscript{8} e ainda para M\textsubscript{9} e M\textsubscript{10}. Isto feito para que o circuito não fique em desiquilíbrio.
 
 \begin{table}[H]
 	\centering
@@ -515,6 +511,8 @@ Para tal, opta-se por ``injectar'' uma corrente de 5$\mu$A na polarização de $
 	\caption{Espelho de corrente básico que polariza $V_{BIAS}$ em corrente.}
 	\vspace{-0.8em}
 \end{figure}
+
+
 
 
 \pagebreak

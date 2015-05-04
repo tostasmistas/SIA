@@ -515,7 +515,7 @@ Os rácios de $W/L$ que se procura manter são apresentados na seguinte tabela.
 	\centering
 	\caption{Rácios das dimensões dos transístores que constituem o amplificador.}
 	\vspace{-1.5mm}
-	\includegraphics[keepaspectratio=true, scale=0.33]{teoricas/racios}
+	\includegraphics[keepaspectratio=true, scale=0.40]{teoricas/racios}
 \end{table}
 
 Na página seguinte apresenta-se uma tabela que representa a linha temporal das mudanças que foram sendo feitas nas dimensões dos transístores de acordo com a lógica anteriormente explicada. Cada célula da tabela corresponde a um rácio $W/L$ do par de transístores correspondente e, para cada alteração feita numa determinada iteração, representa-se também o actual valor das especificações que se pretende cumprir.
@@ -558,7 +558,7 @@ Na Figura 16 encontra-se o \textit{schematic} criado no Cadence correspondente a
 	\vspace{-0.8em}
 \end{figure} 
 
-Apresenta-se de seguida as simulações obtidas com o Cadence.
+Apresenta-se de seguida uma simulação do PFR obtida com o Cadence.
 
 \begin{figure}[H]
 	\centering
@@ -567,8 +567,6 @@ Apresenta-se de seguida as simulações obtidas com o Cadence.
 	\caption{Valores do PFR do \textit{schematic} da Figura 16.}
 	\vspace{-0.8em}
 \end{figure} 
-
-\todo{graficos da simulação DC e AC}
 
 \subsection{\textit{Budget} da Corrente}
 
@@ -600,29 +598,34 @@ que permite concluir que a relação entre as duas correntes é controlada pela 
 \end{equation}
 
 \vspace{1mm}
-Foram efectuados testes com a nova polarização do circuito, o que resultou num ajuste do valor de $W$ obtido anteriormente, ficando então M\textsubscript{11\textsubscript{1}} com uma \textit{width} de 4.9 $\mu$m. Com este ajuste a corrente que é fornecida ao par diferencial ficou definida de acordo com o pretendido. Face a esta alteração o \textit{budget} de corrente passou para \todo{precido de valor de current budget}
+Foram efectuados testes com a nova polarização do circuito, o que resultou num ajuste do valor de $W$ obtido anteriormente, ficando então M\textsubscript{11\textsubscript{1}} com uma \textit{width} de 4.9 $\mu$m. Com este ajuste a corrente que é fornecida ao par diferencial ficou definida de acordo com o pretendido. Face a esta alteração o \textit{budget} de corrente passou para 314.7 $\mu$A.
 
-De seguida, optou-se por modificar a polarização de $I_{BIAS_{2}}$ que é efectuada com o espelho de corrente \textit{cascode} \textit{low-voltage}. Prentede-se agora polarizar o espelho de corrente \textit{cascode low-voltage} anteriormente referido com uma corrente de 25 $\mu$A. Primeiro é necessário redimensionar os transístores para a corrente dimensionada, usando a equação da corrente (3.1) para um transístor do tipo N obtém-se os seguintes valores, define-se $L = 1\mu m$.
+Para melhorar ainda mais o \textit{budget} de corrente, optou-se por modificar a polarização de $I_{BIAS_{2}}$ que é efectuada com o espelho de corrente \textit{cascode} \textit{low-voltage}. Prentede-se agora polarizar o espelho de corrente anteriormente referido com uma corrente de 25 $\mu$A. Primeiro, é necessário redimensionar os transístores para a corrente dimensionada. Definindo $L = 1~\mu$m e utilizando a equação (3.1) para um transístor do tipo NMOS obtém-se os seguintes valores:
 
-	\vspace{-2mm}
-	\begin{equation}
-	M_{12} \Rightarrow W = \frac{I_D L}{k_N V_{OD} ^2 } = 7.2 \mu m;
-	\end{equation}
-	\begin{equation}
-	M_{13} \Rightarrow W =\frac{W_{12}}{3} = 2.4 \mu m;
-	\end{equation}
-	\begin{equation}
-	M_{14} \Rightarrow W = \frac{I_D L}{k_N V_{OD} ^2 } = 7.2 \mu m;
-	\end{equation}
+\vspace{-2mm}
+\begin{equation}
+M_{12} \rightarrow W = \frac{I_D L}{k_N V_{OD} ^2 } = 7.2~\mu\text{m};
+\end{equation}
+\begin{equation}
+M_{13} \rightarrow W =\frac{W_{12}}{3} = 2.4~\mu\text{m};
+\end{equation}
+\begin{equation}
+M_{14} \rightarrow W = \frac{I_D L}{k_N V_{OD} ^2 } = 7.2~\mu\text{m}.
+\end{equation}
 
-Com estes valores base foi realizado a simulação do circuito sendo necessário ajustar alguns dos valores anteriores e nos transístores M\textsubscript{7} e M\textsubscript{8} deforma a obter as especificações desejadas. Assim sendo,
-M\textsubscript{12} tem um $W$ de 7.1 $\mu m$, M\textsubscript{13} tem um $W$ de 1.8 $\mu m$, M\textsubscript{14} tem um $W$ de 7.2 $\mu m$, M\textsubscript{7} tem um $W$ de 111.8 $\mu m$ e um $L$ de 2.6 $\mu m$ e o M\textsubscript{8} tem um $W$ de 111.8 $\mu m$ e um $L$ de 2.6 $\mu m$.
-
- \todo{continuar a explicar esta mudanca}
+Com estes valores base foi realizada a simulação do circuito, sendo necessário ajustar alguns dos valores anteriores e também nos transístores M\textsubscript{7} e M\textsubscript{8} de forma a obter as especificações desejadas. Assim sendo, M\textsubscript{12} tem um $W$ de 7.1 $\mu$m, M\textsubscript{13} tem um $W$ de 1.8 $\mu$m, M\textsubscript{14} tem um $W$ de 7.2 $\mu$m, M\textsubscript{7} tem um $W$ de 111.8 $\mu$m e um $L$ de 2.6 $\mu$m e o M\textsubscript{8} tem um $W$ de 111.8 $\mu$m e um $L$ de 2.6 $\mu$m.
 
 Assim, o circuito final é apresentado de seguida.
 
-\todo{imagem circuito word}
+\vspace{3mm}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.60]{teoricas/circuitofinal}
+	\vspace{-0.5em}
+	\caption{Circuito actual.}
+	\vspace{-0.8em}
+\end{figure} 
 
 \begin{table}[H]
 	\centering
@@ -631,7 +634,9 @@ Assim, o circuito final é apresentado de seguida.
 	\includegraphics[keepaspectratio=true, scale=0.40]{teoricas/tabsemarea}
 \end{table}
 
-Na Figura TAL encontra-se o \textit{schematic} criado no Cadence correspondente ao da Figura TAL.
+Na Figura 20 encontra-se o \textit{schematic} criado no Cadence correspondente ao da Figura 19.
+
+\vspace{3mm}
 
 \begin{figure}[H]
 	\centering
@@ -641,7 +646,11 @@ Na Figura TAL encontra-se o \textit{schematic} criado no Cadence correspondente 
 	\vspace{-0.8em}
 \end{figure} 
 
+\vspace{3mm}
+
 Apresenta-se de seguida as simulações obtidas com o Cadence.
+
+\vspace{3mm}
 
 \begin{figure}[H]
 	\centering
@@ -704,12 +713,6 @@ Na tabela seguinte apresentam-se todas as especificações do circuito e quais o
 
 \pagebreak
 
-\section{Simulações de Monte Carlo e \textit{Corners}}
-
-\unsure{vamos fazer isto?}
-
-\pagebreak
-
 \section{Conclusões}
 
 Tal como já foi observado, todos os requisitos impostos foram cumpridos, alguns deles com resultados melhores do que esperado pelo que se pode concluir que o dimensionamento foi realizado com sucesso.
@@ -724,9 +727,5 @@ Com este estudo feito optou-se então por criar uma tabela de alterações do es
 Por fim, obtiveram-se os valores requeridos, fazendo-se então alterações minutas de forma a obter-se os melhores resultados possíveis. Tomou-se atenção ao \textit{budget} de corrente, fazendo-se alterações nos espelhos de corrente que polarizam o circuito de forma obter o valor desejado. Fez-se também uma previsão da área a partir do Cadence, que levou a um valor bastante inferior ao dos requisitos, ficando-se assim com todas as especificações cumpridas.
 
 Ao longo deste dimensionamento aprofundaram-se os conhecimentos tanto no funcionamento da ferramenta Cadence como do \textit{workflow} do projecto de um amplificador, assim como das melhores formas de identificar como impactar os parâmetros e chegar aos objectivos impostos.
-
-\pagebreak
-
-\listoftodos[Notes]
 
 \end{document}

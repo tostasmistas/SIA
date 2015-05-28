@@ -81,7 +81,7 @@ Este capítulo foi acrescentado ao relatório final no intuito de corrigir os re
 
 \subsection{Detecção dos erros} 
 
-Foi identificado dois erros distintos no relatório intermédio que comprometem os resultados apresentados anteriormente. A primeira correcção foi referente ao \textit{schematic} do \textit{testbench} que permite simular o circuito em testes de resposta AC, foi colocado um \textit{switch} que simula a bobine, circuito aberto para um regime AC e curto-circuito para um regime DC. Foi também alterado a amplitude do sinal de entrada de 3.3 V para 1.6 V, esta alteração garante que os transístores não saem da saturação. De seguida pode-se comparar o novo \textit{testbench} com o anterior.
+Foi identificado erros no relatório intermédio que comprometem os resultados apresentados anteriormente. A primeira correcção foi referente ao \textit{schematic} do \textit{testbench} que permite simular o circuito em testes de resposta AC, foi colocado um \textit{switch} que simula a bobine, circuito aberto para um regime AC e curto-circuito para um regime DC. Foi também alterado a amplitude do sinal de entrada de 3.3 V para 1.6 V, esta alteração garante que os transístores não saem da saturação. De seguida pode-se comparar o novo \textit{testbench} com o anterior.
 
 \begin{figure}[H]
 	\centering
@@ -99,6 +99,28 @@ Foi identificado dois erros distintos no relatório intermédio que comprometem 
 	\vspace{-0.8em}
 \end{figure} 
 
+Outro erro identificado, foi referente ao calculo da \textit{Slew-Rate}. No relatório intermédio o resultado da \textit{Slew-Rate} era relativo só ao flanco de descida, sendo necessário demonstrar para os dois flancos, subida(1.1) e descida(1.2). De seguida está representado a equação utilizada para o calculo da \textit{Slew-Rate}:
+
+\vspace{-3mm}
+\begin{equation}
+	slewRate (VT("/OUT") \:\: 1 \:\: nil \:\: 2 \:\: nil \:\: 10 \:\: 90 \:\: nil \:\: "time")
+	\label{eq:corrente}
+\end{equation}
+\vspace{-3mm}
+\begin{equation}
+	slewRate (VT("/OUT") \:\: 2 \:\: nil \:\: 1 \:\: nil \:\: 10 \:\: 90 \:\: nil \:\: "time")
+	\label{eq:corrente}
+\end{equation}
+\subsection{Correcção do dimensionamento}
+
+ 
+\subsection{Demonstração de resultados} 
+
+Neste capitulo será representado os resultados do dimensionamento do relatório intermédio e do novo dimensionamento anteriormente referido. 
+
+\subsubsection{Resultados do dimensionamento inicial} 
+
+\subsubsection{Resultados do dimensionamento corrigido} 
 
 
 

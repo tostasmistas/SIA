@@ -73,6 +73,7 @@ Pretende-se projectar um amplificador \textit{folded cascode} CMOS OTA de dois a
 	\caption{Características do amplificador a projectar.}
 	\vspace{-1.5mm}
 	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/tabela1}
+	\label{tab:tab1}
 \end{table}
 
 O circuito de ponto de partida para a realização do projecto é apresentado de seguida.
@@ -87,9 +88,30 @@ O circuito de ponto de partida para a realização do projecto é apresentado de
 
 \section{Adenda ao \textit{Middle Target}}
 
-\section{Projecção do \textit{Layout}}
+Esta secção foi acrescentada ao relatório final no intuito de corrigir os resultados obtidos e apresentados no relatório anterior, o do \textit{middle target}. Como referenciado, pretende-se projectar um amplificador \textit{folded cascode} CMOS OTA de dois andares de acordo com as especificações da Tabela \ref{tab:tab1}.
 
-\section{}
+
+\subsection{Detecção dos erros} 
+
+Foi identificado dois erros distintos no relatório intermédio que comprometem os resultados apresentados anteriormente. A primeira correcção foi referente ao \textit{schematic} do \textit{testbench} que permite simular o circuito em testes de resposta AC, foi colocado um \textit{switch} que simula a bobine, circuito aberto para um regime AC e curto-circuito para um regime DC. Foi também alterado a amplitude do sinal de entrada de 3.3 V para 1.6 V, esta alteração garante que os transístores não saem da saturação. De seguida pode-se comparar o novo \textit{testbench} com o anterior.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.60]{exps/TBac}
+	\vspace{-0.5em}
+	\caption{\textit{Schematic} do \textit{testbench} anterior que permite simular o circuito em testes de resposta AC.}
+	\vspace{-0.8em}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.60]{exps/TBac}
+	\vspace{-0.5em}
+	\caption{\textit{Schematic} do novo \textit{testbench} anterior que permite simular o circuito em testes de resposta AC.}
+	\vspace{-0.8em}
+\end{figure} 
+
+\section{Projecção do \textit{Layout}}
 
 \pagebreak
 

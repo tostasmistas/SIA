@@ -122,15 +122,30 @@ Outro erro identificado é referente ao cálculo da \textit{slew-rate}. No relat
 	\text{slewRate} (\text{VT("/OUT")} \:\: 2 \:\: \text{nil} \:\: 1 \:\: \text{nil} \:\: 10 \:\: 90 \:\: \text{nil} \:\: "\text{time}")
 \end{equation}
 
-\todo{falar destas expressoes - explicar das regioes de funcionamento dos transistores}
-
-\todo{ha mais erros?}
+A equação \texttt{slewRate} é obtida da calculadora do \textit{CADENCE}, escolhendo o sinal pretendido. Neste caso o sinal é a saída do \textit{CascodeOTA},	\texttt{VT("/OUT")}. De seguida escolhe-se a posição inicial e final para o calculo da \textit{slew-rate}, foi definido que para o flanco de descida começa-se a calcular desde 2 V até 1 V e no flanco de subida o calculo é o inverso, de 1 V até 2 V. O intervalo anteriormente referido foi escolhido de forma a calcular a \textit{slew-rate} na zona onde os transístores se encontram na saturação.
 
 \subsection{Correcção do dimensionamento}
 
-\todo{explicar isto}
+Com os erros anteriormente referidos corrigidos, o circuito apresentado na entrega intermédia falhava em algumas especificações, ganho para sinais de baixa amplitude, margem de fase e largura de banda, na secção inicial está demonstrado os resultados das simulações de Monte Carlo e \textit{corners}.
 
-\info{nao esquecer que o racio de m1 e m2 mudou face ao da entrega intermedia, explciar porque}
+Com o intuito de corrigir as dimensões, partiu-se de um critério inicial, obter transístores de dimensões mais reduzidas e manter o rácico W/L obtido no relatório anterior. Em primeiro lugar, verificou-se com a nova expressão do calculo da \textit{slew-rate} obtém-se resultados mais elevados, assim sendo podesse reduzir as dimensões dos transístores $M_9$ e $M_{10}$. De seguida pretendeu-se melhorar a margem de fase, analisando o resultado das especificações pretendidas verificou-se que era necessário aumentar a largura de banda de forma a obter uma margem de fase sem alterar significativamente os resultados das outras especificações. Começou-se por analisas as dimensões das capacidades do circuito e verificou-se que a capacidade referente aos transístores $M_7$ e $M_8$ é a capacidade que mais influencia a margem de fase. Mas como já foi referido no relatório anterior os transístores $M_7$ e $M_8$ também afectam o ganho e a largura de banda, como se pode ver pelas expressões seguintes. Assim sendo, e analisando as expressões decidiu-se inicialmente por diminuir os  transístores $M_7$ e $M_8$ o que fez aumentar a largura de banda como também a margem de fase. Com o intuito de melhorar as especificações obtidas diminui-se as dimensões dos transístores $M_3$ e $M_4$ até atingir uma dimensão de L miníma de 0.85$\mu$ este critério foi também aplicado aos transístores  $M_5$ e $M_6$ sendo necessário um aumento das dimensões.
+\vspace{-3mm}
+\begin{equation}
+A_{v} = g_{m_1} R_o =  g_{m_1}\left[\left(g_{m_4}r_{o_4}\left(r_{o_2}//r_{o_{10}}\right)\right)//\left(g_{m_6}r_{o_6}r_{o_8}\right)\right];
+\end{equation}
+\vspace{-2mm}
+\begin{equation}
+f_{p} = \frac{1}{2\pi C_L R_o} = \frac{1}{2\pi C_L \left[\left(g_{m_4}r_{o_4}\left(r_{o_2}//r_{o_{10}}\right)\right)//\left(g_{m_6}r_{o_6}r_{o_8}\right)\right]};
+\end{equation} 
+
+Com estas alterações consegui-se obter todas a especificações menos para o ganho de sinais de baixa amplitude. Analisando a expressão anterior do ganho, verifica-se que para aumentar o ganho sem alterar as restantes especificações, seria necessário aumentar o $g_{m_1}$. Como $g_m$ é directamente proporcional a $I_D$, com aumento de W existe um aumento de $I_D$ e de $g_m$. A expressão seguinte mostra como W influencia $I_D$:
+
+\vspace{-3mm}
+\begin{equation}
+g_{m} \propto I_{D}= k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2 \times \left(1+\lambda V_{DS}\right).
+\end{equation}
+
+
 
 Assim, o circuito final relativamente à entrega intermédia é:
 

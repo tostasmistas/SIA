@@ -122,15 +122,30 @@ Outro erro identificado é referente ao cálculo da \textit{slew-rate}. No relat
 	\text{slewRate} (\text{VT("/OUT")} \:\: 2 \:\: \text{nil} \:\: 1 \:\: \text{nil} \:\: 10 \:\: 90 \:\: \text{nil} \:\: "\text{time}")
 \end{equation}
 
-\todo{falar destas expressoes - explicar das regioes de funcionamento dos transistores}
-
-\todo{ha mais erros?}
+A equação \texttt{slewRate} é obtida da calculadora do \textit{CADENCE}, escolhendo o sinal pretendido. Neste caso o sinal é a saída do \textit{CascodeOTA},	\texttt{VT("/OUT")}. De seguida escolhe-se a posição inicial e final para o calculo da \textit{slew-rate}, foi definido que para o flanco de descida começa-se a calcular desde 2 V até 1 V e no flanco de subida o calculo é o inverso, de 1 V até 2 V. O intervalo anteriormente referido foi escolhido de forma a calcular a \textit{slew-rate} na zona onde os transístores se encontram na saturação.
 
 \subsection{Correcção do dimensionamento}
 
-\todo{explicar isto}
+Com os erros anteriormente referidos corrigidos, o circuito apresentado na entrega intermédia falhava em algumas especificações, ganho para sinais de baixa amplitude, margem de fase e largura de banda, na secção inicial está demonstrado os resultados das simulações de Monte Carlo e \textit{corners}.
 
-\info{nao esquecer que o racio de m1 e m2 mudou face ao da entrega intermedia, explciar porque}
+Com o intuito de corrigir as dimensões, partiu-se de um critério inicial, obter transístores de dimensões mais reduzidas e manter o rácico W/L obtido no relatório anterior. Em primeiro lugar, verificou-se com a nova expressão do calculo da \textit{slew-rate} obtém-se resultados mais elevados, assim sendo podesse reduzir as dimensões dos transístores $M_9$ e $M_{10}$. De seguida pretendeu-se melhorar a margem de fase, analisando o resultado das especificações pretendidas verificou-se que era necessário aumentar a largura de banda de forma a obter uma margem de fase sem alterar significativamente os resultados das outras especificações. Começou-se por analisas as dimensões das capacidades do circuito e verificou-se que a capacidade referente aos transístores $M_7$ e $M_8$ é a capacidade que mais influencia a margem de fase. Mas como já foi referido no relatório anterior os transístores $M_7$ e $M_8$ também afectam o ganho e a largura de banda, como se pode ver pelas expressões seguintes. Assim sendo, e analisando as expressões decidiu-se inicialmente por diminuir os  transístores $M_7$ e $M_8$ o que fez aumentar a largura de banda como também a margem de fase. Com o intuito de melhorar as especificações obtidas diminui-se as dimensões dos transístores $M_3$ e $M_4$ até atingir uma dimensão de L miníma de 0.85$\mu$ este critério foi também aplicado aos transístores  $M_5$ e $M_6$ sendo necessário um aumento das dimensões.
+\vspace{-3mm}
+\begin{equation}
+A_{v} = g_{m_1} R_o =  g_{m_1}\left[\left(g_{m_4}r_{o_4}\left(r_{o_2}//r_{o_{10}}\right)\right)//\left(g_{m_6}r_{o_6}r_{o_8}\right)\right];
+\end{equation}
+\vspace{-2mm}
+\begin{equation}
+f_{p} = \frac{1}{2\pi C_L R_o} = \frac{1}{2\pi C_L \left[\left(g_{m_4}r_{o_4}\left(r_{o_2}//r_{o_{10}}\right)\right)//\left(g_{m_6}r_{o_6}r_{o_8}\right)\right]};
+\end{equation} 
+
+Com estas alterações consegui-se obter todas a especificações menos para o ganho de sinais de baixa amplitude. Analisando a expressão anterior do ganho, verifica-se que para aumentar o ganho sem alterar as restantes especificações, seria necessário aumentar o $g_{m_1}$. Como $g_m$ é directamente proporcional a $I_D$, com aumento de W existe um aumento de $I_D$ e de $g_m$. A expressão seguinte mostra como W influencia $I_D$:
+
+\vspace{-3mm}
+\begin{equation}
+g_{m} \propto I_{D}= k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2 \times \left(1+\lambda V_{DS}\right).
+\end{equation}
+
+
 
 Assim, o circuito final relativamente à entrega intermédia é:
 
@@ -218,11 +233,21 @@ Do ponto de vista da definição correspondem ao mesmo, mas são de facto duas m
 
 Para o trabalho em causa optou-se por usar as duas técnicas teoricamente idênticas para adquirir mais experiência e para verificar as diferenças que têm ao nível de implementação prática no Cadence.
 
-Estas práticas são aplicadas também de forma a evitar os efeitos nocivos de \textit{mismatches}, ou seja da vulnerabilidade aos gradientes de parâmetro. Ao minimizar a área efectiva dos circuitos protege-se assim o dispositivo destes efeitos.
+Estas práticas são aplicadas também de forma a evitar  efeitos nocivos de \textit{mismatches}, ou seja da vulnerabilidade aos gradientes de parâmetro. Ao minimizar a área efectiva dos circuitos protege-se assim o dispositivo destes efeitos.
 
-Sendo assim deu-se especial atenção aos pares de transistores em que se considerou que existe uma maior sensibilidade a \textit{mismatches}. São este os pares M1/M2, M7/M8, M9/M10 e M11-1/M11-2. Começou-se em primeira instância por aplicar multiplicidade, tentando aproximar-se ao máximo os tamanhos dos pares que estão ligados. Em adição a multiplicidade optou-se por usar também a técnica \textit{fingers} nos pares M7/M8 e M5/M6 
+Sendo assim deu-se especial atenção aos pares de transístores em que se considerou que existe uma maior sensibilidade a \textit{mismatches}. São este os pares M\textsubscript{1}/M\textsubscript{2}, M\textsubscript{7}/M\textsubscript{8}, M\textsubscript{9}/M\textsubscript{10} e M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}. 
 
-\todo{explicar porque de fingers nos pares do M7 e do M5}
+Começou-se em primeira instância por aplicar multiplicidade, tentando aproximar ao máximo os tamanhos dos pares que estão ligados entre si, seguido de uma redução geral dos transístores de todo o circuito. 
+
+\todo{melhorar explicação de fingers e multiplicidade a seguir}
+
+Em adição a multiplicidade optou-se por usar também a técnica \textit{fingers} no par M\textsubscript{7}/M\textsubscript{8}. Já no par \textsubscript{5}/M\textsubscript{6} aplicou-se apenas a técnica \textit{fingers} ficando-se assim com tamanhos da mesma ordem em ambos os pares para além de uma forma compacta facilitando as tarefas de escolher uma disposição para os transístores e efectuar as ligações internas.
+
+Como o rácio de espelhamento é muito sensível a diferenças nos parâmetros do espelho de corrente, ou seja a\textit{mismatches}, nos pares de transistores M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}. Dado isto foi aplicada multiplicidade no transístor M\textsubscript{11\textsubscript{2}} de forma a que tivesse o mesmo tamanho que o M\textsubscript{11\textsubscript{1}} sendo assim o par afectado de igual forma pelos gradientes de parâmetros.
+
+Para o par M\textsubscript{9}/M\textsubscript{10}, como são transístores NMOS e se optou por colocar num grupo apenas de NMOS, como será explicado à frente, houve apenas necessidade de reduzir os seus tamanhos através de multiplicidade para valores menos sensíveis a \textit{mismatches}.
+
+Para os restantes cuja sensibilidade a variação de parâmetros não é tão importante quanto nos pares supramencionados usou-se multiplicidade de forma a obter-se as dimensões desejadas e também que facilitassem as estruturas do layout.
 
 Assim, na tabela seguinte encontra-se uma descrição de como são constituídos os vários transístores do circuito.
 
@@ -251,7 +276,7 @@ Para o circuito em causa foram definidos 4 blocos principais sobre os quais se d
 	\item transístores do tipo NMOS - estrutura \textit{common centroid} \#4;.
 \end{itemize}
 
-A escolha destes blocos foi feita com base no \textit{mismatch}. É essencial que entre os transístores do par diferencial não haja diferenças de comportamento, pois se houver o circuito fica desequilibrado. Os dois espelhos de corrente existentes também não devem ter \textit{mismatch}, pois pretende-se um espelhamento correcto. \todo{e os transistores NMOS?}
+A escolha destes blocos foi feita com base no \textit{mismatch}. É essencial que entre os transístores do par diferencial não haja diferenças de comportamento, pois se houver o circuito fica desequilibrado. Os dois espelhos de corrente existentes também não devem ter \textit{mismatch}, pois pretende-se um espelhamento correcto. Como os transistores NMOS eram os mais pequenos e como não necessitam de estar dentro de um poço optou-se por juntar todos em apenas um bloco de forma a facilitar também a obtenção de \textit{common centroid} como será falado à frente.
 
 De seguida apresenta-se as várias estruturas \textit{common centroid} definidas:
 
@@ -300,7 +325,16 @@ De facto, os transístores \textit{dummies} não necessitam de ter as mesmas dim
 	\vspace{-0.8em}
 \end{figure}
 
-Relembrando as estruturas da Figura \ref{fig:common centroid}, verifica-se que a estruturas \#1 e \#3 têm \textit{dummies}. \todo{explicar porque têm, e porque as outra nao têm}
+Relembrando as estruturas da Figura \ref{fig:common centroid}, verifica-se que a estruturas \#1 e \#4 têm \textit{dummies}.
+
+Na caso da estrutura \#1, tinha-se à partida 11 transístores de dimensões iguais após a aplicação de multiplicidade. Como se quer garantir que todos os transístores observam as mesmas vizinhanças minimizando o efeito de \textit{mismatches}, fez-se uso de \textit{dummies} para ocupar as lacunas que iriam de outra forma ficar vazias. O ponto de partida foi assim o transístor M\textsubscript{11\textsubscript{1}} em que não se aplicou multiplicidade rodeando-o dos 10 transístores que constituem M\textsubscript{11\textsubscript{2}}. Após isto observou-se que seriam assim necessário 24 \textit{dummies}. Obtém-se assim uma estrutura rectangular de 5X7 em que todos os M\textsubscript{11\textsubscript{1}} como M\textsubscript{11\textsubscript{2}} observam as mesmas vizinhanças.
+		
+Para a estrutura \#4 o procedimento foi similar. Tinha-se á partida os 3 transístores de polarização M\textsubscript{12}, M\textsubscript{13} e M\textsubscript{14} aos quais não foi aplicada nem multiplicidade nem \textit{fingers} pois já têem tamanhos bastante reduzidos. Para que se pudesse garantir que eles tinham as mesmas vizinhanças teriam que ser rodeados de \textit{dummies}. Como no entanto se tratam de transístores do tipo N e tinha sido decido colocar todos os transístores deste tipo no mesmo bloco bastou adicionar-se os pares  M\textsubscript{3}/M\textsubscript{4} e  M\textsubscript{9}/M\textsubscript{10}, colocando-os de forma alternada obtendo-se o presente na Figura \ref{fig:common centroid} (d). Como todos os transístores presentes neste bloco têm tamanhos muito díspares fica-se uma estrutura final que apresenta algumas áreas vazias.
+
+\todo{falar sobre como os buracos do bloco 4 são bons}
+ 
+
+ 
 
 \subsection{Ligações internas dos blocos}
 

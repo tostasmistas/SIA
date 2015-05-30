@@ -216,9 +216,13 @@ Para projectar o \textit{layout} do circuito da Figura \ref{fig:finalint} optou-
 
 Do ponto de vista da definição correspondem ao mesmo, mas são de facto duas maneiras diferentes de pensar na paralelização de transístores. Com o recurso a \textit{fingers} tem-se uma única célula com o transístor completo com todos os \textit{fingers}, útil para quando se quer uma célula mais compacta, enquanto na multiplicidade tem-se tantos transístores quanto a multiplicidade indicar. De facto, é possível conjugar as duas técnicas, ou seja, cada dispositivo MOS da multiplicidade pode ser feito com vários \textit{fingers}.
 
-Para o trabalho em causa optou-se por usar as duas técnicas teoricamente idênticas para adquirir mais experiência e para verificar as diferenças que têm ao ível de implementação prática no Cadence.
+Para o trabalho em causa optou-se por usar as duas técnicas teoricamente idênticas para adquirir mais experiência e para verificar as diferenças que têm ao nível de implementação prática no Cadence.
 
-\todo{criterio para as multiplicidades e fingers do transistores}
+Estas práticas são aplicadas também de forma a evitar os efeitos nocivos de \textit{mismatches}, ou seja da vulnerabilidade aos gradientes de parâmetro. Ao minimizar a área efectiva dos circuitos protege-se assim o dispositivo destes efeitos.
+
+Sendo assim deu-se especial atenção aos pares de transistores em que se considerou que existe uma maior sensibilidade a \textit{mismatches}. São este os pares M1/M2, M7/M8, M9/M10 e M11-1/M11-2. Começou-se em primeira instância por aplicar multiplicidade, tentando aproximar-se ao máximo os tamanhos dos pares que estão ligados. Em adição a multiplicidade optou-se por usar também a técnica \textit{fingers} nos pares M7/M8 e M5/M6 
+
+\todo{explicar porque de fingers nos pares do M7 e do M5}
 
 Assim, na tabela seguinte encontra-se uma descrição de como são constituídos os vários transístores do circuito.
 

@@ -302,6 +302,24 @@ Relembrando as estruturas da Figura \ref{fig:common centroid}, verifica-se que a
 
 Uma vez definidos como estão estruturados os transístores e como estão dispostos efecutam-se as ligações internas dos 4 blocos da Figura \ref{fig:common centroid}.
 
+Existem várias regras para construir um \textit{layout}, sendo que uma delas impõe um espaço mínimo para separar as diferentes máscaras. Para evitar isto, recorre-se a uma opção existente no Cadence que notifica o utilizador quando este não cumpre as margens mínimas. 
+
+As ligações entre \textit{gates} de transístores que estejam próximos são feitas a partir da camada condutora \texttt{poly}. Porém, se os transístores estiverem afastados é preferível efectuar a ligação com recurso a \texttt{Metal 1} e a contactos do tipo \texttt{P1\_C}, que efectuam a ligação entre \texttt{poly} e \texttt{Metal 1}. Esta solução é preferível para esses casos pois a \texttt{poly} tem uma resistividade elevada e colocar demasiado dessa camada faz aumentar a resistividade geral do circuito. De facto, na tabela seguinte apresenta-se a resistividade das diversas máscaras existentes no fabrico e verifica-se que a \texttt{poly} (\texttt{poly 1}) tem uma resistividade bem superior face a camadas como \texttt{Metal 1} e \texttt{Metal 2}. Verifica-se também que a resistividade de um contacto do tipo \texttt{P1\_C} é elevada, mas que compensa, uma vez que para efectuar uma ligação correcta entre duas \textit{gates} bastaria colocar no máximo 2 contactos.
+
+\begin{table}[H]
+	\centering
+	\caption{Resistividade das diversas máscaras de fabrico (a) e resistividade dos diversos tipos de contactos (b).}
+	\vspace{-1.5mm}
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.20]{teoricas/resistance}}
+	\hspace{8mm}
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.27]{teoricas/resistanceC}}
+	\vspace{-0.8em}
+\end{table}
+
+Tomou-se a decisão de, sempre que possível, efectuar as ligações com \texttt{Metal 1} na horizontal e com \texttt{Metal 2} na vertical. Procura-se aplicar esta \textit{rule of thumb} sempre que possível, sendo que apenas não é cumprida quando se verifica que acaba por tornar mais difícil o \textit{design} do \textit{layout} ou que conduz a uma área maior porque é necessário ajustar o espaçamento entre transístores para acomodar uma ligação em \texttt{Metal 1} ou \texttt{Metal 2} consoante o caso.
+
+Para ligar \texttt{Metal 1} a \texttt{Metal 2} é usada uma via. De referir que, optou-se também, sempre que possível, por colocar vias e contactos duplos, para que houvesse um de \textit{backup}. À semelhança do que se referiu anteriormente, isto é feito quando não dificulta o \textit{design} do \textit{layout}.
+
 \subsection{Ligações externas entre os blocos}
 
 \pagebreak

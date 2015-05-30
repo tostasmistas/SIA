@@ -233,15 +233,68 @@ Depois de se definir como estão estruturados os vários transístores é import
 
 Para o circuito em causa foram definidos 4 blocos principais sobre os quais se definiu uma estrutura \textit{common centroid}:
 
+\vspace{-2mm}
+
 \begin{itemize}
-	\item espelho de corrente básico que é polarizado em corrente com $I_{BIAS}$ (equivalente ao Bloco 1 da Figura 1);
+	\item espelho de corrente básico que é polarizado em corrente com $I_{BIAS}$ (equivalente ao Bloco 1 da Figura 1) - estrutura \textit{common centroid} \#1;
 	\vspace{-2mm}
-	\item transístores do par diferencial (Bloco 2 da Figura 1);
+	\item transístores do par diferencial (Bloco 2 da Figura 1) - estrutura \textit{common centroid} \#2;
 	\vspace{-2mm}
-	\item espelho de corrente cascode básico do tipo PMOS (Bloco 3 da Figura 1);
+	\item espelho de corrente cascode básico do tipo PMOS (Bloco 3 da Figura 1) - estrutura \textit{common centroid} \#3;
 	\vspace{-2mm}
-	\item transístores do tipo NMOS.
+	\item transístores do tipo NMOS - estrutura \textit{common centroid} \#4;.
 \end{itemize}
+
+A escolha destes blocos foi feita com base no \textit{mismatch}. É essencial que entre os transístores do par diferencial não haja diferenças de comportamento, pois se houver o circuito fica desequilibrado. Os dois espelhos de corrente existentes também não devem ter \textit{mismatch}, pois pretende-se um espelhamento correcto. \todo{e os transistores NMOS?}
+
+De seguida apresenta-se as várias estruturas \textit{common centroid} definidas:
+
+\begin{figure}[H]
+	\centering
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.35]{teoricas/espelhodecorrente}}
+	\hspace{8mm}
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.35]{teoricas/pardiferencial}}
+	\linebreak
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.35]{teoricas/espelhodecorrenteamp}}
+	\hspace{40mm}
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.35]{teoricas/nmos}}
+	\vspace{-0.8em}
+	\caption{Estrutura \textit{common centroid} \#1 (a), \#2 (b), \#3 (c) e \#4 (d).}
+	\vspace{-0.8em}
+	\label{fig:common centroid}
+\end{figure}
+
+Nas figuras anteriores verifica-se a existências de transístores representados pela letra D - transístores \textit{dummies}. Este tipo de transístores serve para se garantir que os restantes transístores têm a mesma vizinhança, ou seja, que à sua volta vêem o mesmo. Veja-se o seguinte exemplo em que se consideram dois transístores - 1 e 2. O transístor 1 está definido com uma multiplicidade de 1 e o transístor 2 com uma multiplicidade de 8. Na figura seguinte encontra-se um exemplo de estrutura \textit{common centroid} para esse caso. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.35]{teoricas/dummy1}
+	\vspace{-0.5em}
+	\caption{Exemplo de estrutura \textit{common centroid} com dois transístores.}
+	\vspace{-0.8em}
+\end{figure} 
+
+O transístor 1 tem como vizinhança 4 transístores - para cima, para baixo, para a esquerda e para a direita. No entanto, qualquer transístor 2 tem uma ``falha'' naquilo que vê, pois não tem ``vizinhos'' nalgumas direcções. Assim, para se resolver este problema colocam-se transístores \textit{dummies} nos sítios onde há ``falhas''.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.35]{teoricas/dummy2}
+	\vspace{-0.5em}
+	\caption{Exemplo de estrutura \textit{common centroid} com dois transístores e também transístores \textit{dummies}.}
+	\vspace{-0.8em}
+\end{figure}
+
+De facto, os transístores \textit{dummies} não necessitam de ter as mesmas dimensões que os restantes e o circuito da figura anterior pode ser definido sa seguinte maneira.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.35]{teoricas/dummy3}
+	\vspace{-0.5em}
+	\caption{Exemplo de estrutura \textit{common centroid} com dois transístores e também transístores \textit{dummies} de dimensões menores.}
+	\vspace{-0.8em}
+\end{figure}
+
+Relembrando as estruturas da Figura \ref{fig:common centroid}, verifica-se que a estrutura \#1 e \#3 têm \textit{dummies}. \todo{explicar porque têm, e porque as outra nao têm}
 
 \pagebreak
 

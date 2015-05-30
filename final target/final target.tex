@@ -216,6 +216,8 @@ Para projectar o \textit{layout} do circuito da Figura \ref{fig:finalint} optou-
 
 Do ponto de vista da definição correspondem ao mesmo, mas são de facto duas maneiras diferentes de pensar na paralelização de transístores. Com o recurso a \textit{fingers} tem-se uma única célula com o transístor completo com todos os \textit{fingers}, útil para quando se quer uma célula mais compacta, enquanto na multiplicidade tem-se tantos transístores quanto a multiplicidade indicar. De facto, é possível conjugar as duas técnicas, ou seja, cada dispositivo MOS da multiplicidade pode ser feito com vários \textit{fingers}.
 
+Para o trabalho em causa optou-se por usar as duas técnicas teoricamente idênticas para adquirir mais experiência e para verificar as diferenças que têm ao ível de implementação prática no Cadence.
+
 \todo{criterio para as multiplicidades e fingers do transistores}
 
 Assim, na tabela seguinte encontra-se uma descrição de como são constituídos os vários transístores do circuito.
@@ -294,7 +296,13 @@ De facto, os transístores \textit{dummies} não necessitam de ter as mesmas dim
 	\vspace{-0.8em}
 \end{figure}
 
-Relembrando as estruturas da Figura \ref{fig:common centroid}, verifica-se que a estrutura \#1 e \#3 têm \textit{dummies}. \todo{explicar porque têm, e porque as outra nao têm}
+Relembrando as estruturas da Figura \ref{fig:common centroid}, verifica-se que a estruturas \#1 e \#3 têm \textit{dummies}. \todo{explicar porque têm, e porque as outra nao têm}
+
+\subsection{Ligações internas dos blocos}
+
+Uma vez definidos como estão estruturados os transístores e como estão dispostos efecutam-se as ligações internas dos 4 blocos da Figura \ref{fig:common centroid}.
+
+\subsection{Ligações externas entre os blocos}
 
 \pagebreak
 

@@ -142,7 +142,7 @@ f_{p} = \frac{1}{2\pi C_L R_o} = \frac{1}{2\pi C_L \left[\left(g_{m_4}r_{o_4}\le
 \end{equation} 
 
 \vspace{2mm}
-Assim sendo, e analisando as expressões decidiu-se inicialmente diminuir as dimensões dos transístores M\textsubscript{7} e M\textsubscript{8}, o que fez aumentar a largura de banda como também a margem de fase. Com o intuito de melhorar as especificações obtidas diminui-se as dimensões dos transístores M\textsubscript{3} e M\textsubscript{4} até atingir uma dimensão de $L$ miníma de 0.85 $\mu$m. Este critério foi também aplicado aos transístores M\textsubscript{5} e M\textsubscript{6}, sendo necessário um aumento das dimensões. \unsure{algo esta estranho - aumentar e diminuir tudo ao mesmo tempo?}
+Assim sendo, e analisando as expressões decidiu-se inicialmente diminuir as dimensões dos transístores M\textsubscript{7} e M\textsubscript{8}, o que fez aumentar a largura de banda como também a margem de fase. Com o intuito de melhorar as especificações obtidas diminui-se as dimensões dos transístores M\textsubscript{3} e M\textsubscript{4} até atingir uma dimensão de $L$ miníma de 0.85 $\mu$m. Como a dimensão de L dos transístores M\textsubscript{5} e M\textsubscript{6} é menor que 0.85 $\mu$m, aumentou-se as dimensões com o intuito de manter o critério de um L mínimo de 0.85 $\mu$m.
 
 Com estas alterações consegui-se obter todas a especificações excepto para o ganho de sinais de baixa amplitude. Analisando a expressão anterior do ganho, verifica-se que para aumentar o ganho sem alterar as restantes especificações, seria necessário aumentar o $g_{m_1}$. Como o valor de $g_m$ é directamente proporcional a $I_D$, com aumento de $W$ existe um aumento de $I_D$ e de $g_m$. A expressão seguinte mostra como $W$ influencia $I_D$:
 
@@ -151,7 +151,7 @@ Com estas alterações consegui-se obter todas a especificações excepto para o
 g_{m} \propto I_{D}= k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2 \times \left(1+\lambda V_{DS}\right).
 \end{equation}
 
-\todo{referir entao a mudanca que se fez em M1 e M2. que o racio mudou por causa disto}
+Para aumentar o $g_{m_1}$ é necessário alterar o rácio W/L, ou seja, o rácio de M\textsubscript{1} e M\textsubscript{2} sofreu um aumento de 132\%, passou de 43 para 100.
 
 Assim, o circuito final relativamente à entrega intermédia é:
 
@@ -205,6 +205,8 @@ Nesta secção apresenta-se os resultados do dimensionamento do relatório inter
 	\vspace{-0.8em}
 \end{figure} 
 
+Tal como se pode observar das tabelas de resultados, antes das correções obtinha-se um \textit{yeld} de 70\%, ou seja em cada 4 \textit{batches} pelo menos um não seria utilizável. Estas falhas eram maioritariamente devidas ao ganho e à largura de banda, pelo que tal como se referiu anteriormente foi especialmente aí que incidiram as correcções feitas. Tem-se também uma falha minima na margem de fase levando a um \textit{yeld} de 96\% que seria aceitável. Tem-se também que a simulação por \textit{corners} não apresenta os resultados desejados, sendo que novamente o ganho a largura de banda apresentam os piores resultados com a margem de fase também a ter falhas.
+
 \subsubsection{Resultados do dimensionamento corrigido} 
 
 \begin{figure}[H]
@@ -231,13 +233,16 @@ Nesta secção apresenta-se os resultados do dimensionamento do relatório inter
 	\vspace{-0.8em}
 \end{figure} 
 
-\todo{comentar diferenças obtidas}
+Após as correções os resultados são muito mais positivos, estando dentro dos requisitos do \textit{target}. O \textit{yeld} final é de 96\% para 50 \textit{runs}, que se considera um resultado bastante aceitável. Considerou-se um valor de ganho inferior ao do \textit{target} com o valor de 69 dB. Esta consideração é permitida pois obteve-se um produto de ganho largura de banda superior ao do \textit{target} nos casos em que não se obteve os 70 dB desejados pelo que ao aplicar realimentação se pode aumentar o ganho à custa de largura de banda, ficando-se dentro dos parâmetros desejados.
+Na simulação por \textit{corners} obteve-se também resultados aceitáveis, sendo a única falha na margem de fase, com um erro de cerca de 1\%. 
+
+
 
 \section{Projecção do \textit{Layout}}
 
 \subsection{Multiplicidade e \textit{Fingers}}
 
-Para projectar o \textit{layout} do circuito da Figura \ref{fig:finalint} optou-se por dividir os transístores de grandes dimensões com recurso a duas técnicas - multiplicidade e \textit{fingers}. A técnica de \textit{fingers} corresponde a um arranjo específico do transístor com $n$ \textit{gate fingers} em que as difusões da \textit{source} e do \textit{drain} são partilhadas. Se se tiver $n$ \textit{fingers} haverá então $n+1$ difusões. A multiplicidade é quando se faz uma ligação em paralelo de múltiplos dispositivos MOS, sendo que o agregado deles corresponde a um só transístor. 
+Para projectar o \textit{layout} do circuito da Figura \ref{fig:finalint} optou-se por dividir os transístores de grandes dimensões com recurso a duas técnicas - multiplicidade e \textit{fingers}. A técnica de \textit{fingers} corresponde a um arranjo específico do transístor com $n$ \textit{gate fingers} em que as difusões da \textit{source} e do \textit{drain} são partilhadas. Se se tiver $n$ \textit{fingers} haverá então $n+1$ difusões. A multiplicidade é quando se faz uma ligação em paralelo de múltiplos dispositivos MOS, sendo que o agregado deles corresponde a um só transístor. Observa-se também que utilizar \textit{fingers} reduz a capacidade do transístor, aproximando-a da capacidade linear, sendo especialmente importante nos casos que afectem a largura de banda e margem de fase. 
 
 Do ponto de vista da definição correspondem ao mesmo, mas são de facto duas maneiras diferentes de pensar na paralelização de transístores. Com o recurso a \textit{fingers} tem-se uma única célula com o transístor completo com todos os \textit{fingers}, útil para quando se quer uma célula mais compacta, enquanto na multiplicidade tem-se tantos transístores quanto a multiplicidade indicar. De facto, é possível conjugar as duas técnicas, ou seja, cada dispositivo MOS da multiplicidade pode ser feito com vários \textit{fingers}.
 
@@ -249,9 +254,7 @@ Sendo assim deu-se especial atenção aos pares de transístores em que se consi
 
 Começou-se em primeira instância por aplicar multiplicidade, tentando aproximar ao máximo os tamanhos dos pares que estão ligados entre si, seguido de uma redução geral dos transístores de todo o circuito. 
 
-\todo{melhorar explicação de fingers e multiplicidade a seguir}
-
-Em adição a multiplicidade optou-se por usar também a técnica \textit{fingers} no par M\textsubscript{7}/M\textsubscript{8}. Já no par \textsubscript{5}/M\textsubscript{6} aplicou-se apenas a técnica \textit{fingers} ficando-se assim com tamanhos da mesma ordem em ambos os pares para além de uma forma compacta facilitando as tarefas de escolher uma disposição para os transístores e efectuar as ligações internas.
+Em adição a multiplicidade optou-se por usar também a técnica \textit{fingers} no par M\textsubscript{7}/M\textsubscript{8} pois este par, tal como já foi mencionado, tem grande influencia na largura de banda e margem de fase. Já no par \textsubscript{5}/M\textsubscript{6} aplicou-se apenas a técnica \textit{fingers} ficando-se assim com tamanhos da mesma ordem em ambos os pares para além de uma forma compacta facilitando as tarefas de escolher uma disposição para os transístores e efectuar as ligações internas.
 
 Como o rácio de espelhamento é muito sensível a diferenças nos parâmetros do espelho de corrente, ou seja a\textit{mismatches}, nos pares de transistores M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}. Dado isto foi aplicada multiplicidade no transístor M\textsubscript{11\textsubscript{2}} de forma a que tivesse o mesmo tamanho que o M\textsubscript{11\textsubscript{1}} sendo assim o par afectado de igual forma pelos gradientes de parâmetros.
 

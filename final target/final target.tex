@@ -222,7 +222,7 @@ Nesta secção apresenta-se os resultados do dimensionamento do relatório inter
 	\vspace{-0.8em}
 \end{figure} 
 
-Tal como se pode observar das tabelas de resultados, antes das correções obtinha-se um \textit{yeld} de 70\%, ou seja em cada 4 \textit{batches} pelo menos um não seria utilizável. Estas falhas eram maioritariamente devidas ao ganho e à largura de banda, pelo que tal como se referiu anteriormente foi especialmente aí que incidiram as correcções feitas. Tem-se também uma falha minima na margem de fase levando a um \textit{yeld} de 96\% que seria aceitável. Tem-se também que a simulação por \textit{corners} não apresenta os resultados desejados, sendo que novamente o ganho a largura de banda apresentam os piores resultados com a margem de fase também a ter falhas.
+Tal como se pode observar das tabelas de resultados, antes das correções obtinha-se um \textit{yield} de 70\%, ou seja em cada 4 \textit{batches} pelo menos uma não seria utilizável. Estas falhas eram maioritariamente devidas ao ganho e à largura de banda, pelo que, tal como se referiu anteriormente, foi especialmente aí que incidiram as correcções feitas. Tem-se também uma falha mínima na margem de fase levando a um \textit{yield} de 96\% que já se considera aceitável. Verifica-se também que a simulação por \textit{corners} não apresenta os resultados desejados, sendo que, novamente, o ganho a largura de banda apresentam os piores resultados, com a margem de fase a também ter falhas.
 
 \subsubsection{Resultados do dimensionamento corrigido} 
 
@@ -250,7 +250,8 @@ Tal como se pode observar das tabelas de resultados, antes das correções obtin
 	\vspace{-0.8em}
 \end{figure} 
 
-Após as correções os resultados são muito mais positivos, estando dentro dos requisitos do \textit{target}. O \textit{yeld} final é de 96\% para 50 \textit{runs}, que se considera um resultado bastante aceitável. Considerou-se um valor de ganho inferior ao do \textit{target} com o valor de 69 dB. Esta consideração é permitida pois obteve-se um produto de ganho largura de banda superior ao do \textit{target} nos casos em que não se obteve os 70 dB desejados pelo que ao aplicar realimentação se pode aumentar o ganho à custa de largura de banda, ficando-se dentro dos parâmetros desejados.
+Após as correções os resultados são muito mais positivos, estando dentro dos requisitos do \textit{target}. O \textit{yield} final é de 96\% para 50 \textit{runs}, que se considera um resultado bastante aceitável. Considerou-se um valor de ganho de 69 dB, ou seja, inferior ao do \textit{target}. Esta consideração é permitida pois obteve-se um produto ganho largura de banda superior ao do \textit{target} nos casos em que não se obteve os 70 dB desejados pelo que, ao aplicar realimentação, se pode aumentar o ganho à custa de largura de banda, ficando-se dentro dos parâmetros desejados.
+
 Na simulação por \textit{corners} obteve-se também resultados aceitáveis, sendo a única falha na margem de fase, com um erro de cerca de 1\%. 
 
 \section{Projecção do \textit{Layout}}
@@ -265,17 +266,17 @@ Para o trabalho em causa optou-se por usar as duas técnicas teoricamente idênt
 
 Estas práticas são aplicadas também de forma a evitar  efeitos nocivos de \textit{mismatches}, ou seja da vulnerabilidade aos gradientes de parâmetro. Ao minimizar a área efectiva dos circuitos protege-se assim o dispositivo destes efeitos.
 
-Sendo assim deu-se especial atenção aos pares de transístores em que se considerou que existe uma maior sensibilidade a \textit{mismatches}. São este os pares M\textsubscript{1}/M\textsubscript{2}, M\textsubscript{7}/M\textsubscript{8}, M\textsubscript{9}/M\textsubscript{10} e M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}. 
+Assim sendo, deu-se especial atenção aos pares de transístores em que se considerou que existe uma maior sensibilidade a \textit{mismatches} - pares M\textsubscript{1}/M\textsubscript{2}, M\textsubscript{7}/M\textsubscript{8}, M\textsubscript{9}/M\textsubscript{10} e M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}. 
 
-Começou-se em primeira instância por aplicar multiplicidade, tentando aproximar ao máximo os tamanhos dos pares que estão ligados entre si, seguido de uma redução geral dos transístores de todo o circuito. 
+Começou-se, em primeira instância, por aplicar multiplicidade, tentando aproximar ao máximo os tamanhos dos pares que estão ligados entre si, seguido de uma redução geral dos transístores de todo o circuito. 
 
-Em adição a multiplicidade optou-se por usar também a técnica \textit{fingers} no par M\textsubscript{7}/M\textsubscript{8} pois este par, tal como já foi mencionado, tem grande influencia na largura de banda e margem de fase. Já no par \textsubscript{5}/M\textsubscript{6} aplicou-se apenas a técnica \textit{fingers} ficando-se assim com tamanhos da mesma ordem em ambos os pares para além de uma forma compacta facilitando as tarefas de escolher uma disposição para os transístores e efectuar as ligações internas.
+Em adição à multiplicidade optou-se por usar também a técnica \textit{fingers} no par M\textsubscript{7}/M\textsubscript{8} pois este par, tal como já foi mencionado, tem grande influência na largura de banda e margem de fase. Já no par M\textsubscript{5}/M\textsubscript{6} aplicou-se apenas a técnica \textit{fingers} ficando-se assim com tamanhos da mesma ordem em ambos os pares para além de uma forma compacta facilitando as tarefas de escolher uma disposição para os transístores e efectuar as ligações internas.
 
-Como o rácio de espelhamento é muito sensível a diferenças nos parâmetros do espelho de corrente, ou seja a\textit{mismatches}, nos pares de transistores M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}. Dado isto foi aplicada multiplicidade no transístor M\textsubscript{11\textsubscript{2}} de forma a que tivesse o mesmo tamanho que o M\textsubscript{11\textsubscript{1}} sendo assim o par afectado de igual forma pelos gradientes de parâmetros.
+Como o rácio de espelhamento é muito sensível a diferenças nos parâmetros do espelho de corrente, ou seja, a \textit{mismatches} nos pares de transístores M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}, foi aplicada multiplicidade no transístor M\textsubscript{11\textsubscript{2}} de forma a que tivesse o mesmo tamanho que o transístor M\textsubscript{11\textsubscript{1}}. Desta maneira o par é afectado de igual forma pelos gradientes de parâmetros.
 
-Para o par M\textsubscript{9}/M\textsubscript{10}, como são transístores NMOS e se optou por colocar num grupo apenas de NMOS, como será explicado à frente, houve apenas necessidade de reduzir os seus tamanhos através de multiplicidade para valores menos sensíveis a \textit{mismatches}.
+Para o par M\textsubscript{9}/M\textsubscript{10}, como são transístores NMOS, optou-se por colocar num grupo de apenas transístores NMOS, como será explicado à frente. Para estar par apenas houve necessidade de reduzir os seus tamanhos através de multiplicidade para valores menos sensíveis a \textit{mismatches}.
 
-Para os restantes cuja sensibilidade a variação de parâmetros não é tão importante quanto nos pares supramencionados usou-se multiplicidade de forma a obter-se as dimensões desejadas e também que facilitassem as estruturas do layout.
+Para os restantes transístores cuja sensibilidade a variação de parâmetros não é tão importante quanto nos pares supramencionados usou-se multiplicidade de forma a obter-se as dimensões desejadas e também que facilitassem as estruturas do \textit{layout}.
 
 Assim, na tabela seguinte encontra-se uma descrição de como são constituídos os vários transístores do circuito.
 
@@ -286,17 +287,45 @@ Assim, na tabela seguinte encontra-se uma descrição de como são constituídos
 	\includegraphics[keepaspectratio=true, scale=0.30]{teoricas/dimensoes2}
 \end{table}
 
+Na próxima figura apresenta-se o circuito após a divisão dos transístores com recurso a multiplicidade e \textit{fingers}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.55]{exps/schematicdiv}
+	\vspace{-0.5em}
+	\caption{\textit{Schematic} do circuito para projecção do \textit{layout}.}
+	\vspace{-0.8em}
+\end{figure} 
+
 Após realizar as alterações comentadas anteriormente realizou-se novamente uma simulação Monte Carlo de forma a observar os seus efeitos. Apresenta-se assim o obtido na figura seguinte.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.65]{exps/MonteCarlo_50pt_Novo_Sin}
 	\vspace{-0.5em}
-	\caption{Simulação Monte Carlo após aplicar técnicas de multiplicidade e \textit{fingers}.}
+	\caption{Simulação Monte Carlo para 50 pontos após aplicar técnicas de multiplicidade e \textit{fingers}.}
 	\vspace{-0.8em}
 \end{figure} 
 
-Pode assim observar-se uma grande redução no \textit{yeld}, tendo-se obtido 22\%. Isto é devio em grande parte à margem de fase, sendo que existe ainda uma ligeira descida nos resultados do ganho, mas que ainda assim iria levar a \textit{yelds} aceitáveis. Esta influência na margem de fase deve-se a que ao utilizar multiplicidade aumenta-se o número de capacidades parasitas e a resistividade que aliado à fraca optimização do \textit{layout} produzido automaticamente pelo Cadence produz os resultados observados. Este problema será em grande parte resolvido com as práticas tomadas para realizar o \textit{layout} como se irá explicar nas secções seguintes, pois o intuito destas é especificamente para colmatar estes problemas.
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.65]{exps/MonteCarlo_3pt_Novo_Sim}
+	\vspace{-0.5em}
+	\caption{Resultados obtidos para as 3 primeiras simulações de Monte Carlo após aplicar técnicas de multiplicidade e \textit{fingers}.}
+	\vspace{-0.8em}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.65]{exps/Corners_Novo_Sim}
+	\vspace{-0.5em}
+	\caption{Simulação por \textit{corners} após aplicar técnicas de multiplicidade e \textit{fingers}.}
+	\vspace{-0.8em}
+\end{figure}
+
+Pode assim observar-se uma grande redução no \textit{yield}, tendo-se obtido 22\%. Isto é devido em grande parte à margem de fase, sendo que existe ainda uma ligeira descida nos resultados do ganho, mas que ainda assim iria levar a \textit{yields} aceitáveis. Esta influência na margem de fase deve-se à multiplicidade que faz aumentar o número de capacidades parasitas e a resistividade que, aliado à fraca optimização do \textit{layout} produzido automaticamente pelo Cadence, produz os resultados observados. Este problema será em grande parte resolvido com as práticas tomadas para realizar o \textit{layout} como se irá explicar nas secções seguintes, pois o intuito destas é especificamente colmatar estes problemas.
+
+\todo{comentar corners}
 
 \subsection{Disposição dos transístores}
 
@@ -439,7 +468,7 @@ Como se pode ver, as \textit{gates} dos transístores \textit{dummy} foram ligad
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.45]{exps/circuito_ibias}
+	\includegraphics[keepaspectratio=true, scale=0.45]{teoricas/circuito_ibias}
 	\vspace{-0.5em}
 	\caption{Circuito que demonstra o efeito de ligar as \textit{gates} dos \textit{dummies} a $I_{BIAS}$.}
 	\vspace{-0.8em}
@@ -489,6 +518,16 @@ Relembrando a estrutura da Figura \ref{fig:common centroid}(b), a sua primeira i
 
 Deve também ter-se em conta que a polarização foi feita ligando o \textit{guard ring} deste bloco ao \textit{guard ring} da estrutura \#1. Fica assim o bloco polarizado tal como foi explicado na secção anterior.
 
+A implementação desta estrutura no Cadence é apresentada de seguida.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.65]{exps/layout/pardiferencial}
+	\vspace{-0.5em}
+	\caption{\textit{Layout} da estrutura que corresponde ao par diferencial.}
+	\vspace{-0.8em}
+\end{figure}
+
 \subsubsection{Estrutura \textit{common centroid} \#3}
 
 \begin{figure}[H]
@@ -497,6 +536,14 @@ Deve também ter-se em conta que a polarização foi feita ligando o \textit{gua
 	\vspace{-0.5em}
 	\caption{Esquema inicial do \textit{layout}.}
 	\vspace{-0.8em} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.57]{exps/layout/espelhodecorrenteamp}
+	\vspace{-0.5em}
+	\caption{\textit{Layout} da estrutura que corresponde ao espelho de corrente cascode básico do tipo PMOS.}
+	\vspace{-0.8em}
 \end{figure}
 
 \subsubsection{Estrutura \textit{common centroid} \#4}
@@ -511,7 +558,7 @@ Para realizar estas ligações entre blocos foi necessário ter especial atenç�
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.50]{exps/layout/full}
 	\vspace{-0.5em}
-	\caption{Aspecto final do \textit{layout} de todo o circuito.}
+	\caption{\textit{Layout} do circuito Cascode OTA.}
 	\vspace{-0.8em} 
 \end{figure}
 

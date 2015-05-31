@@ -542,6 +542,8 @@ A implementação desta estrutura no Cadence é apresentada de seguida.
 
 \subsubsection{Estrutura \textit{common centroid} \#3}
 
+ O ponto de partida para realizar o layout deste bloco foi organizar os transístores múltiplos de M\textsubscript{8} e M\textsubscript{7} cruzados de forma a garantir \textit{Common centroid}, podendo sobrepor-se então as \textit{sources} de ambos, ficando-se com o aspecto que se segue.
+ 
 \begin{figure}[H]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.30]{teoricas/layout/cc3_1}
@@ -549,6 +551,10 @@ A implementação desta estrutura no Cadence é apresentada de seguida.
 	\caption{Esquema inicial do \textit{layout}.}
 	\vspace{-0.8em} 
 \end{figure}
+
+Tem-se assim que este é um bloco bastante compacto e com as ligações entre transístores simples, bastando que se verifiquem as regras mencionadas acima.
+
+Mais uma vez utilizou-se um \textit{guard ring} protegendo e polarizando o circuito tal como foi dito nos blocos anteriores.
 
 \begin{figure}[H]
 	\centering
@@ -574,7 +580,7 @@ Para realizar estas ligações entre blocos foi necessário ter especial atenç�
 	\vspace{-0.8em} 
 \end{figure}
 
-Após estas ligações feitas, de forma a proteger ainda mais o circuito colocou-se um \textit{guard ring} em torno da forma final tal como se observa acima. Este \textit{guard ring} no entanto não é rectangular, tendo sido ajustado à forma do circuito final poupando-se ao máximo a área consumida.
+Feitas estas ligações, de forma a proteger ainda mais o circuito colocou-se um \textit{guard ring} em torno da forma final tal como se observa acima. Este \textit{guard ring} no entanto não é rectangular, tendo sido ajustado à forma do circuito final poupando-se ao máximo a área consumida.
 
 Por fim calcula-se a área ocupada pelo circuito da forma que se observa na figura a seguir.
 

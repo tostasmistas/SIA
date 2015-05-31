@@ -342,9 +342,6 @@ Na caso da estrutura \#1, tinha-se à partida 11 transístores de dimensões igu
 Para a estrutura \#4 o procedimento foi similar. Tinha-se á partida os 3 transístores de polarização M\textsubscript{12}, M\textsubscript{13} e M\textsubscript{14} aos quais não foi aplicada nem multiplicidade nem \textit{fingers} pois já têem tamanhos bastante reduzidos. Para que se pudesse garantir que eles tinham as mesmas vizinhanças teriam que ser rodeados de \textit{dummies}. Como no entanto se tratam de transístores do tipo N e tinha sido decido colocar todos os transístores deste tipo no mesmo bloco bastou adicionar-se os pares  M\textsubscript{3}/M\textsubscript{4} e  M\textsubscript{9}/M\textsubscript{10}, colocando-os de forma alternada obtendo-se o presente na Figura \ref{fig:common centroid} (d). Como todos os transístores presentes neste bloco têm tamanhos muito díspares fica-se uma estrutura final que apresenta algumas áreas vazias.
 
 \todo{falar sobre como os buracos do bloco 4 são bons}
- 
-
- 
 
 \subsection{Ligações internas dos blocos}
 
@@ -369,6 +366,38 @@ Tomou-se a decisão de, sempre que possível, efectuar as ligações com \texttt
 Para ligar \texttt{Metal 1} a \texttt{Metal 2} é usada uma via. De referir que, optou-se também, sempre que possível, por colocar vias e contactos duplos, para que houvesse um de \textit{backup}. À semelhança do que se referiu anteriormente, isto é feito quando não dificulta o \textit{design} do \textit{layout}.
 
 \subsubsection{Estrutura \textit{common centroid} \#1}
+
+Relembrando a estrutura da Figura \ref{fig:common centroid}(a), a sua primeira implementação no Cadence foi feita da seguinte maneira:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.30]{teoricas/layout/cc1_1}
+	\vspace{-0.5em}
+	\caption{Esquema inicial do \textit{layout}.}
+	\vspace{-0.8em} 
+\end{figure}
+
+Como se pode ver, da maneira como a estrutura \textit{common centroid} foi definida é possível sobrepor as difusões de \textit{source} dos transístores M\textsubscript{11\textsubscript{2}}, poupando assim área. Da mesma maneira, pode-se também sobrepor a \textit{source} do transístor M\textsubscript{11\textsubscript{2}} do meio com a \textit{source} do transístor \textit{dummy} que se encontra próximo do transístor M\textsubscript{11\textsubscript{1}}. Desta maneira, o circuito fica com a seguinte estrutura:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.30]{teoricas/layout/cc1_2}
+	\vspace{-0.5em}
+	\caption{Estrutura resultante da agregação das difusões de alguns transístores.}
+	\vspace{-0.8em} 
+\end{figure}
+
+No entanto, verifica-se que agora as vizinhanças dos transístores não estão de acordo com o pretendido, havendo ``buracos'' entre a estrutura rectangular de \textit{dummies} e a estrutura rectangular interior. Assim, optou-se por ajustar a estrutura exterior com \textit{dummies} de menores dimensões  e de modo a que a estrutura geral ficasse rectangular, apenas com o espaço necessário mínimo entre transístores que garante um correcto funcionamento do circuito.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.30]{teoricas/layout/cc1_3}
+	\vspace{-0.5em}
+	\caption{Estrutura resultante do \textit{layout} do espelho de corrente básico que é polarizado em corrente com $I_{BIAS}$.}
+	\vspace{-0.8em} 
+\end{figure} 
+
+A implementação desta estrutura no Cadence é apresentada de seguida.
 
 \begin{figure}[H]
 	\centering

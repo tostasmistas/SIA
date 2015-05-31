@@ -415,7 +415,7 @@ Como se pode ver, da maneira como a estrutura \textit{common centroid} foi defin
 	\vspace{-0.8em} 
 \end{figure}
 
-No entanto, verifica-se que agora as vizinhanças dos transístores não estão de acordo com o pretendido, havendo ``buracos'' entre a estrutura rectangular de \textit{dummies} e a estrutura rectangular interior. Assim, optou-se por ajustar a estrutura exterior com \textit{dummies} de menores dimensões  e de modo a que a estrutura geral ficasse rectangular, apenas com o espaço necessário mínimo entre transístores que garante um correcto funcionamento do circuito.
+No entanto, verifica-se que agora as vizinhanças dos transístores não estão de acordo com o pretendido, havendo ``buracos'' entre a estrutura rectangular de \textit{dummies} e a estrutura rectangular interior. Assim, optou-se por ajustar a estrutura exterior com \textit{dummies} de menores dimensões  e de modo a que a estrutura geral ficasse rectangular, apenas com o espaço necessário mínimo entre transístores que garante um correcto funcionamento do circuito. Outra razão para o interesse de reduzir as dimensão total do bloco irá ser evidenciada à frente, pois seria impossível polarizar todo o bloco recorrendo apenas a um \textit{guard ring}. O aspecto final é então como se segue.
 
 \begin{figure}[H]
 	\centering
@@ -449,7 +449,7 @@ Desta forma protege-se o \textit{dummy} de variações na fonte de tensão que d
 
 Como se pode ver, em torno dos transístores PMOS foi colocado um poço, ou seja, aplicou-se a máscara \texttt{NTUB}. Isso tem de ser feito porque no caso dos transístores PMOS, as difusões do tipo $p$+ não podem estar directamente ligadas ao substrato, uma vez que este é do tipo $p+$. Assim, é necessário criar um poço do tipo $n$ entre as difusões e o substrato.
 
-É de referir que dentro do poço encontra-se um \textit{guard ring} do tipo \texttt{ndiff\_ntub}. Através deste é possível polarizar o substrato a VDD, colocando sobre o \textit{guard ring} o \textit{pin} correspondente, como se pode ver na figura seguinte. 
+É de referir que dentro do poço encontra-se um \textit{guard ring} do tipo \texttt{ndiff\_ntub}. Através deste é possível polarizar o substrato a VDD, colocando sobre o \textit{guard ring} o \textit{pin} correspondente tal como se observa na figura
 
 \begin{figure}[H]
 	\centering
@@ -459,13 +459,17 @@ Como se pode ver, em torno dos transístores PMOS foi colocado um poço, ou seja
 	\vspace{-0.8em}
 \end{figure}
 
+De forma a que o bloco esteja bem polarizado, todos os pontos deste deveriam estar a uma distância mínima de 20 $\mu$m. Isto seria impossível com as dimensões iniciais pelo que se realizou a redução tal como foi indicado anteriormente obtendo-se assim uma distância ao centro inferior a 17 $\mu$m ficando portanto correctamente polarizado.
+
 O \textit{guard ring} tem também o intuito de proteger o circuito de correntes de dispersão e, desta maneira, o ruído do substrato encontra no \textit{guard ring} blindagem.
 
-É de referir que nesta altura da projecção do \textit{layout} quando se efectuava um DRC e um LVS sobre o \textit{design} do circuito havia dois problemas principais - \textit{hot nwell} e mau \textit{match} entre os \textit{pins} do \textit{schematic} e do \textit{layout}. O problema de \textit{hot nwell} surge quando o substrato \todo{continuar esta parte dos erros}
+É de referir que nesta altura da projecção do \textit{layout} quando se efectuava um DRC e um LVS sobre o \textit{design} do circuito havia dois problemas principais - \textit{hot nwell} e mau \textit{match} entre os \textit{pins} do \textit{schematic} e do \textit{layout}. O problema de \textit{hot nwell} surge quando o substrato não está correctamente polarizado a VDD, que acontecia devido ao segundo erro mencionado. De forma a que se polarize correctamente o \textit{guard ring} o material do \textit{pin} e da \textit{label} devem assim ser de materias complementares. Ou seja como \textit{pin} é do material \texttt{Metal 1} \texttt{pin} pelo que a \textit{label} terá que ser do material \texttt{pin} \texttt{Metal 1}. Ficam assim corrigidos ambos os erros.
 
 \subsubsection{Estrutura \textit{common centroid} \#2}
 
 \subsubsection{Estrutura \textit{common centroid} \#3}
+
+
 
 \subsubsection{Estrutura \textit{common centroid} \#4}
 

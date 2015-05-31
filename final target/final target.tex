@@ -142,16 +142,18 @@ f_{p} = \frac{1}{2\pi C_L R_o} = \frac{1}{2\pi C_L \left[\left(g_{m_4}r_{o_4}\le
 \end{equation} 
 
 \vspace{2mm}
-Assim sendo, e analisando as expressões decidiu-se inicialmente diminuir as dimensões dos transístores M\textsubscript{7} e M\textsubscript{8}, o que fez aumentar a largura de banda como também a margem de fase. Com o intuito de melhorar as especificações obtidas diminui-se as dimensões dos transístores M\textsubscript{3} e M\textsubscript{4} até atingir uma dimensão de $L$ miníma de 0.85 $\mu$m. Como a dimensão de L dos transístores M\textsubscript{5} e M\textsubscript{6} é menor que 0.85 $\mu$m, aumentou-se as dimensões com o intuito de manter o critério de um L mínimo de 0.85 $\mu$m.
+Assim sendo, e analisando as expressões decidiu-se inicialmente diminuir as dimensões dos transístores M\textsubscript{7} e M\textsubscript{8}, o que fez aumentar a largura de banda como também a margem de fase. Com o intuito de melhorar as especificações obtidas diminui-se as dimensões dos transístores M\textsubscript{3} e M\textsubscript{4} até atingir uma dimensão de $L$ miníma de 0.85 $\mu$m. Como a dimensão $L$ dos transístores M\textsubscript{5} e M\textsubscript{6} é menor que 0.85 $\mu$m, aumentou-se as dimensões com o intuito de manter o critério de um L mínimo de 0.85 $\mu$m.
 
-Com estas alterações consegui-se obter todas a especificações excepto para o ganho de sinais de baixa amplitude. Analisando a expressão anterior do ganho, verifica-se que para aumentar o ganho sem alterar as restantes especificações, seria necessário aumentar o $g_{m_1}$. Como o valor de $g_m$ é directamente proporcional a $I_D$, com aumento de $W$ existe um aumento de $I_D$ e de $g_m$. A expressão seguinte mostra como $W$ influencia $I_D$:
+Com estas alterações consegui-se obter todas a especificações excepto para o ganho de sinais de baixa amplitude. Analisando a expressão anterior do ganho, verifica-se que para aumentar o ganho sem alterar as restantes especificações, seria necessário aumentar o valor de $g_{m_1}$. Como o valor de $g_m$ é directamente proporcional a $I_D$, com aumento de $W$ existe um aumento de $I_D$ e de $g_m$. A expressão seguinte mostra como $W$ influencia $I_D$:
 
 \vspace{-3mm}
 \begin{equation}
 g_{m} \propto I_{D}= k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2 \times \left(1+\lambda V_{DS}\right).
 \end{equation}
 
-Para aumentar o $g_{m_1}$ é necessário alterar o rácio W/L, ou seja, o rácio de M\textsubscript{1} e M\textsubscript{2} sofreu um aumento de 132\%, passou de 43 para 100.
+Para aumentar o $g_{m_1}$ é necessário alterar o rácio $W/L$, ou seja, o rácio de M\textsubscript{1} e M\textsubscript{2} sofreu um aumento de 132\%, passando de 43 para 100. Não é preocupante esta alteração do valor da transcondutância, não se comprometendo a zona de funcionamento dos transístores pois estes são polarizados externamente.
+
+\todo{explicar as polarizacoes com que ficamos - 13uA e 29uA}
 
 Assim, o circuito final relativamente à entrega intermédia é:
 
@@ -173,7 +175,22 @@ Assim, o circuito final relativamente à entrega intermédia é:
 
 Com este circuito as especificações finais obtidas para o circuito com recurso à simulação da Figura 3 são apresentadas na seguinte tabela.
 
-\todo{simular e retirar valores e graficos}
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.25]{exps/SIngle_Run}
+	\vspace{-0.5em}
+	\caption{Simulações efectuadas com o circuito final do \textit{middle target}.} 
+	\vspace{-0.8em}
+\end{figure} 
+
+Relativamente às especificações que se pretende apresenta-se de seguida uma tabela com um resumo.
+
+\begin{table}[H]
+	\centering
+	\caption{Especificações obtidas com o circuito final do \textit{middle target}.}
+	\vspace{-1.5mm}
+	\includegraphics[keepaspectratio=true, scale=0.35]{teoricas/specsfinal}
+\end{table}
 
 \subsection{Demonstração de resultados} 
 
@@ -235,8 +252,6 @@ Tal como se pode observar das tabelas de resultados, antes das correções obtin
 
 Após as correções os resultados são muito mais positivos, estando dentro dos requisitos do \textit{target}. O \textit{yeld} final é de 96\% para 50 \textit{runs}, que se considera um resultado bastante aceitável. Considerou-se um valor de ganho inferior ao do \textit{target} com o valor de 69 dB. Esta consideração é permitida pois obteve-se um produto de ganho largura de banda superior ao do \textit{target} nos casos em que não se obteve os 70 dB desejados pelo que ao aplicar realimentação se pode aumentar o ganho à custa de largura de banda, ficando-se dentro dos parâmetros desejados.
 Na simulação por \textit{corners} obteve-se também resultados aceitáveis, sendo a única falha na margem de fase, com um erro de cerca de 1\%. 
-
-
 
 \section{Projecção do \textit{Layout}}
 
@@ -410,7 +425,25 @@ A implementação desta estrutura no Cadence é apresentada de seguida.
 	\vspace{-0.8em}
 \end{figure}
 
+Como se pode ver, em torno dos transístores PMOS foi colocado um poço, ou seja, aplicou-se a máscara \texttt{NTUB}. Iso tem de ser feito porque no caso dos transístores PMOS, as difusões do tipo $p$+ não podem estar directamente ligadas ao substrato, uma vez que este é do tipo $p+$. Assim, é necessário criar um poço do tipo $n$ entre as difusões e o substrato.
+
+É de referir que dentro do poço encontra-se um \textit{guard ring} do tipo \texttt{ndiff\_ntub}. Através deste é possível polarizar o substrato a VDD, colocando sobre o \textit{guard ring} o \textit{pin} correspondente, como se pode ver na figura seguinte. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.25]{exps/layout/pinVDD}
+	\vspace{-0.5em}
+	\caption{Colocação do \textit{pin} de VDD sobre o \textit{guard ring}.}
+	\vspace{-0.8em}
+\end{figure}
+
+O \textit{guard ring} tem também o intuito de proteger o circuito de correntes de dispersão e, desta maneira, o ruído do substrato encontra no \textit{guard ring} blindagem.
+
+É de referir que nesta altura da projecção do \textit{layout} quando se efectuava um DRC e um LVS sobre o \textit{design} do circuito havia dois problemas principais - \textit{hot nwell} e mau \textit{match} entre os \textit{pins} do \textit{schematic} e do \textit{layout}. O problema de \textit{hot nwell} surge quando o substrato 
+
 \subsubsection{Estrutura \textit{common centroid} \#2}
+
+
 
 \subsubsection{Estrutura \textit{common centroid} \#3}
 

@@ -600,11 +600,43 @@ Para realizar estas ligações entre blocos foi necessário ter especial atenç�
 	\vspace{-0.8em} 
 \end{figure}
 
-Feitas estas ligações, de forma a proteger ainda mais o circuito colocou-se um \textit{guard ring} em torno da forma final tal como se observa acima. Este \textit{guard ring} no entanto não é rectangular, tendo sido ajustado à forma do circuito final poupando-se ao máximo a área consumida. Neste \textit{guard ring} foram também inseridos todos os \textit{pins} de forma a que nenhum ficasse solto no circuito.
+Feitas estas ligações, de forma a proteger ainda mais o circuito colocou-se um \textit{guard ring} em torno da forma final tal como se observa acima. Este \textit{guard ring} no entanto não é rectangular, tendo sido ajustado à forma do circuito final poupando-se ao máximo a área consumida. Neste \textit{guard ring} foram também inseridos todos os \textit{pins} de forma a que nenhum ficasse solto no circuito. Introduziram-se assim os \textit{pins} \texttt{In}, \texttt{Out}, \texttt{Vin+}, \texttt{Vin-}, \texttt{Ibias} e \texttt{Ibias 2}. Como todos foram inseridos no \textit{guard ring} exterior são do material \texttt{Metal 2} \texttt{Pin} sendo a sua \textit{label} do material complementar, ou seja \texttt{Pin} \texttt{Metal 2}, tal como já mencionado anteriormente.
 
 \todo{qual é a polarização do guard ring exterior?}
 
 \todo{corners e monte carlo apos layout}
+
+Com o \textit{layout} feito seguiram-se então simulações de Monte Carlo e por \textit{Corners} para que se pudesse observar os efeitos das práticas e decisões tomadas ao longo da realização deste. Os resultados destas simulações apresentam-se então nas figuras seguintes.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{exps/MonteCarlo_50pt_Novo_MultiTransistor_Layout}
+	\vspace{-0.5em}
+	\caption{simulação Monte Carlos para 50 pontos após realização do \textit{Layout}.}
+	\vspace{-0.8em} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{exps/MonteCarlo_3pt_Novo_MultiTransistor_Layout}
+	\vspace{-0.5em}
+	\caption{Resultados obtidos para as 3 primeiras simulações de Monte Carlos após realização do \textit{Layout}.}
+	\vspace{-0.8em} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{exps/Corners_Novo_Layout}
+	\vspace{-0.5em}
+	\caption{Simulação por \textit{orners} após realização do \textit{Layout}.}
+	\vspace{-0.8em} 
+\end{figure}
+
+Os resultados obtidos para a simulação de Monte Carlo são então tal como esperado melhores do que após a aplicação das técnicas de multiplicidade e \textit{fingers}, subindo o \textit{yeld} de 18\% para 74\% sendo que o \textit{bottleneck} continua a ser a margem de fase.
+
+Também na simulação por \textit{corners} os únicos resultados negativos foram na margem de fase, sendo que no entanto a situação melhora face ao caso após  aplicação de multiplicidade e \textit{fingers}.
+
+\todo{há alguma desculpa a dar para os maus resultados da fase ou aceitamos este yeld?}
 
 Por fim calcula-se a área ocupada pelo circuito da forma que se observa na figura a seguir.
 

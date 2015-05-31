@@ -554,7 +554,7 @@ A implementação desta estrutura no Cadence é apresentada de seguida.
 
 Tem-se assim que este é um bloco bastante compacto e com as ligações entre transístores simples sendo as únicas prioridades prementes a utilização da menor área possível e garantir as regras de boas práticas relativamente aos troços de \texttt{Metal1} e \texttt{Metal2}.
 
-Mais uma vez utilizou-se um \textit{guard ring} cuja função é proteger e polarizar o circuito tal como foi dito nos blocos anteriores.
+Mais uma vez utilizou-se um \textit{guard ring} cuja função é proteger e polarizar o circuito tal como foi dito nos blocos anteriores. É feita então uma ligação entre este o \textit{guard ring} do bloco \#1 ficando-se assim com a polarização feita a \texttt{VDD} tal como desejado.
 
 \begin{figure}[H]
 	\centering
@@ -600,9 +600,7 @@ Para realizar estas ligações entre blocos foi necessário ter especial atenç�
 	\vspace{-0.8em} 
 \end{figure}
 
-Feitas estas ligações, de forma a proteger ainda mais o circuito colocou-se um \textit{guard ring} em torno da forma final tal como se observa acima. Este \textit{guard ring} no entanto não é rectangular, tendo sido ajustado à forma do circuito final poupando-se ao máximo a área consumida. Neste \textit{guard ring} foram também inseridos todos os \textit{pins} de forma a que nenhum ficasse solto no circuito. Introduziram-se assim os \textit{pins} \texttt{In}, \texttt{Out}, \texttt{Vin+}, \texttt{Vin-}, \texttt{Ibias} e \texttt{Ibias 2}. Como todos foram inseridos no \textit{guard ring} exterior são do material \texttt{Metal 2} \texttt{Pin} sendo a sua \textit{label} do material complementar, ou seja \texttt{Pin} \texttt{Metal 2}, tal como já mencionado anteriormente.
-
-\todo{qual é a polarização do guard ring exterior?}
+Feitas estas ligações, de forma a proteger ainda mais o circuito colocou-se um \textit{guard ring}, polarizado a \texttt{Ground}, em torno da forma final tal como se observa acima. Com esta polarização pode então fazer-se uma ligação por \texttt{Metal1} entre este e o \textit{guard ring} do bloco \#4 ficando assim também polarizado. Este \textit{guard ring} no entanto não é rectangular, tendo sido ajustado à forma do circuito final poupando-se ao máximo a área consumida. Neste \textit{guard ring} foram também inseridos todos os \textit{pins} de forma a que nenhum ficasse solto no circuito. Introduziram-se assim os \textit{pins} \texttt{In}, \texttt{Out}, \texttt{Vin+}, \texttt{Vin-}, \texttt{Ibias} e \texttt{Ibias 2}. Como todos foram inseridos no \textit{guard ring} exterior são do material \texttt{Metal2} \texttt{Pin} sendo a sua \textit{label} do material complementar, ou seja \texttt{Pin} \texttt{Metal2}, tal como já mencionado anteriormente. Da mesma forma coloca-se um \textit{pin} para fazer a ligação a \texttt{Grround} cujo o material é \texttt{Metal1} \texttt{Pin} e a \textit{label} é \texttt{Pin} \texttt{Metal1}.
 
 Com o \textit{layout} feito seguiram-se então simulações de Monte Carlo e por \textit{Corners} para que se pudesse observar os efeitos das práticas e decisões tomadas ao longo da realização deste. Os resultados destas simulações apresentam-se então nas figuras seguintes.
 

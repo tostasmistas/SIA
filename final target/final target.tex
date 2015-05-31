@@ -476,6 +476,18 @@ Como se pode ver, as \textit{gates} dos transístores \textit{dummy} foram ligad
 
 Desta forma protege-se o \textit{dummy} de variações na fonte de tensão que de outra forma iriam comprometer a integridade do transístor e como tal a do espelho de corrente, pois este condensador irá actuar como um filtro apenas aquando a ocorrência de variações.
 
+Quando se extraiu o \textit{layout} do circuito verificou-se de facto a existência deste condensador, como se pode ver na figura seguinte. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.35]{exps/condensador1}
+	\vspace{-0.5em}
+	\caption{Condensador que surge entre $I_{BIAS}$ e VDD.}
+	\vspace{-0.8em}
+\end{figure}
+
+Analisando a capacidade do condensador, 46.43 F, verifica-se que é um valor elevado, o que é representativo da influência dos \textit{dummies} no circuito, não sendo esta apenas uma capacidade parasita.
+
 Como se pode ver, em torno dos transístores PMOS foi colocado um poço, ou seja, aplicou-se a máscara \texttt{NTUB}. Isso tem de ser feito porque no caso dos transístores PMOS, as difusões do tipo $p$+ não podem estar directamente ligadas ao substrato, uma vez que este é do tipo $p+$. Assim, é necessário criar um poço do tipo $n$ entre as difusões e o substrato.
 
 É de referir que dentro do poço encontra-se um \textit{guard ring} do tipo \texttt{ndiff\_ntub}. Através deste é possível polarizar o substrato a VDD, colocando sobre o \textit{guard ring} o \textit{pin} correspondente tal como se observa na figura

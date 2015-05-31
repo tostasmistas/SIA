@@ -222,7 +222,7 @@ Nesta secção apresenta-se os resultados do dimensionamento do relatório inter
 	\vspace{-0.8em}
 \end{figure} 
 
-Tal como se pode observar das tabelas de resultados, antes das correções obtinha-se um \textit{yield} de 70\%, ou seja em cada 4 \textit{batches} pelo menos uma não seria utilizável. Estas falhas eram maioritariamente devidas ao ganho e à largura de banda, pelo que, tal como se referiu anteriormente, foi especialmente aí que incidiram as correcções feitas. Tem-se também uma falha mínima na margem de fase levando a um \textit{yield} de 96\% que já se considera aceitável. Verifica-se também que a simulação por \textit{corners} não apresenta os resultados desejados, sendo que, novamente, o ganho a largura de banda apresentam os piores resultados, com a margem de fase a também ter falhas.
+Tal como se pode observar das tabelas de resultados, antes das correções obtinha-se um \textit{yield} de 42\%, ou seja em cada quatro \textit{batches} pelo menos dois não seriam utilizáveis. Estas falhas eram maioritariamente devidas ao ganho e à largura de banda, pelo que, tal como se referiu anteriormente, foi especialmente aí que incidiram as correcções feitas. Tem-se também uma falha mínima na margem de fase levando a um \textit{yield} de 92\% que se poderia considerar aceitável. Verifica-se também que a simulação por \textit{corners} não apresenta os resultados desejados, sendo que, novamente, o ganho e a largura de banda apresentam os piores resultados, com a margem de fase a também ter falhas.
 
 \subsubsection{Resultados do dimensionamento corrigido} 
 
@@ -274,7 +274,7 @@ Em adição à multiplicidade optou-se por usar também a técnica \textit{finge
 
 Como o rácio de espelhamento é muito sensível a diferenças nos parâmetros do espelho de corrente, ou seja, a \textit{mismatches} nos pares de transístores M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}, foi aplicada multiplicidade no transístor M\textsubscript{11\textsubscript{2}} de forma a que tivesse o mesmo tamanho que o transístor M\textsubscript{11\textsubscript{1}}. Desta maneira o par é afectado de igual forma pelos gradientes de parâmetros.
 
-Para o par M\textsubscript{9}/M\textsubscript{10}, como são transístores NMOS, optou-se por colocar num grupo de apenas transístores NMOS, como será explicado à frente. Para estar par apenas houve necessidade de reduzir os seus tamanhos através de multiplicidade para valores menos sensíveis a \textit{mismatches}.
+Para o par M\textsubscript{9}/M\textsubscript{10}, como são transístores NMOS, optou-se por colocar num grupo de apenas transístores NMOS, como será explicado à frente. Para este par apenas houve necessidade de reduzir os seus tamanhos através de multiplicidade para valores menos sensíveis a \textit{mismatches}.
 
 Para os restantes transístores cuja sensibilidade a variação de parâmetros não é tão importante quanto nos pares supramencionados usou-se multiplicidade de forma a obter-se as dimensões desejadas e também que facilitassem as estruturas do \textit{layout}.
 
@@ -323,9 +323,9 @@ Após realizar as alterações comentadas anteriormente realizou-se novamente um
 	\vspace{-0.8em}
 \end{figure}
 
-Pode assim observar-se uma grande redução no \textit{yield}, tendo-se obtido 22\%. Isto é devido em grande parte à margem de fase, sendo que existe ainda uma ligeira descida nos resultados do ganho, mas que ainda assim iria levar a \textit{yields} aceitáveis. Esta influência na margem de fase deve-se à multiplicidade que faz aumentar o número de capacidades parasitas e a resistividade que, aliado à fraca optimização do \textit{layout} produzido automaticamente pelo Cadence, produz os resultados observados. Este problema será em grande parte resolvido com as práticas tomadas para realizar o \textit{layout} como se irá explicar nas secções seguintes, pois o intuito destas é especificamente colmatar estes problemas.
+Pode assim observar-se uma grande redução no \textit{yield}, tendo-se obtido 18\%. Isto é devido em grande parte à margem de fase, sendo que existe ainda uma ligeira descida nos resultados do ganho, mas que ainda assim iria levar a \textit{yields} aceitáveis. Esta influência na margem de fase deve-se à multiplicidade que faz aumentar o número de capacidades parasitas e a resistividade, que aliado à fraca optimização do \textit{layout} produzido automaticamente pelo Cadence, leva aos resultados observados. Este problema será em grande parte resolvido com as práticas tomadas para realizar o \textit{layout} como se irá explicar nas secções seguintes, pois o intuito destas é especificamente colmatar estes efeitos indesejados.
 
-\todo{comentar corners}
+Em relação à simulação por \textit{corners} observa-se o mesmo tipo de resultados acima mencionados, sendo que os piores pertencem à margem de fase, pelo que este problema será em grande parte resolvido também pelas práticas correctas de layout que serão adoptadas.
 
 \subsection{Disposição dos transístores}
 
@@ -384,7 +384,7 @@ O transístor 1 tem como vizinhança 4 transístores - para cima, para baixo, pa
 	\vspace{-0.8em}
 \end{figure}
 
-De facto, os transístores \textit{dummies} não necessitam de ter as mesmas dimensões que os restantes e o circuito da figura anterior pode ser definido sa seguinte maneira.
+De facto, os transístores \textit{dummies} não necessitam de ter as mesmas dimensões que os restantes e o circuito da figura anterior pode ser definido da seguinte maneira.
 
 \begin{figure}[H]
 	\centering
@@ -396,9 +396,9 @@ De facto, os transístores \textit{dummies} não necessitam de ter as mesmas dim
 
 Relembrando as estruturas da Figura \ref{fig:common centroid}, verifica-se que a estruturas \#1 e \#4 têm \textit{dummies}.
 
-Na caso da estrutura \#1, tinha-se à partida 11 transístores de dimensões iguais após a aplicação de multiplicidade. Como se quer garantir que todos os transístores observam as mesmas vizinhanças minimizando o efeito de \textit{mismatches}, fez-se uso de \textit{dummies} para ocupar as lacunas que iriam de outra forma ficar vazias. O ponto de partida foi assim o transístor M\textsubscript{11\textsubscript{1}} em que não se aplicou multiplicidade rodeando-o dos 10 transístores que constituem M\textsubscript{11\textsubscript{2}}. Após isto observou-se que seriam assim necessário 24 \textit{dummies}. Obtém-se assim uma estrutura rectangular de 5X7 em que todos os M\textsubscript{11\textsubscript{1}} como M\textsubscript{11\textsubscript{2}} observam as mesmas vizinhanças.
+Na caso da estrutura \#1, tinha-se à partida 11 transístores de dimensões iguais após a aplicação de multiplicidade. Como se quer garantir que todos os transístores observam as mesmas vizinhanças minimizando o efeito de \textit{mismatches}, fez-se uso de \textit{dummies} para ocupar as lacunas que iriam de outra forma ficar vazias. O ponto de partida foi assim o transístor M\textsubscript{11\textsubscript{1}} em que não se aplicou multiplicidade rodeando-o dos 10 transístores que constituem M\textsubscript{11\textsubscript{2}}. Após isto observou-se que seriam assim necessário 24 \textit{dummies}. Obtém-se assim uma estrutura rectangular de 5X7 em que todos os M\textsubscript{11\textsubscript{1}} assim como o transístor M\textsubscript{11\textsubscript{2}} observam as mesmas vizinhanças.
 		
-Para a estrutura \#4 o procedimento foi similar. Tinha-se á partida os 3 transístores de polarização M\textsubscript{12}, M\textsubscript{13} e M\textsubscript{14} aos quais não foi aplicada nem multiplicidade nem \textit{fingers} pois já têem tamanhos bastante reduzidos. Para que se pudesse garantir que eles tinham as mesmas vizinhanças teriam que ser rodeados de \textit{dummies}. Como no entanto se tratam de transístores do tipo N e tinha sido decido colocar todos os transístores deste tipo no mesmo bloco bastou adicionar-se os pares  M\textsubscript{3}/M\textsubscript{4} e  M\textsubscript{9}/M\textsubscript{10}, colocando-os de forma alternada obtendo-se o presente na Figura \ref{fig:common centroid} (d). Como todos os transístores presentes neste bloco têm tamanhos muito díspares fica-se uma estrutura final que apresenta algumas áreas vazias. Estes espaços vazios são no entanto necessários para garantir que todos os transístores observam as mesmas vizinhanças, ajudando assim a garantir o objectivo de reduzir os efeitos de \textit{mismatches}.
+Para a estrutura \#4 o procedimento foi similar. Tinha-se á partida os 3 transístores de polarização M\textsubscript{12}, M\textsubscript{13} e M\textsubscript{14} aos quais não foi aplicada nem multiplicidade nem \textit{fingers} pois já têem tamanhos bastante reduzidos. Para que se pudesse garantir que eles tinham as mesmas vizinhanças teriam que ser rodeados de \textit{dummies}. Como no entanto se tratam de transístores do tipo N e tinha sido decidido colocar todos os transístores deste tipo no mesmo bloco bastou adicionar-se os pares  M\textsubscript{3}/M\textsubscript{4} e  M\textsubscript{9}/M\textsubscript{10}, colocando-os de forma alternada obtendo-se o presente na Figura \ref{fig:common centroid} (d). Como todos os transístores presentes neste bloco têm tamanhos muito díspares fica-se com uma estrutura final que apresenta algumas áreas vazias. Estes espaços vazios são no entanto necessários para garantir que todos os transístores observam as mesmas vizinhanças, ajudando assim a garantir o objectivo de reduzir os efeitos de \textit{mismatch}.
 
 \subsection{Ligações internas dos blocos}
 
@@ -504,7 +504,7 @@ De forma a que o bloco esteja bem polarizado, todos os pontos deste deveriam est
 
 O \textit{guard ring} tem também o intuito de proteger o circuito de correntes de dispersão e, desta maneira, o ruído do substrato encontra no \textit{guard ring} blindagem.
 
-É de referir que nesta altura da projecção do \textit{layout} quando se efectuava um DRC e um LVS sobre o \textit{design} do circuito havia dois problemas principais - \textit{hot nwell} e mau \textit{match} entre os \textit{pins} do \textit{schematic} e do \textit{layout}. O problema de \textit{hot nwell} surge quando o substrato não está correctamente polarizado a VDD, que acontecia devido ao segundo erro mencionado. De forma a que se polarize correctamente o \textit{guard ring} o material do \textit{pin} e da \textit{label} devem assim ser de materias complementares. Ou seja como \textit{pin} é do material \texttt{Metal 1} \texttt{pin} pelo que a \textit{label} terá que ser do material \texttt{pin} \texttt{Metal 1}. Ficam assim corrigidos ambos os erros.
+É de referir que nesta altura da projecção do \textit{layout} quando se efectuava um DRC e um LVS sobre o \textit{design} do circuito havia dois problemas principais - \textit{hot nwell} e mau \textit{match} entre os \textit{pins} do \textit{schematic} e do \textit{layout}. O problema de \textit{hot nwell} surge quando o substrato não está correctamente polarizado a VDD, que acontecia devido ao segundo erro mencionado. De forma a que se polarize correctamente o \textit{guard ring} o material do \textit{pin} e da \textit{label} devem assim ser de materias complementares. Ou seja como \textit{pin} é do material \texttt{Metal1} \texttt{pin} a \textit{label} terá que ser do material \texttt{pin} \texttt{Metal1}. Ficam assim corrigidos ambos os erros.
 
 \subsubsection{Estrutura \textit{common centroid} \#2}
 
@@ -552,9 +552,9 @@ A implementação desta estrutura no Cadence é apresentada de seguida.
 	\vspace{-0.8em} 
 \end{figure}
 
-Tem-se assim que este é um bloco bastante compacto e com as ligações entre transístores simples, bastando que se verifiquem as regras mencionadas acima.
+Tem-se assim que este é um bloco bastante compacto e com as ligações entre transístores simples sendo as únicas prioridades prementes a utilização da menor área possível e garantir as regras de boas práticas relativamente aos troços de \texttt{Metal1} e \texttt{Metal2}.
 
-Mais uma vez utilizou-se um \textit{guard ring} protegendo e polarizando o circuito tal como foi dito nos blocos anteriores.
+Mais uma vez utilizou-se um \textit{guard ring} cuja função é proteger e polarizar o circuito tal como foi dito nos blocos anteriores. É feita então uma ligação entre este o \textit{guard ring} do bloco \#1 ficando-se assim com a polarização feita a \texttt{VDD} tal como desejado.
 
 \begin{figure}[H]
 	\centering
@@ -566,11 +566,31 @@ Mais uma vez utilizou-se um \textit{guard ring} protegendo e polarizando o circu
 
 \subsubsection{Estrutura \textit{common centroid} \#4}
 
+Neste bloco estão presentes todos os transístores do tipo N o que levou a algumas dificuldades de organização dos transístores ao tentar obter-se uma estrutura \textit{common centroid} devidamente protegida de \textit{mismatches}. Começou-se então por colocar o número necessário de \textit{dummies} para que se obtivesse um bloco no qual todos os transístores observam as mesmas vizinhanças, como tem sindo critério ao logo deste \textit{layout}. Obteve-se assim o seguinte.
+
+\todo{inserir primeira imagem do 4}
+
+Observou-se então que era possível sobrepor as \textit{sources} dos transístores M\textsubscript{9} e M\textsubscript{10} pelo que se reduziu as distâncias entre estes tanto quanto possível de forma a reduzir a área ocupada. Ficou-se assim como uma estrutura tal como se segue.
+
+\todo{inserir segunda imagem do 4}
+
+Foram então feitas as ligações entre transístores garantindo as regras de boa prática sempre que possível assim como curto circuitar os \textit{dummies}. Neste caso, como se tratam de \textit{dummies} do tipo N, o curto circuito foi feito a \texttt{Ground}, pois não se observa o mesmo problema que nos \textit{dummies} do tipo P, onde há o perigo de variações na fonte de tensão. Mais uma vez como este se trata de um grupo apenas constituito por transistores não foi necessária a utilização da máscara \texttt{NTUB}.
+
+Por fim rodeou-se a estrutura com um \textit{guard ring} a \texttt{Ground} polarizando-se assim o circuito e protegendo-o também de correntes de dispersão. O resultado foi assim o que se segue.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{exps/layout/nmos}
+	\vspace{-0.5em}
+	\caption{\textit{Layout} da estrutura \textit{Common centroid} \#4.}
+	\vspace{-0.8em} 
+\end{figure}
+
 \subsection{Ligações externas entre os blocos}
 
 Após realizadas as ligações internas de cada bloco a tarefa que se segue é organizar estes de forma a ocupar o minimo de área possível assim como fazer as ligações entre estes.
 
-Para realizar estas ligações entre blocos foi necessário ter especial atenção facto de que o material dos \textit{guard rings} é \texttt{Metal 1} pelo que teriam que necessariamente que ser feitas usando \texttt{Metal 1} para evitar curto circuitos. O aspecto final do layout é assim o da imagem seguinte.
+Para realizar estas ligações entre blocos foi necessário ter especial atenção facto de que o material dos \textit{guard rings} é \texttt{Metal1} pelo que estas teriam que necessariamente ser feitas usando \texttt{Metal2} para evitar curto circuitos. O aspecto final do layout é assim o da imagem seguinte.
 
 \begin{figure}[H]
 	\centering
@@ -580,12 +600,76 @@ Para realizar estas ligações entre blocos foi necessário ter especial atenç�
 	\vspace{-0.8em} 
 \end{figure}
 
-Feitas estas ligações, de forma a proteger ainda mais o circuito colocou-se um \textit{guard ring} em torno da forma final tal como se observa acima. Este \textit{guard ring} no entanto não é rectangular, tendo sido ajustado à forma do circuito final poupando-se ao máximo a área consumida.
+Feitas estas ligações, de forma a proteger ainda mais o circuito colocou-se um \textit{guard ring}, polarizado a \texttt{Ground}, em torno da forma final tal como se observa acima. Com esta polarização pode então fazer-se uma ligação por \texttt{Metal1} entre este e o \textit{guard ring} do bloco \#4 ficando assim também polarizado. Este \textit{guard ring} no entanto não é rectangular, tendo sido ajustado à forma do circuito final poupando-se ao máximo a área consumida. Neste \textit{guard ring} foram também inseridos todos os \textit{pins} de forma a que nenhum ficasse solto no circuito. Introduziram-se assim os \textit{pins} \texttt{In}, \texttt{Out}, \texttt{Vin+}, \texttt{Vin-}, \texttt{Ibias} e \texttt{Ibias 2}. Como todos foram inseridos no \textit{guard ring} exterior são do material \texttt{Metal2} \texttt{Pin} sendo a sua \textit{label} do material complementar, ou seja \texttt{Pin} \texttt{Metal2}, tal como já mencionado anteriormente. Da mesma forma coloca-se um \textit{pin} para fazer a ligação a \texttt{Grround} cujo o material é \texttt{Metal1} \texttt{Pin} e a \textit{label} é \texttt{Pin} \texttt{Metal1}.
 
-Por fim calcula-se a área ocupada pelo circuito da forma que se observa na figura a seguir.
+Com o \textit{layout} feito seguiram-se então simulações de Monte Carlo e por \textit{Corners} para que se pudesse observar os efeitos das práticas e decisões tomadas ao longo da realização deste. Os resultados destas simulações apresentam-se então nas figuras seguintes.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{exps/MonteCarlo_50pt_Novo_MultiTransistor_Layout}
+	\vspace{-0.5em}
+	\caption{simulação Monte Carlos para 50 pontos após realização do \textit{Layout}.}
+	\vspace{-0.8em} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{exps/MonteCarlo_3pt_Novo_MultiTransistor_Layout}
+	\vspace{-0.5em}
+	\caption{Resultados obtidos para as 3 primeiras simulações de Monte Carlos após realização do \textit{Layout}.}
+	\vspace{-0.8em} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{exps/Corners_Novo_Layout}
+	\vspace{-0.5em}
+	\caption{Simulação por \textit{orners} após realização do \textit{Layout}.}
+	\vspace{-0.8em} 
+\end{figure}
+
+Os resultados obtidos para a simulação de Monte Carlo são então, tal como esperado, melhores do que após a aplicação das técnicas de multiplicidade e \textit{fingers}, subindo o \textit{yeld} de 18\% para 74\% sendo que o \textit{bottleneck} continua a ser a margem de fase.
+
+Também na simulação por \textit{corners} os únicos resultados negativos foram na margem de fase, sendo que no entanto a situação melhora face ao caso após  aplicação de multiplicidade e \textit{fingers}.
+
+\todo{há alguma desculpa a dar para os maus resultados da fase ou aceitamos este yeld?}
+
+Por fim calcula-se a área total do circuito usando as dimensões presentes na seguinte figura.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.50]{teoricas/area}
+	\vspace{-0.5em}
+	\caption{Dimensões para cálculo da área.}
+	\vspace{-0.8em} 
+\end{figure}
+
+\todo{calculo da área}
+
+\todo{tabela do enunciado}
+
+\todo{substituir initial target}
 
 \pagebreak
 
 \section{Conclusões}
+
+Para o \textit{final target} deste projecto houve dois objectivos, sendo o primeiro corrigir os erros encontrados após realizar as simulações Monte Carlo e de \textit{Corners} assim como fazer o \textit{layout} do circuito final.
+
+Partindo do \textit{Middle Target} correu-se então a simulação de Monte Carlo e obteviram-se valores inferiores aos expectaveis pelo que houve necessidade de se fazer alterações ás dimensões de alguns dos transístores, assim como corrigir as expressões que estavam a ser utilzadas para calcular a \textit{slew rate}. Em grande parte o parâmetro que teve que sofrer a maior correcção foi na margem de fase e o ganho pelo que as alterações foram feitas nos pares de transistores M\textsubscript{7}/M\textsubscript{8} e M\textsubscript{3}/M\textsubscript{4}, mais algumas ligeiras nos restantes.
+
+Feitas estas alterações e com resultados muito melhores procedeu-se então ao layout.
+
+De forma a realizar o layout começou-se por aplicar as técnicas de multiplicidade e \textit{fingers} protegendo-se o circuito de \textit{mismatches}. Para este efeito foram também utilizados \textit{Dummies,} para que se tenha as mesmas vizinhanças em todos os transístores, e garantir que as estruturas são \textit{Common Centroid} . As ligações foram feitas tentando obedecer á regra de boa prática de utilizar \texttt{Metal 1} para troços na vertical e \texttt{Metal 2} para troços na horizontal, violando-a apenas de forma a evitar grandes aumentos de área ou curto circuitos. De forma a proteger o circuito de correntes de dispersão assim como para polarização colocou-se \textit{guard rings} em torno de cada bloco individual assim como do circuito final.
+
+Ao longo de todas estas alterações foram feitas simulações Monte Carlo e de \textit{Corners} observando-se os efeitos de cada passo para que se obtivessem os requisitos finais do \textit{target}.
+
+\todo{explicar a parte do ENOB}
+
+Observa-se assim que os requisitos foram na sua grande maioria cumpridos com sucesso e deu-se o trabalho por concluído.
+
+Com este \textit{final target} obteve-se assim experiência relativamente às boas práticas e à forma como se deve proceder na realização de um layout, sendo que este relatório será, sem dúvida, uma referência para \textit{layouts} futuros realizados pelos membros deste grupo, não só para relembrar nas coisas certas a fazer, mas também as que não se devem evitar.
+
+\todo{que acham deste ultimo paragrafo? too much?}
 
 \end{document}

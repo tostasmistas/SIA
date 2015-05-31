@@ -222,7 +222,7 @@ Nesta secção apresenta-se os resultados do dimensionamento do relatório inter
 	\vspace{-0.8em}
 \end{figure} 
 
-Tal como se pode observar das tabelas de resultados, antes das correções obtinha-se um \textit{yield} de 70\%, ou seja em cada 4 \textit{batches} pelo menos uma não seria utilizável. Estas falhas eram maioritariamente devidas ao ganho e à largura de banda, pelo que, tal como se referiu anteriormente, foi especialmente aí que incidiram as correcções feitas. Tem-se também uma falha mínima na margem de fase levando a um \textit{yield} de 96\% que já se considera aceitável. Verifica-se também que a simulação por \textit{corners} não apresenta os resultados desejados, sendo que, novamente, o ganho a largura de banda apresentam os piores resultados, com a margem de fase a também ter falhas.
+Tal como se pode observar das tabelas de resultados, antes das correções obtinha-se um \textit{yield} de 42\%, ou seja em cada quatro \textit{batches} pelo menos dois não seriam utilizável. Estas falhas eram maioritariamente devidas ao ganho e à largura de banda, pelo que, tal como se referiu anteriormente, foi especialmente aí que incidiram as correcções feitas. Tem-se também uma falha mínima na margem de fase levando a um \textit{yield} de 92\% que já se considera aceitável. Verifica-se também que a simulação por \textit{corners} não apresenta os resultados desejados, sendo que, novamente, o ganho a largura de banda apresentam os piores resultados, com a margem de fase a também ter falhas.
 
 \subsubsection{Resultados do dimensionamento corrigido} 
 
@@ -323,9 +323,9 @@ Após realizar as alterações comentadas anteriormente realizou-se novamente um
 	\vspace{-0.8em}
 \end{figure}
 
-Pode assim observar-se uma grande redução no \textit{yield}, tendo-se obtido 22\%. Isto é devido em grande parte à margem de fase, sendo que existe ainda uma ligeira descida nos resultados do ganho, mas que ainda assim iria levar a \textit{yields} aceitáveis. Esta influência na margem de fase deve-se à multiplicidade que faz aumentar o número de capacidades parasitas e a resistividade que, aliado à fraca optimização do \textit{layout} produzido automaticamente pelo Cadence, produz os resultados observados. Este problema será em grande parte resolvido com as práticas tomadas para realizar o \textit{layout} como se irá explicar nas secções seguintes, pois o intuito destas é especificamente colmatar estes problemas.
+Pode assim observar-se uma grande redução no \textit{yield}, tendo-se obtido 10\%. Isto é devido em grande parte à margem de fase, sendo que existe ainda uma ligeira descida nos resultados do ganho, mas que ainda assim iria levar a \textit{yields} aceitáveis. Esta influência na margem de fase deve-se à multiplicidade que faz aumentar o número de capacidades parasitas e a resistividade que, aliado à fraca optimização do \textit{layout} produzido automaticamente pelo Cadence, produz os resultados observados. Este problema será em grande parte resolvido com as práticas tomadas para realizar o \textit{layout} como se irá explicar nas secções seguintes, pois o intuito destas é especificamente colmatar estes problemas.
 
-\todo{comentar corners}
+Em relação à simulação por \textit{corner} observa-se o mesmo tipo de resultados acima mencionado, sendo que os piores resultados pertencem à margem de fase, pelo que este problema será em grande parte resolvido também pelas práticas correctas de layout que serão adoptadas.
 
 \subsection{Disposição dos transístores}
 
@@ -584,8 +584,26 @@ Feitas estas ligações, de forma a proteger ainda mais o circuito colocou-se um
 
 Por fim calcula-se a área ocupada pelo circuito da forma que se observa na figura a seguir.
 
+\todo{imagem e calculo da área}
+
+\todo{corners e monte carlo apos layout}
+
+\todo{tabela do enunciado}
+
+\todo{substituir initial target}
+
 \pagebreak
 
 \section{Conclusões}
+
+Para o \textit{final target} deste projecto houve dois objectivos, sendo o primeiro corrigir os erros encontrados após realizar as simulações Monte Carlo e de \textit{Corners} assim como fazer o \textit{layout} do circuito final.
+Partindo do \textit{Middle Target} correu-se então a simulação de Monte Carlo e obteviram-se valores inferiores aos expectaveis pelo que houve necessidade de se fazer alterações ás dimensões de alguns dos transístores, assim como corrigir as expressões que estavam a ser utilzadas para calcular a \textit{slew rate}. Em grande parte o parâmetro que teve que sofrer a maior correcção foi na margem de fase e no ganho pelo que as maiores alterações foram feitas nos pares de transistores M\textsubscript{7}/M\textsubscript{8} e M\textsubscript{3}/M\textsubscript{4} mais algumas ligeiras nos restantes.
+Feitas estas alterações e com resultados muito melhores procedeu-se então ao layout.
+De forma a realizar o layout começou-se por aplicar as técnicas de multiplicidade e \textit{fingers} protegendo-se o circuito de \textit{mismatches}. Para este efeito foram também utilizados \textit{Dummies,} para que se tenha as mesmas vizinhanças em todos os transístores, e garantir que as estruturas são \textit{Common Centroid} . As ligações foram feitas tentando obedecer á regra de boa prática de utilizar \texttt{Metal 1} para troços na vertical e \texttt{Metal 2} para troços na horizontal, violando-a apenas de forma a evitar grandes aumentos de área ou curto circuitos. De forma a proteger o circuito de correntes de dispersão assim como para polarização colocou-se \textit{guard rings} em torno de cada bloco individual assim como do circuito final.
+Ao longo de todas estas alterações foram feitas simulações Monte Carlo e de \textit{Corners} observando-se os efeitos de cada passo para que se obtivessem os requisitos finais do \textit{target}.
+
+\todo{comentar todos os pins q foram colocados no guard ring exterior dizendo que nao houve nenhum solto}
+
+\todo{explicar a parte do ENOB}
 
 \end{document}

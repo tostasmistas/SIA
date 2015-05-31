@@ -271,6 +271,18 @@ Assim, na tabela seguinte encontra-se uma descrição de como são constituídos
 	\includegraphics[keepaspectratio=true, scale=0.30]{teoricas/dimensoes2}
 \end{table}
 
+Após realizar as alterações comentadas anteriormente realizou-se novamente uma simulação Monte Carlo de forma a observar os seus efeitos. Apresenta-se assim o obtido na figura seguinte.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.65]{exps/MonteCarlo_50pt_Novo_Sin}
+	\vspace{-0.5em}
+	\caption{Simulação Monte Carlo após aplicar técnicas de multiplicidade e \textit{fingers}.}
+	\vspace{-0.8em}
+\end{figure} 
+
+Pode assim observar-se uma grande redução no \textit{yeld}, tendo-se obtido 22\%. Isto é devio em grande parte à margem de fase, sendo que existe ainda uma ligeira descida nos resultados do ganho, mas que ainda assim iria levar a \textit{yelds} aceitáveis. Esta influência na margem de fase deve-se a que ao utilizar multiplicidade aumenta-se o número de capacidades parasitas e a resistividade que aliado à fraca optimização do \textit{layout} produzido automaticamente pelo Cadence produz os resultados observados. Este problema será em grande parte resolvido com as práticas tomadas para realizar o \textit{layout} como se irá explicar nas secções seguintes, pois o intuito destas é especificamente para colmatar estes problemas.
+
 \subsection{Disposição dos transístores}
 
 Depois de se definir como estão estruturados os vários transístores é importante definir como se encontram dispostos no \textit{layout}. A topologia básica que foi utilizada é a de \textit{common centroid}. Através desta técnica consegue-se garantir um melhor \textit{matching} entre dois transístores iguais e em que se pretende um comportamento semelhante. De facto, o \textit{common centroid} é utilizado para se garantir que, e.g., um amplificador diferencial tenha um sinal de modo comum próximo de 0 e, como tal, um CMRR maior.
@@ -342,9 +354,7 @@ Relembrando as estruturas da Figura \ref{fig:common centroid}, verifica-se que a
 
 Na caso da estrutura \#1, tinha-se à partida 11 transístores de dimensões iguais após a aplicação de multiplicidade. Como se quer garantir que todos os transístores observam as mesmas vizinhanças minimizando o efeito de \textit{mismatches}, fez-se uso de \textit{dummies} para ocupar as lacunas que iriam de outra forma ficar vazias. O ponto de partida foi assim o transístor M\textsubscript{11\textsubscript{1}} em que não se aplicou multiplicidade rodeando-o dos 10 transístores que constituem M\textsubscript{11\textsubscript{2}}. Após isto observou-se que seriam assim necessário 24 \textit{dummies}. Obtém-se assim uma estrutura rectangular de 5X7 em que todos os M\textsubscript{11\textsubscript{1}} como M\textsubscript{11\textsubscript{2}} observam as mesmas vizinhanças.
 		
-Para a estrutura \#4 o procedimento foi similar. Tinha-se á partida os 3 transístores de polarização M\textsubscript{12}, M\textsubscript{13} e M\textsubscript{14} aos quais não foi aplicada nem multiplicidade nem \textit{fingers} pois já têem tamanhos bastante reduzidos. Para que se pudesse garantir que eles tinham as mesmas vizinhanças teriam que ser rodeados de \textit{dummies}. Como no entanto se tratam de transístores do tipo N e tinha sido decido colocar todos os transístores deste tipo no mesmo bloco bastou adicionar-se os pares  M\textsubscript{3}/M\textsubscript{4} e  M\textsubscript{9}/M\textsubscript{10}, colocando-os de forma alternada obtendo-se o presente na Figura \ref{fig:common centroid} (d). Como todos os transístores presentes neste bloco têm tamanhos muito díspares fica-se uma estrutura final que apresenta algumas áreas vazias.
-
-\todo{falar sobre como os buracos do bloco 4 são bons}
+Para a estrutura \#4 o procedimento foi similar. Tinha-se á partida os 3 transístores de polarização M\textsubscript{12}, M\textsubscript{13} e M\textsubscript{14} aos quais não foi aplicada nem multiplicidade nem \textit{fingers} pois já têem tamanhos bastante reduzidos. Para que se pudesse garantir que eles tinham as mesmas vizinhanças teriam que ser rodeados de \textit{dummies}. Como no entanto se tratam de transístores do tipo N e tinha sido decido colocar todos os transístores deste tipo no mesmo bloco bastou adicionar-se os pares  M\textsubscript{3}/M\textsubscript{4} e  M\textsubscript{9}/M\textsubscript{10}, colocando-os de forma alternada obtendo-se o presente na Figura \ref{fig:common centroid} (d). Como todos os transístores presentes neste bloco têm tamanhos muito díspares fica-se uma estrutura final que apresenta algumas áreas vazias. Estes espaços vazios são no entanto necessários para garantir que todos os transístores observam as mesmas vizinhanças, ajudando assim a garantir o objectivo de reduzir os efeitos de \textit{mismatches}.
 
 \subsection{Ligações internas dos blocos}
 
@@ -409,6 +419,19 @@ A implementação desta estrutura no Cadence é apresentada de seguida.
 	\caption{\textit{Layout} da estrutura que corresponde ao espelho de corrente básico que é polarizado em corrente com $I_{BIAS}$.}
 	\vspace{-0.8em}
 \end{figure}
+
+Como se pode ver as gates dos transístores \textit{Dummy} foram ligadas a $I_{BIAS}$ e não a VDD como seria esperado para fazer curto circuito aos \textit{dummies} do tipo P. A razão pela qual se faz isto é que ao fazer estas ligações se cria um condensador entre $I_{BIAS}$ e VDD como se demonstra na figura seguinte.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.65]{exps/circuito_ibias}
+	\vspace{-0.5em}
+	\caption{circuito que demonstra efeito de ligar \textit{gates} dos \textit{dummies} a $I_{BIAS}$.}
+	\vspace{-0.8em}
+\end{figure}
+
+Desta forma a protege-se o \textit{dummy} de picos que de outra forma iriam comprometer a integridade do transístor e como tal a do espelho de corrente, pois este condensador irá actuar como um filtro apenas aquando a sua ocorrência.
+
 
 \subsubsection{Estrutura \textit{common centroid} \#2}
 

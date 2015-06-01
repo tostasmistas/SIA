@@ -670,8 +670,6 @@ Por fim calcula-se a área total do circuito usando as dimensões presentes na s
 
 Dividindo assim a figura obtida em rectângulos, calculando a área de cada um deles e somando, obtém-se o resultado final de 0,0079 $\mu m^2$. Este valor corresponde a 39,95\% do requisito do \textit{target}.
 
-\todo{calculo da área}
-
 \section{Simulações com o circuito de \textit{layout}}
 
 \subsection{Simulações de Monte Carlo e \textit{corners}}
@@ -724,6 +722,16 @@ Observa-se assim que todos os requisitos do \textit{target} estão cumpridos pod
 \subsection{Substituição do amplificador do SAR ADC}
 
 \todo{substituir initial target}
+
+Tem-se um valor de \texttt{ENOB} experimental, ou seja, obtido através da calculadora do \textit{Cadence}, de 3,914.
+
+De forma a calcular-se um valor teórico mais correcto, extraiu-se o ficheiro \textit{csv}, e com recurso às equações mencionadas no \textit{initial target} obteve-se um valor de \texttt{ENOB} de 3,9138.
+
+Estes valores estão bastante próximos, podendo quase dizer-se que são iguais à parte de um ligeiro arredondamento.
+
+Quando se utilizou o SAR ideal, o \texttt{ENOB} era de 3,985. Tanto o resultado experimental como o teórico estão muito próximos deste valor, sendo a diferença de apenas 2\%. 
+
+Sendo assim o requisito do \textit{ENOB} fica também cumprido, pelo que por fim se tem que todos os requisitos do \textit{final target} foram atingidos com sucesso sendo que o circuito projectado está dentro dos parâmetros desejados e cumpre todas as especificações.
 
 \pagebreak
 

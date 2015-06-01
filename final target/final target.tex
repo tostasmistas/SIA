@@ -153,9 +153,9 @@ g_{m} \propto I_{D}= k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2 \times 
 
 Para aumentar o $g_{m_1}$ é necessário alterar o rácio $W/L$, ou seja, o rácio de M\textsubscript{1} e M\textsubscript{2} sofreu um aumento de 132\%, passando de 43 para 100. Não é preocupante esta alteração do valor da transcondutância, não se comprometendo a zona de funcionamento dos transístores pois estes são polarizados externamente.
 
-A polarização do espelho de corrente constituída pelo par M\textsubscript{11\textsubscript{1}} e M\textsubscript{11\textsubscript{2}} através de \texttt{Ibias}. De forma a ter-se um valor baixo para o \textit{budget} da corrente escolheu-se em primeira instância dar-lhe o valor de 5 $\mu$A sendo este multiplicado no espelho de corrente para um valor de 100 
+A polarização do espelho de corrente é constituída pelo par M\textsubscript{11\textsubscript{1}} e M\textsubscript{11\textsubscript{2}} através de $I_{BIAS}$. De forma a ter-se um valor baixo para o \textit{budget} da corrente escolheu-se em primeira instância dar-lhe o valor de 5 $\mu$A sendo este multiplicado no espelho de corrente para um valor de 100 $\mu$A.
 
-As dimensões dos pares de transístores M\textsubscript{3}/M\textsubscript{4} e  M\textsubscript{9}/ M\textsubscript{10} ficaram definidas à partida, sendo que foi então necessário dimensionar os transístores que iriam ser responsáveis pela sua polarização sendo o critério a corrente de polarização \textit{Ibias2}. Foi então novamente objectivo que esta fosse a mais baixo possível, garantindo o \textit{budget} de corrente. Escolheu-se numa primeira aproximação o valor de 25 $\mu$A, mas após correr as simulações Monte Carlo verificou-se que seria necessário aumentar um pouco este valor ficando o se valor final em 29 $\mu$A. Esta subida foi feita de forma a evitar fazer alterações muito grandes nos transístores M\textsubscript{3}/M\textsubscript{4}, pois tal como este par a corrente \textit{Ibias2} terá ligeiras influências em todos os parâmetros, sendo que se tentou aumentar esta o minimo tentando reduzir também nas alterações necessárias ao par de transístores.
+As dimensões dos pares de transístores M\textsubscript{3}/M\textsubscript{4} e  M\textsubscript{9}/ M\textsubscript{10} ficaram definidas à partida, sendo que foi então necessário dimensionar os transístores que iriam ser responsáveis pela sua polarização sendo o critério a corrente de polarização $I_{BIAS_{2}}$. O objectivo foi, mais uma vez, que esta corrente fosse a mais baixo possível, garantindo o correcto cumprimento do \textit{budget} de corrente. Escolheu-se numa primeira aproximação o valor de 25 $\mu$A, mas após correr as simulações Monte Carlo verificou-se que seria necessário aumentar um pouco este valor fixando-se o valor final em 29 $\mu$A. Esta subida foi feita de forma a evitar fazer alterações muito grandes nos transístores M\textsubscript{3}/M\textsubscript{4}, pois tal como este par a corrente $I_{BIAS_{2}}$ terá ligeiras influências em todos os parâmetros, sendo que se tentou aumentar esta o minimo tentando reduzir também nas alterações necessárias ao par de transístores, ou seja, compensa-se o não querer ajustar as dimensões dos transístores com um ajuste na corrente de polarização.
  
 Assim, o circuito final relativamente à entrega intermédia é:
 
@@ -274,7 +274,7 @@ Começou-se, em primeira instância, por aplicar multiplicidade, tentando aproxi
 
 Em adição à multiplicidade optou-se por usar também a técnica \textit{fingers} no par M\textsubscript{7}/M\textsubscript{8} pois este par, tal como já foi mencionado, tem grande influência na largura de banda e margem de fase. Já no par M\textsubscript{5}/M\textsubscript{6} aplicou-se apenas a técnica \textit{fingers} ficando-se assim com tamanhos da mesma ordem em ambos os pares para além de uma forma compacta facilitando as tarefas de escolher uma disposição para os transístores e efectuar as ligações internas.
 
-Como o rácio de espelhamento é muito sensível a diferenças nos parâmetros do espelho de corrente, ou seja, a \textit{mismatches} nos pares de transístores M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}, foi aplicada multiplicidade no transístor M\textsubscript{11\textsubscript{2}} de forma a que tivesse o mesmo tamanho que o transístor M\textsubscript{11\textsubscript{1}}. Desta maneira o par é afectado de igual forma pelos gradientes de parâmetros. Após a aplicação de multiplicidade nestes dois transístores foi necessário aumentar o valor da corrente \textit{Ibias} para 13 $\mu$A de forma a que se obtivesse o espelhamente correcto para 100 $\mu$A.
+Como o rácio de espelhamento é muito sensível a diferenças nos parâmetros do espelho de corrente, ou seja, a \textit{mismatches} nos pares de transístores M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}, foi aplicada multiplicidade no transístor M\textsubscript{11\textsubscript{2}} de forma a que tivesse o mesmo tamanho que o transístor M\textsubscript{11\textsubscript{1}}. Desta maneira o par é afectado de igual forma pelos gradientes de parâmetros. Após a aplicação de multiplicidade no transístor M\textsubscript{11\textsubscript{2}} foi necessário aumentar o valor da corrente $I_{BIAS}$ para 13 $\mu$A de forma a que se obtivesse o espelhamento correcto para 100 $\mu$A.
 
 Para o par M\textsubscript{9}/M\textsubscript{10}, como são transístores NMOS, optou-se por colocar num grupo de apenas transístores NMOS, como será explicado à frente. Para este par apenas houve necessidade de reduzir os seus tamanhos através de multiplicidade para valores menos sensíveis a \textit{mismatches}.
 
@@ -327,7 +327,7 @@ Após realizar as alterações comentadas anteriormente realizou-se novamente um
 
 Pode assim observar-se uma grande redução no \textit{yield}, tendo-se obtido 18\%. Isto é devido em grande parte à margem de fase, sendo que existe ainda uma ligeira descida nos resultados do ganho, mas que ainda assim iria levar a \textit{yields} aceitáveis. Esta influência na margem de fase deve-se à multiplicidade que faz aumentar o número de capacidades parasitas e a resistividade, que aliado à fraca optimização do \textit{layout} produzido automaticamente pelo Cadence, leva aos resultados observados. Este problema será em grande parte resolvido com as práticas tomadas para realizar o \textit{layout} como se irá explicar nas secções seguintes, pois o intuito destas é especificamente colmatar estes efeitos indesejados.
 
-Em relação à simulação por \textit{corners} observa-se o mesmo tipo de resultados acima mencionados, sendo que os piores pertencem à margem de fase, pelo que este problema será em grande parte resolvido também pelas práticas correctas de layout que serão adoptadas.
+Em relação à simulação por \textit{corners} observa-se o mesmo tipo de resultados acima mencionados, sendo que os piores pertencem à margem de fase, pelo que este problema será em grande parte resolvido também pelas práticas correctas de \textit{layout} que serão adoptadas.
 
 \subsection{Disposição dos transístores}
 
@@ -349,7 +349,7 @@ Para o circuito em causa foram definidos 4 blocos principais sobre os quais se d
 
 A escolha destes blocos foi feita com base no \textit{mismatch}. É essencial que entre os transístores do par diferencial não haja diferenças de comportamento, pois se houver o circuito fica desequilibrado. Os dois espelhos de corrente existentes também não devem ter \textit{mismatch}, pois pretende-se um espelhamento correcto. Como os transistores NMOS eram os mais pequenos e como não necessitam de estar dentro de um poço optou-se por juntar todos em apenas um bloco de forma a facilitar também a obtenção de \textit{common centroid} como será falado à frente.
 
-De seguida apresenta-se as várias estruturas \textit{common centroid} definidas:
+Na próxima página apresenta-se as várias estruturas \textit{common centroid} definidas.
 
 \begin{figure}[H]
 	\centering
@@ -436,7 +436,7 @@ Relembrando a estrutura da Figura \ref{fig:common centroid}(a), a sua primeira i
 	\vspace{-0.8em} 
 \end{figure}
 
-Como se pode ver, da maneira como a estrutura \textit{common centroid} foi definida é possível sobrepor as difusões de \textit{source} dos transístores M\textsubscript{11\textsubscript{2}}, poupando assim área. Da mesma maneira, pode-se também sobrepor a \textit{source} do transístor M\textsubscript{11\textsubscript{2}} do meio com a \textit{source} do transístor \textit{dummy} que se encontra próximo do transístor M\textsubscript{11\textsubscript{1}}. Desta maneira, o circuito fica com a seguinte estrutura:
+Como se pode ver, da maneira como a estrutura \textit{common centroid} foi definida é possível sobrepor as difusões de \textit{source} dos transístores M\textsubscript{11\textsubscript{2}}, poupando assim área. Da mesma maneira, pode-se também sobrepor a \textit{source} do transístor M\textsubscript{11\textsubscript{2}} do meio com a \textit{source} do transístor \textit{dummy} que se encontra próximo do transístor M\textsubscript{11\textsubscript{1}}. Desta maneira, o circuito fica com a estrutura que se apresenta na próxima página.
 
 \begin{figure}[H]
 	\centering
@@ -456,7 +456,9 @@ No entanto, verifica-se que agora as vizinhanças dos transístores não estão 
 	\vspace{-0.8em} 
 \end{figure} 
 
-A implementação desta estrutura no Cadence é apresentada de seguida.
+A implementação desta estrutura no Cadence é apresentada na próxima página.
+
+\pagebreak
 
 \begin{figure}[H]
 	\centering
@@ -465,6 +467,8 @@ A implementação desta estrutura no Cadence é apresentada de seguida.
 	\caption{\textit{Layout} da estrutura que corresponde ao espelho de corrente básico que é polarizado em corrente com $I_{BIAS}$.}
 	\vspace{-0.8em}
 \end{figure}
+
+\pagebreak
 
 Como se pode ver, as \textit{gates} dos transístores \textit{dummy} foram ligadas a $I_{BIAS}$ e não a VDD, como seria esperado, para fazer curto-circuito aos \textit{dummies} do tipo P. A razão pela qual se faz isto é que, ao fazer estas ligações, cria-se um condensador entre $I_{BIAS}$ e VDD como se demonstra na figura seguinte.
 
@@ -492,11 +496,11 @@ Analisando a capacidade do condensador, 46.43 F, verifica-se que é um valor ele
 
 Como se pode ver, em torno dos transístores PMOS foi colocado um poço, ou seja, aplicou-se a máscara \texttt{NTUB}. Isso tem de ser feito porque no caso dos transístores PMOS, as difusões do tipo $p$+ não podem estar directamente ligadas ao substrato, uma vez que este é do tipo $p+$. Assim, é necessário criar um poço do tipo $n$ entre as difusões e o substrato.
 
-É de referir que dentro do poço encontra-se um \textit{guard ring} do tipo \texttt{ndiff\_ntub}. Através deste é possível polarizar o substrato a VDD, colocando sobre o \textit{guard ring} o \textit{pin} correspondente tal como se observa na figura
+É de referir que dentro do poço encontra-se um \textit{guard ring} do tipo \texttt{ndiff\_ntub}. Através deste é possível polarizar o substrato a VDD, colocando sobre o \textit{guard ring} o \textit{pin} correspondente tal como se observa na figura da próxima página.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.25]{exps/layout/pinVDD}
+	\includegraphics[keepaspectratio=true, scale=0.22]{exps/layout/pinVDD}
 	\vspace{-0.5em}
 	\caption{Colocação do \textit{pin} de VDD sobre o \textit{guard ring}.}
 	\vspace{-0.8em}
@@ -514,7 +518,7 @@ Relembrando a estrutura da Figura \ref{fig:common centroid}(b), a sua primeira i
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.30]{teoricas/layout/cc2_1}
+	\includegraphics[keepaspectratio=true, scale=0.28]{teoricas/layout/cc2_1}
 	\vspace{-0.5em}
 	\caption{Esquema inicial do \textit{layout}.}
 	\vspace{-0.8em} 
@@ -524,7 +528,7 @@ Relembrando a estrutura da Figura \ref{fig:common centroid}(b), a sua primeira i
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.30]{teoricas/layout/cc2_2}
+	\includegraphics[keepaspectratio=true, scale=0.28]{teoricas/layout/cc2_2}
 	\vspace{-0.5em}
 	\caption{Estrutura resultante da agregação das difusões dos transístores.}
 	\vspace{-0.8em} 
@@ -532,7 +536,9 @@ Relembrando a estrutura da Figura \ref{fig:common centroid}(b), a sua primeira i
 
 Deve também ter-se em conta que a polarização foi feita ligando o \textit{guard ring} deste bloco ao \textit{guard ring} da estrutura \#1. Fica assim o bloco polarizado tal como foi explicado na secção anterior.
 
-A implementação desta estrutura no Cadence é apresentada de seguida.
+A implementação desta estrutura no Cadence é apresentada na próxima página.
+
+\pagebreak
 
 \begin{figure}[H]
 	\centering
@@ -541,6 +547,8 @@ A implementação desta estrutura no Cadence é apresentada de seguida.
 	\caption{\textit{Layout} da estrutura que corresponde ao par diferencial.}
 	\vspace{-0.8em}
 \end{figure}
+
+\pagebreak
 
 \subsubsection{Estrutura \textit{common centroid} \#3}
 
@@ -558,6 +566,10 @@ Tem-se assim que este é um bloco bastante compacto e com as ligações entre tr
 
 Mais uma vez utilizou-se um \textit{guard ring} cuja função é proteger e polarizar o circuito tal como foi dito nos blocos anteriores. É feita então uma ligação entre este e o \textit{guard ring} do bloco \#1 ficando-se assim com a polarização feita a VDD, tal como desejado.
 
+A implementação desta estrutura no Cadence é apresentada na próxima página.
+
+\pagebreak
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[keepaspectratio=true, scale=0.57]{exps/layout/espelhodecorrenteamp}
@@ -565,6 +577,8 @@ Mais uma vez utilizou-se um \textit{guard ring} cuja função é proteger e pola
 	\caption{\textit{Layout} da estrutura que corresponde ao espelho de corrente cascode básico do tipo PMOS.}
 	\vspace{-0.8em}
 \end{figure}
+
+\pagebreak
 
 \subsubsection{Estrutura \textit{common centroid} \#4}
 
@@ -588,22 +602,13 @@ Observou-se então que era possível sobrepor as \textit{sources} dos transísto
 	\vspace{-0.8em} 
 \end{figure}
 
-
 Foram então feitas as ligações entre transístores garantindo as regras de boa prática, sempre que possível, assim como curto circuitar os \textit{dummies}. Neste caso, como se tratam de \textit{dummies} do tipo N, o curto circuito foi feito a GND, pois não se observa o mesmo problema que nos \textit{dummies} do tipo P, onde há o perigo de variações na fonte de tensão. Mais uma vez, como este se trata de um grupo apenas constituído por transistores NMOS, não foi necessária a utilização da máscara \texttt{NTUB}.
 
-Por fim rodeou-se a estrutura com um \textit{guard ring} do tipo \texttt{pdiff\_sub}. Este \textit{guard ring} encontra-se ligado a GND polarizando-se assim o circuito e protegendo-o também de correntes de dispersão. 
+Por fim rodeou-se a estrutura com um \textit{guard ring} do tipo \texttt{pdiff\_sub}. Este \textit{guard ring} encontra-se ligado a GND polarizando-se assim o circuito e protegendo-o também de correntes de dispersão. A colocação do \textit{pin} de GND sobre o \textit{guard ring} foi efectuada de maneira semelhante â do \textit{pin} de VDD.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[keepaspectratio=true, scale=0.25]{exps/layout/pinVDD}
-	\vspace{-0.5em}
-	\caption{Colocação do \textit{pin} de GND sobre o \textit{guard ring}.}
-	\vspace{-0.8em}
-\end{figure}
+A implementação desta estrutura no Cadence é apresentada na próxima página.
 
-\todo{imagem do pin do GND}
-
-O resultado do \textit{layout} desta estrutura é assim o que se segue.
+\pagebreak
 
 \begin{figure}[H]
 	\centering
@@ -612,6 +617,8 @@ O resultado do \textit{layout} desta estrutura é assim o que se segue.
 	\caption{\textit{Layout} da estrutura que corresponde ao bloco de transístores NMOS.}
 	\vspace{-0.8em} 
 \end{figure}
+
+\pagebreak
 
 \subsection{Ligações externas entre os blocos}
 
@@ -623,17 +630,33 @@ Feitas estas ligações, de forma a proteger ainda mais o circuito colocou-se um
 
 Introduziram-se assim os \textit{pins} \texttt{In}, \texttt{Out}, \texttt{Vin+}, \texttt{Vin-}, \texttt{Ibias} e \texttt{Ibias2}. Como todos foram inseridos no \textit{guard ring} exterior são do material \texttt{Metal2} \texttt{Pin} sendo a sua \textit{label} do material complementar, ou seja \texttt{Pin} \texttt{Metal2}, tal como já mencionado anteriormente. Da mesma forma coloca-se um \textit{pin} para fazer a ligação a GND cujo material é \texttt{Metal1} \texttt{Pin} e a \textit{label} é \texttt{Pin} \texttt{Metal1}.
 
-\todo{imagem dos pins}
-
-O aspecto final do layout é assim o da imagem seguinte.
+Nas imagens seguintes pode-se ver como foi feita a colocação de alguns dos \textit{pins} sobre o \textit{guard ring} exterior.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[keepaspectratio=true, scale=0.50]{exps/layout/full}
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.25]{exps/layout/pin1}}
+	\hspace{8mm}
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.25]{exps/layout/pin2}}
+	\hspace{8mm}
+	\subfloat[]{\includegraphics[keepaspectratio=true, scale=0.25]{exps/layout/pin3}}
+	\vspace{-0.8em}
+	\caption{Colocação dos \textit{pins} dos sinais de entrada (a), do sinal da corrente $I_{BIAS_{2}}$ (b) e do sinal de saída (c).}
+	\vspace{-0.8em}
+\end{figure}
+
+O aspecto final do \textit{layout} é apresentado na próxima página.
+
+\pagebreak
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.75]{exps/layout/full}
 	\vspace{-0.5em}
 	\caption{\textit{Layout} do circuito Cascode OTA.}
 	\vspace{-0.8em} 
 \end{figure}
+
+\pagebreak
 
 Por fim calcula-se a área total do circuito usando as dimensões presentes na seguinte figura.
 

@@ -153,8 +153,10 @@ g_{m} \propto I_{D}= k_P \times \left(\frac{W}{L}\right) \times V_{OD}^2 \times 
 
 Para aumentar o $g_{m_1}$ é necessário alterar o rácio $W/L$, ou seja, o rácio de M\textsubscript{1} e M\textsubscript{2} sofreu um aumento de 132\%, passando de 43 para 100. Não é preocupante esta alteração do valor da transcondutância, não se comprometendo a zona de funcionamento dos transístores pois estes são polarizados externamente.
 
-\todo{explicar as polarizacoes com que ficamos - 13uA e 29uA}
+A polarização do espelho de corrente constituída pelo par M\textsubscript{11\textsubscript{1}} e M\textsubscript{11\textsubscript{2}} através de \texttt{Ibias}. De forma a ter-se um valor baixo para o \textit{budget} da corrente escolheu-se em primeira instância dar-lhe o valor de 5 $\mu$A sendo este multiplicado no espelho de corrente para um valor de 100 
 
+As dimensões dos pares de transístores M\textsubscript{3}/M\textsubscript{4} e  M\textsubscript{9}/ M\textsubscript{10} ficaram definidas à partida, sendo que foi então necessário dimensionar os transístores que iriam ser responsáveis pela sua polarização sendo o critério a corrente de polarização \textit{Ibias2}. Foi então novamente objectivo que esta fosse a mais baixo possível, garantindo o \textit{budget} de corrente. Escolheu-se numa primeira aproximação o valor de 25 $\mu$A, mas após correr as simulações Monte Carlo verificou-se que seria necessário aumentar um pouco este valor ficando o se valor final em 29 $\mu$A. Esta subida foi feita de forma a evitar fazer alterações muito grandes nos transístores M\textsubscript{3}/M\textsubscript{4}, pois tal como este par a corrente \textit{Ibias2} terá ligeiras influências em todos os parâmetros, sendo que se tentou aumentar esta o minimo tentando reduzir também nas alterações necessárias ao par de transístores.
+ 
 Assim, o circuito final relativamente à entrega intermédia é:
 
 \begin{figure}[H]
@@ -272,7 +274,7 @@ Começou-se, em primeira instância, por aplicar multiplicidade, tentando aproxi
 
 Em adição à multiplicidade optou-se por usar também a técnica \textit{fingers} no par M\textsubscript{7}/M\textsubscript{8} pois este par, tal como já foi mencionado, tem grande influência na largura de banda e margem de fase. Já no par M\textsubscript{5}/M\textsubscript{6} aplicou-se apenas a técnica \textit{fingers} ficando-se assim com tamanhos da mesma ordem em ambos os pares para além de uma forma compacta facilitando as tarefas de escolher uma disposição para os transístores e efectuar as ligações internas.
 
-Como o rácio de espelhamento é muito sensível a diferenças nos parâmetros do espelho de corrente, ou seja, a \textit{mismatches} nos pares de transístores M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}, foi aplicada multiplicidade no transístor M\textsubscript{11\textsubscript{2}} de forma a que tivesse o mesmo tamanho que o transístor M\textsubscript{11\textsubscript{1}}. Desta maneira o par é afectado de igual forma pelos gradientes de parâmetros.
+Como o rácio de espelhamento é muito sensível a diferenças nos parâmetros do espelho de corrente, ou seja, a \textit{mismatches} nos pares de transístores M\textsubscript{11\textsubscript{1}}/M\textsubscript{11\textsubscript{2}}, foi aplicada multiplicidade no transístor M\textsubscript{11\textsubscript{2}} de forma a que tivesse o mesmo tamanho que o transístor M\textsubscript{11\textsubscript{1}}. Desta maneira o par é afectado de igual forma pelos gradientes de parâmetros. Após a aplicação de multiplicidade nestes dois transístores foi necessário aumentar o valor da corrente \textit{Ibias} para 13 $\mu$A de forma a que se obtivesse o espelhamente correcto para 100 $\mu$A.
 
 Para o par M\textsubscript{9}/M\textsubscript{10}, como são transístores NMOS, optou-se por colocar num grupo de apenas transístores NMOS, como será explicado à frente. Para este par apenas houve necessidade de reduzir os seus tamanhos através de multiplicidade para valores menos sensíveis a \textit{mismatches}.
 

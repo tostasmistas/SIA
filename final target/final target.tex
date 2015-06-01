@@ -749,15 +749,13 @@ Após esta substituição simulou-se o circuito de maneira semelhante à do \tex
 
 Comparativamente aos gráficos obtidos no \textit{initial target} verifica-se que estes apresentam a mesma forma de onda.
 
-Tem-se um valor de \texttt{ENOB} experimental, ou seja, obtido através da calculadora do \textit{Cadence}, de 3,914.
+Para melhor analisar o correcto funcionamento do ADC calculou-se o \textit{effective number of bits} (ENOB). Experimentalmente, ou seja, através da calculadora do Cadence, o valor do ENOB obtido foi de de 3.914.
 
-De forma a calcular-se um valor teórico mais correcto, extraiu-se o ficheiro \textit{csv}, e com recurso às equações mencionadas no \textit{initial target} obteve-se um valor de \texttt{ENOB} de 3,9138.
+De forma a calcular-se um valor teórico mais correcto, extraiu-se o ficheiro \texttt{.csv}, e com recurso às equações mencionadas no \textit{initial target} obteve-se um valor de ENOB de 3.9138. Estes valores estão bastante próximos, podendo quase dizer-se que são iguais à parte de um ligeiro arredondamento.
 
-Estes valores estão bastante próximos, podendo quase dizer-se que são iguais à parte de um ligeiro arredondamento.
+Quando se utilizou o SAR ideal, o ENOB era de 3.985. Tanto o resultado experimental como o teórico estão muito próximos deste valor, sendo a diferença de apenas 2\%. 
 
-Quando se utilizou o SAR ideal, o \texttt{ENOB} era de 3,985. Tanto o resultado experimental como o teórico estão muito próximos deste valor, sendo a diferença de apenas 2\%. 
-
-Sendo assim o requisito do \textit{ENOB} fica também cumprido, pelo que por fim se tem que todos os requisitos do \textit{final target} foram atingidos com sucesso sendo que o circuito projectado está dentro dos parâmetros desejados e cumpre todas as especificações.
+Sendo assim o requisito do ENOB fica também cumprido, pelo que, por fim, se tem que todos os requisitos do \textit{final target} foram atingidos com sucesso sendo que o circuito projectado está dentro dos parâmetros desejados e cumpre todas as especificações.
 
 \pagebreak
 
@@ -771,7 +769,7 @@ Feitas estas alterações e com resultados muito melhores procedeu-se então ao 
 
 Ao longo de todas estas alterações foram feitas simulações Monte Carlo e de \textit{corners} observando-se os efeitos de cada passo para que se obtivessem os requisitos finais do \textit{target}.
 
-A última verificação foi assim se o \texttt{ENOB} obtido com o circuito projectado era igual ao que se observou com o SAR ideal. O valor obtido foi bastante próximo, sendo a diferença de apenas 2\% pelo que se considerou o requisito como cumprido.
+A última verificação foi assim se o ENOB obtido com o circuito projectado era igual ao que se observou com o SAR ideal no \textit{initial target}. O valor obtido foi bastante próximo, sendo a diferença de apenas 2\% pelo que se considerou o requisito como cumprido.
 
 Observa-se assim que os requisitos foram, na sua grande maioria, cumpridos com sucesso e deu-se o trabalho por concluído.
 

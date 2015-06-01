@@ -706,21 +706,48 @@ Também na simulação por \textit{corners} os únicos resultados negativos fora
 
 Efectuou-se também uma simulação \textit{single run} para que se pudesse analisar o cumprimento das especificações pretendidas.
 
-Sendo assim ao efectuar uma \textit{single run} de Monte Carlo obtém-se os seguintes resultados.
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.25]{exps/GraficosDoLayout}
+	\vspace{-0.5em}
+	\caption{Simulações efectuadas após realização do \textit{layout}.}
+	\vspace{-0.8em} 
+\end{figure}
 
 \begin{table}[H]
 	\centering
-	\caption{Características do amplificador a projectar.}
+	\caption{Especificações obtidas para o circuito após a projecção do \textit{layout}.}
 	\vspace{-1.5mm}
 	\includegraphics[keepaspectratio=true, scale=0.35]{teoricas/specsfinalLayout}
 \end{table}
 
 Observa-se assim que todos os requisitos do \textit{target} estão cumpridos podendo considerar-se que o circuito está bem dimensionado em todos os aspectos relevantes.
- 
 
 \subsection{Substituição do amplificador do SAR ADC}
 
-Com o \textit{layout} do Cascode OTA projectado e simulado com sucesso procede-se à próxima fase - 
+Com o \textit{layout} do Cascode OTA projectado e simulado com sucesso procede-se à próxima fase - substituir o amplificador projectado pelo que faz parte do SAR ADC.
+
+No ADC do \textit{initial target}, no circuito de comparação e amostragem de dados existe um comparador. Este comparador tem um amplificador e aí se efectua a substituição, como se pode ver de seguida.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.26]{exps/SAR}
+	\vspace{-0.5em}
+	\caption{Circuito comparador do SAR ADC.}
+	\vspace{-0.8em} 
+\end{figure}
+
+Após esta substituição simulou-se o circuito de maneira semelhante à do \textit{initial target}, efectuando também uma computação da FFT, como se pode ver na figura seguinte.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true, scale=0.27]{exps/GraficosDoLayoutDAC}
+	\vspace{-0.5em}
+	\caption{Simulação obtida no Cadence para o ADC para um valor de $f_s$ de 1 MHz.}
+	\vspace{-0.8em} 
+\end{figure}
+
+Comparativamente aos gráficos obtidos no \textit{initial target} verifica-se que estes apresentam a mesma forma de onda.
 
 \pagebreak
 
